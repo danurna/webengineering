@@ -1,24 +1,75 @@
+/* GENERAL SETUP */
 body {
-	background-color: #d0e4fe;
+	background-color: #4182bd; /* bottom color of style1-background.png */
 	background-image: url("../img/style1-background.png");
+	background-repeat:no-repeat;
+	margin: 0;
 }
 
 p {
 	font-family: "Helvetica";
-	font-size: 20px;
+	font-size: 1em;
+	font-weight: lighter;
+	color: white;
 }
 
-div {
-	border: 0px solid #b3b2b2;
+h1 {
+	color: white;
 }
 
+.clr {
+	clear:both;
+}
+
+/* COLUMN USED FOR RESPONSIVE GRID */
+.col {
+	display: block;
+	float: left;
+	width: 50%;
+}
+
+/* MEDIA QUERIES */
+@media screen and (max-width: 480px) {
+	.col { 
+		width: 100%;
+	}
+}
+
+/* ELEMENT CUSTOMIZATION */
+
+#header {
+	background-color: #033058; /* dark blue from screenshots */
+	padding: 0.3em;
+	height: auto;
+}
+
+#header img{
+	display: block;
+	float: left;
+	margin-left: 1em;
+}
+
+#header h1{
+	float: left;
+	margin-top: 0.2em;
+	margin-left: 0.5em;
+}
+
+#header p{
+	text-align: right;
+	margin-right: 1em;
+}
+
+/* ID CONTENT */
 #content {
 	margin: auto;
 	width: 80%;
 }
 
+/* CLASS ANSWER */
 .answer {
-	margin: 1em;
+	margin-top: 1em;
+	margin-left: 1em;
 	border: 2px solid;
 	border-radius: 25px;
 }
@@ -27,57 +78,14 @@ div {
 	text-align: center;
 }
 
-/*  SECTIONS  */
-.section {
-	clear: both;
-	padding: 0px;
-	margin: 0px;
+/* ID QUESTIONFOOTER */
+#questionfooter {
+	padding-top: 1em;
 }
 
-/*  COLUMN SETUP  */
-.col {
-	display: block;
-	float:left;
-	margin: 1% 0 1% 1.6%;
-}
-.col:first-child { margin-left: 0; }
-
-
-/*  GROUPING  */
-.group:before,
-.group:after {
-	content:"";
-	display:table;
-}
-.group:after {
-	clear:both;
-}
-.group {
-    zoom:1; /* For IE 6/7 */
-}
-                                               
-					
-/*  GRID OF TWO  */
-.span_2_of_2 {
-	width: 100%;
-}
-.span_1_of_2 {
-	width: 49.2%;
+#footer p{
+	font-weight: lighter;
+	text-align: center;
+	font-size: 1em;
 }
 
-/*  GO FULL WIDTH AT LESS THAN 480 PIXELS */
-
-@media only screen and (max-width: 480px) {
-	.col { 
-		margin: 1% 0 1% 0%;
-	}
-}
-
-@media only screen and (max-width: 480px) {
-	.span_2_of_2 {
-		width: 100%; 
-	}
-	.span_1_of_2 {
-		width: 100%;
-	}
-}
