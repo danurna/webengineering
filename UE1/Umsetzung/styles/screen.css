@@ -18,6 +18,23 @@ h1 {
 	font-family: "Helvetica";
 }
 
+.button {
+	width: 5em;
+	height: 2em;
+	font-size: 1em;
+	text-align: center;
+	border-radius: 10px;
+	background-color: orange;
+	display: inline-block;
+}
+
+.button:hover {
+	background-color: blue;
+}
+
+.button:active {
+}
+
 .clr {
 	clear:both;
 }
