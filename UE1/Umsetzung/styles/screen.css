@@ -3,7 +3,9 @@ body {
 	background-color: #4182bd; /* bottom color of style1-background.png */
 	background-image: url("../img/style1-background.png");
 	background-repeat:no-repeat;
+	background-position: top center;
 	margin: 0;
+	color: white;
 }
 
 p {
