@@ -6,18 +6,16 @@ body {
 	background-position: top center;
 	margin: 0;
 	color: white;
+	font-family: "Helvetica";
 }
 
 p {
-	font-family: "Helvetica";
 	font-size: 1em;
 	font-weight: lighter;
-	color: white;
 }
 
 h1 {
 	font-family: "Helvetica";
-	color: white;
 }
 
 .clr {
@@ -33,7 +31,7 @@ h1 {
 
 /* MEDIA QUERIES */
 @media screen and (max-width: 480px) {
-	.col { 
+	.col {
 		width: 100%;
 	}
 }
@@ -61,6 +59,10 @@ h1 {
 #header p{
 	text-align: right;
 	margin-right: 1em;
+}
+
+#nextbutton:after {
+	content=".";
 }
 
 /* ID CONTENT */
@@ -107,4 +109,3 @@ h1 {
 	text-align: center;
 	font-size: 1em;
 }
-

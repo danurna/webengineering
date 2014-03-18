@@ -2,47 +2,50 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="de" lang="de">
 <head>
-<meta charset="UTF-8" />
-<link rel="stylesheet" type="text/css" href="styles/screen.css">
-<title>Business Informatics Group Quiz - Registration</title>
+	<meta charset="UTF-8" />
+	<link rel="stylesheet" type="text/css" href="styles/screen.css">
+	<title>Business Informatics Group Quiz - Registration</title>
 </head>
 <body>
-<header id="header"><img src="img/big-logo-small.png" alt="Business Informatics Group Logo"><h1>Quiz</h1> <p>Abmelden</p></header>
+	<header id="header"><img src="img/big-logo-small.png" alt="Business Informatics Group Logo"><h1>Quiz</h1> <p>Abmelden</p></header>
 
-<div class="section group">
+	<div class="section group">
 
-	<form action="#" id="register_form" name="register_form">
-	
-	<h2>Persönliche Daten</h2>
-	<label for="firstname">Vorname:</label>
-	<input type="text" id="firstname" autofocus />
-	
-	<label for="lastname">Nachname:</label>
-	<input type="text" id="lastname" />
-	
-	<label for="birthday">Geburtstag:</label>
-	<input type="date" id="birthday" />
-	
-	<label for="sex">Geschlecht:</label>
-	<select id="sex">
-		<option>Männlich</option>
-		<option>Weiblich</option>
-	</select>
+		<form action="#" id="register_form" name="register_form">
 
-	<h2>Login Daten</h2>	
-	<label for="username">Benutzername*:</label>
-	<input type="text" id="username" required />
-	
-	<label for="password">Passwort*:</label>
-	<input type="password" id="password" required />
+			<h2>Persönliche Daten</h2>
+			<label for="firstname">Vorname:</label>
+			<input type="text" id="firstname" autofocus />
 
-	<input type="submit" value="Registrieren" />
-	
-	</form>
-	<p>Mit "*" gekennzeichnete Felder sind Pflichfelder</p>
-	
-</div>
-<footer class="clr" id="footer"><p>© 2014 BIG Quiz</p></div> <!-- hab clr klasse hier benutzt da die klassen drüber display: block und float: left verwenden -->
+			<label for="lastname">Nachname:</label>
+			<input type="text" id="lastname" />
+
+			<label for="birthday">Geburtstag:</label>
+			<input type="date" id="birthday" />
+
+			<label for="sex">Geschlecht:</label>
+			<select id="sex">
+				<option>Männlich</option>
+				<option>Weiblich</option>
+			</select>
+
+			<h2>Login Daten</h2>
+			<label for="username">Benutzername*:</label>
+			<input type="text" id="username" required />
+
+			<label for="password">Passwort*:</label>
+			<input type="password" id="password" required />
+
+			<input type="submit" id="submit" value="Registrieren" />
+
+		</form>
+		<p>Mit "*" gekennzeichnete Felder sind Pflichfelder</p>
+
+	</div>
+	<footer class="clr" id="footer">
+		<!-- hab clr klasse hier benutzt da die klassen drüber display: block und float: left verwenden -->
+		<p>© 2014 BIG Quiz</p>
+	</footer>
 
 </body>
 </html>
