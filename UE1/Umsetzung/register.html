@@ -7,13 +7,40 @@
 <title>Business Informatics Group Quiz - Registration</title>
 </head>
 <body>
+<header id="header"><img src="img/big-logo-small.png" alt="Business Informatics Group Logo"><h1>Quiz</h1> <p>Abmelden</p></header>
+
 <div class="section group">
-	<div class="col span_1_of_2">
-	This is column 1
-	</div>
-	<div class="col span_2_of_2">
-	This is column 2
-	</div>
+
+	<form action="#" id="register_form" name="register_form">
+	
+	<h2>Persönliche Daten</h2>
+	<label for="firstname">Vorname:</label>
+	<input type="text" id="firstname" autofocus />
+	
+	<label for="lastname">Nachname:</label>
+	<input type="text" id="lastname" />
+	
+	<label for="birthday">Geburtstag:</label>
+	<input type="date" id="birthday" />
+	
+	<label for="sex">Geschlecht:</label>
+	<select id="sex">
+		<option>Männlich</option>
+		<option>Weiblich</option>
+	</select>
+
+	<h2>Login Daten</h2>	
+	<label for="username">Benutzername*:</label>
+	<input type="text" id="username" required />
+	
+	<label for="password">Passwort*:</label>
+	<input type="password" id="password" required />
+
+	<input type="submit" value="Registrieren" />
+	
+	</form>
+	<p>Mit "*" gekennzeichnete Felder sind Pflichfelder</p>
+	
 </div>
 </body>
 </html>
