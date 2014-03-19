@@ -9,39 +9,56 @@
 <body>
 	<header id="header"><img src="img/big-logo-small.png" alt="Business Informatics Group Logo"><h1>Quiz</h1> <p>Abmelden</p></header>
 
-	<div class="section group">
+	<main id="register_container" class="clr">
+		<form action="table.html" id="register_form" name="register_form">
 
-		<form action="#" id="register_form" name="register_form">
+			<section>
+				<h2>Persönliche Daten</h2>
 
-			<h2>Persönliche Daten</h2>
-			<label for="firstname">Vorname:</label>
-			<input type="text" id="firstname" autofocus />
+				<div class="fieldwrapper">
+					<label for="firstname">Vorname:</label>
+					<input type="text" id="firstname" autofocus />
+				</div>
 
-			<label for="lastname">Nachname:</label>
-			<input type="text" id="lastname" />
+				<div class="fieldwrapper">
+					<label for="lastname">Nachname:</label>
+					<input type="text" id="lastname" />
+				</div>
 
-			<label for="birthday">Geburtstag:</label>
-			<input type="date" id="birthday" />
+				<div class="fieldwrapper">
+					<label for="birthday">Geburtstag:</label>
+					<input type="date" id="birthday" />
+				</div>
 
-			<label for="sex">Geschlecht:</label>
-			<select id="sex">
-				<option>Männlich</option>
-				<option>Weiblich</option>
-			</select>
+				<div class="fieldwrapper">
+					<label for="sex">Geschlecht:</label>
+					<select id="sex">
+						<option>Männlich</option>
+						<option>Weiblich</option>
+					</select>
+				</div>
+			</section>
 
-			<h2>Login Daten</h2>
-			<label for="username">Benutzername*:</label>
-			<input type="text" id="username" required />
+			<section>
+				<h2>Login Daten</h2>
 
-			<label for="password">Passwort*:</label>
-			<input type="password" id="password" required />
-
+				<div class="fieldwrapper">
+					<label for="username">Benutzername*:</label>
+					<input type="text" id="username" required />
+				</div>
+				<div class="fieldwrapper">
+					<label for="password">Passwort*:</label>
+					<input type="password" id="password" required />
+				</div>
+			</section>
 			<input type="submit" id="submit" value="Registrieren" />
 
 		</form>
 		<p>Mit "*" gekennzeichnete Felder sind Pflichfelder</p>
 
-	</div>
+	</main>
+
+
 	<footer class="clr" id="footer">
 		<!-- hab clr klasse hier benutzt da die klassen drüber display: block und float: left verwenden -->
 		<p>© 2014 BIG Quiz</p>

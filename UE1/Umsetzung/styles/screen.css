@@ -82,6 +82,46 @@ h1 {
 	content=".";
 }
 
+#register_container {
+	width: 45%;
+	margin: 0 auto;
+	overflow: auto;
+}
+
+#register_container section {
+	overflow: auto;
+	margin: 1em;
+}
+
+.fieldwrapper {
+	clear:left;
+}
+
+.fieldwrapper label {
+	width: 40%;
+
+}
+
+.fieldwrapper > * {
+	float:left;
+	margin: 1em 0;
+}
+
+.fieldwrapper input, .fieldwrapper select {
+	width: 60%;
+	height: 2.5em;
+	border-radius: 3px 3px 3px 3px;
+	padding: 0 0.6em;
+	box-sizing: border-box;
+    border: 1px solid #000;
+	color: #000;
+    display: inline-block;
+}
+
+
+
+
+
 /* ID CONTENT */
 #content {
 	margin: auto;
