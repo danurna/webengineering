@@ -7,7 +7,11 @@
 	<title>Business Informatics Group Quiz - Registration</title>
 </head>
 <body>
-	<header id="header"><img src="img/big-logo-small.png" alt="Business Informatics Group Logo"><h1>Quiz</h1> <p>Abmelden</p></header>
+	<header id="header">
+		<img src="img/big-logo-small.png" alt="Business Informatics Group Logo">
+		<h1>Quiz</h1>
+		<button class="button signin"><span>Abmelden</span></button>
+	</header>
 
 	<main id="register_container" class="clr">
 		<form action="table.html" id="register_form" name="register_form">
@@ -50,8 +54,11 @@
 					<label for="password">Passwort*:</label>
 					<input type="password" id="password" required />
 				</div>
+				<button class="button register" type="submit">
+					<span>Registrieren</span>
+				</button>
 			</section>
-			<input type="submit" id="submit" value="Registrieren" />
+
 
 		</form>
 		<p>Mit "*" gekennzeichnete Felder sind Pflichfelder</p>
