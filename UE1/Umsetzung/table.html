@@ -15,10 +15,14 @@
         }
     }
 
+    // Setup on document ready
+    // Adding click handler, hiding elements.
     $(document).ready(function() {
         $(".answer").click(function(){
             clickOnAnswer(this.id);
         });
+        $(".correctSign").hide();
+        $(".incorrectSign").hide();
     });
 
 
@@ -39,9 +43,43 @@
     <main class="clr" id="main">
         <section id="content">
             <header id="questionheader">
-                <p>Spieler 1 (Kategorie?) Spieler 2</p>
+                <div class="playerscore" id="score1"> <p>Spieler 1</p> 
+                    <div class="point" id="point1"> 
+                        <img class="correctSign" src="img/incorrect-white.png" alt="incorrect answer sign, cross" />
+                        <img class="incorrectSign" src="img/correct-white.png" alt="correct answer sign, filled circle" />
+                        <img class="unknownSign" src="img/unknown-white.png" alt="unknown answer sign, empty circle" />
+                    </div>
+                    <div class="point" id="point2"> 
+                        <img class="correctSign" src="img/incorrect-white.png" alt="incorrect answer sign, cross" />
+                        <img class="incorrectSign" src="img/correct-white.png" alt="correct answer sign, filled circle" />
+                        <img class="unknownSign" src="img/unknown-white.png" alt="unknown answer sign, empty circle" />
+                    </div>
+                    <div class="point" id="point3"> 
+                        <img class="correctSign" src="img/incorrect-white.png" alt="incorrect answer sign, cross" />
+                        <img class="incorrectSign" src="img/correct-white.png" alt="correct answer sign, filled circle" />
+                        <img class="unknownSign" src="img/unknown-white.png" alt="unknown answer sign, empty circle" />
+                    </div>
+                </div> 
+                <div id="category"> <p>Kategorie</p> </div> 
+                <div class="playerscore" id="score2"> <p>Spieler 2</p>
+                     <div class="point" id="point1"> 
+                        <img class="correctSign" src="img/incorrect-white.png" alt="incorrect answer sign, cross" />
+                        <img class="incorrectSign" src="img/correct-white.png" alt="correct answer sign, filled circle" />
+                        <img class="unknownSign" src="img/unknown-white.png" alt="unknown answer sign, empty circle" />
+                    </div>
+                    <div class="point" id="point2"> 
+                        <img class="correctSign" src="img/incorrect-white.png" alt="incorrect answer sign, cross" />
+                        <img class="incorrectSign" src="img/correct-white.png" alt="correct answer sign, filled circle" />
+                        <img class="unknownSign" src="img/unknown-white.png" alt="unknown answer sign, empty circle" />
+                    </div>
+                    <div class="point" id="point3"> 
+                        <img class="correctSign" src="img/incorrect-white.png" alt="incorrect answer sign, cross" />
+                        <img class="incorrectSign" src="img/correct-white.png" alt="correct answer sign, filled circle" />
+                        <img class="unknownSign" src="img/unknown-white.png" alt="unknown answer sign, empty circle" />
+                    </div>
+                 </div> 
             </header> <!-- TODO: Spieler anzeige  und Kategorie.-->
-            <div id="questioncontent">
+            <div class="clr" id="questioncontent">
                 <div id="question"><p>Frage</p></div>
                 <div class="col">
                     <div class="answer" id="answer1"><p>Antwort 1</p></div>
