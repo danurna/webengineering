@@ -7,11 +7,16 @@ body {
 	margin: 0;
 	color: white;
 	font-family: "Helvetica";
+	font-weight: lighter;
+}
+
+.clr {
+	clear:both;
 }
 
 p {
 	font-size: 1em;
-	font-weight: lighter;
+
 }
 
 h1 {
@@ -19,25 +24,47 @@ h1 {
 }
 
 .button {
-	width: 5em;
+	padding: 0 2.5em;
 	height: 2em;
-	font-size: 1em;
-	text-align: center;
-	border-radius: 10px;
-	background-color: orange;
-	display: inline-block;
+	border-radius: 5px;
+	border: 0px;
+	position: relative;
+	color:inherit;
+	font-size:inherit;
+	font-weight:inherit;
+	outline:none;
 }
 
-.button:hover {
-	background-color: blue;
+.button:after {
+	content: "";
+	position: absolute;
+	top:0;
+	left:0;
+	border-radius: 5px;
+	border: 0px;
+	width:100%;
+	height:100%;
+	opacity:0;
+	background: rgba(0,0,0,0.1);
+	-moz-transition: all .1s;
+	-webkit-transition: all .1s;
+	transition: all .1s;
 }
 
-.button:active {
+.button > span {
+  z-index: 1;
+  position:relative;
 }
 
-.clr {
-	clear:both;
+.button:hover:after {
+	opacity:.5;
 }
+
+.button:active:after {
+	opacity: 1;
+}
+
+
 
 /* COLUMN USED FOR RESPONSIVE GRID */
 .col {
@@ -50,6 +77,12 @@ h1 {
 @media screen and (max-width: 32em) {
 	.col {
 		width: 100%;
+	}
+
+	label, input, select, #register_container {
+		width: 100% !important;
+		min-width: 0 !important;
+		margin: 0 !important;
 	}
 }
 
@@ -79,45 +112,64 @@ h1 {
 }
 
 #nextbutton:after {
-	content=".";
+	content:".";
 }
 
 #register_container {
 	width: 45%;
+	min-width: 420px;
 	margin: 0 auto;
 	overflow: auto;
 }
 
 #register_container section {
-	overflow: auto;
+	overflow: hidden;
 	margin: 1em;
+}
+
+#register_container p {
+	text-align: center;
+	clear:both;
 }
 
 .fieldwrapper {
 	clear:left;
+	margin: 1em 0;
+	overflow:hidden;
 }
 
 .fieldwrapper label {
-	width: 40%;
-
+	width: 36%;
+	line-height: 2.2rem;
 }
 
 .fieldwrapper > * {
 	float:left;
-	margin: 1em 0;
 }
 
 .fieldwrapper input, .fieldwrapper select {
-	width: 60%;
-	height: 2.5em;
-	border-radius: 3px 3px 3px 3px;
-	padding: 0 0.6em;
-	box-sizing: border-box;
-    border: 1px solid #000;
+	-webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+	-moz-box-sizing: border-box;    /* Firefox, other Gecko */
+	box-sizing: border-box;         /* Opera/IE 8+ */
+
+	width: 64%;
+	height: 2.2rem;
+	border-radius: 3px;
+	padding: 0.4rem;
+	border: 1px solid #000;
 	color: #000;
-    display: inline-block;
 }
 
+.register {
+	float:right;
+	border: 1px solid rgb(18,98,1);
+	background: rgb(198,198,198);
+}
+.signin {
+	float:right;
+	background: rgb(241,137,1);
+	border:1px solid rgb(188,108,1);
+}
 /* ID CONTENT */
 #content {
 	margin: auto;
