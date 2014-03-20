@@ -6,26 +6,40 @@
     <script type="text/javascript" src="js/framework.js"></script>
     <script type="text/javascript">
 
-    function clickOnAnswer(id)
+    function clickOnAnswer(object)
     {
-        if( $("#"+id).hasClass("selected") ){
-            $("#"+id).removeClass("selected");
+        if( $(object).hasClass("selected") ){
+            $(object).removeClass("selected");
         }else{
-            $("#"+id).addClass("selected");
+            $(object).addClass("selected");
         }
+    }
+
+    // Call like setAnswered("1", "2", true)
+    function setAnswered(playernumber, questionnumber, correct){
+        var scoreId = "score"+playernumber;
+        var pointId = "point"+questionnumber;
+
+        $("#"+scoreId+" #"+pointId+" .unknownSign").hide();
+        if( correct ){
+            $("#"+scoreId+" #"+pointId+" .incorrectSign").hide();
+            $("#"+scoreId+" #"+pointId+" .correctSign").show();
+        }else{
+            $("#"+scoreId+" #"+pointId+" .incorrectSign").show();
+            $("#"+scoreId+" #"+pointId+" .correctSign").hide();
+        }
+
     }
 
     // Setup on document ready
     // Adding click handler, hiding elements.
     $(document).ready(function() {
         $(".answer").click(function(){
-            clickOnAnswer(this.id);
+            clickOnAnswer(this);
         });
         $(".correctSign").hide();
         $(".incorrectSign").hide();
     });
-
-
     </script>
 
     <meta charset="UTF-8" />
@@ -45,45 +59,44 @@
             <header id="questionheader">
                 <div class="playerscore" id="score1"> <p>Spieler 1</p> 
                     <div class="point" id="point1"> 
-                        <img class="correctSign" src="img/incorrect-white.png" alt="incorrect answer sign, cross" />
-                        <img class="incorrectSign" src="img/correct-white.png" alt="correct answer sign, filled circle" />
+                        <img class="incorrectSign" src="img/incorrect-white.png" alt="incorrect answer sign, cross" />
+                        <img class="correctSign" src="img/correct-white.png" alt="correct answer sign, filled circle" />
                         <img class="unknownSign" src="img/unknown-white.png" alt="unknown answer sign, empty circle" />
                     </div>
                     <div class="point" id="point2"> 
-                        <img class="correctSign" src="img/incorrect-white.png" alt="incorrect answer sign, cross" />
-                        <img class="incorrectSign" src="img/correct-white.png" alt="correct answer sign, filled circle" />
+                        <img class="incorrectSign" src="img/incorrect-white.png" alt="incorrect answer sign, cross" />
+                        <img class="correctSign" src="img/correct-white.png" alt="correct answer sign, filled circle" />
                         <img class="unknownSign" src="img/unknown-white.png" alt="unknown answer sign, empty circle" />
                     </div>
                     <div class="point" id="point3"> 
-                        <img class="correctSign" src="img/incorrect-white.png" alt="incorrect answer sign, cross" />
-                        <img class="incorrectSign" src="img/correct-white.png" alt="correct answer sign, filled circle" />
+                        <img class="incorrectSign" src="img/incorrect-white.png" alt="incorrect answer sign, cross" />
+                        <img class="correctSign" src="img/correct-white.png" alt="correct answer sign, filled circle" />
                         <img class="unknownSign" src="img/unknown-white.png" alt="unknown answer sign, empty circle" />
                     </div>
                 </div> 
                 <div id="category"> <p>Kategorie</p> </div> 
                 <div class="playerscore" id="score2"> <p>Spieler 2</p>
                      <div class="point" id="point1"> 
-                        <img class="correctSign" src="img/incorrect-white.png" alt="incorrect answer sign, cross" />
-                        <img class="incorrectSign" src="img/correct-white.png" alt="correct answer sign, filled circle" />
+                        <img class="incorrectSign" src="img/incorrect-white.png" alt="incorrect answer sign, cross" />
+                        <img class="correctSign" src="img/correct-white.png" alt="correct answer sign, filled circle" />
                         <img class="unknownSign" src="img/unknown-white.png" alt="unknown answer sign, empty circle" />
                     </div>
                     <div class="point" id="point2"> 
-                        <img class="correctSign" src="img/incorrect-white.png" alt="incorrect answer sign, cross" />
-                        <img class="incorrectSign" src="img/correct-white.png" alt="correct answer sign, filled circle" />
+                        <img class="incorrectSign" src="img/incorrect-white.png" alt="incorrect answer sign, cross" />
+                        <img class="correctSign" src="img/correct-white.png" alt="correct answer sign, filled circle" />
                         <img class="unknownSign" src="img/unknown-white.png" alt="unknown answer sign, empty circle" />
                     </div>
                     <div class="point" id="point3"> 
-                        <img class="correctSign" src="img/incorrect-white.png" alt="incorrect answer sign, cross" />
-                        <img class="incorrectSign" src="img/correct-white.png" alt="correct answer sign, filled circle" />
+                        <img class="incorrectSign" src="img/incorrect-white.png" alt="incorrect answer sign, cross" />
+                        <img class="correctSign" src="img/correct-white.png" alt="correct answer sign, filled circle" />
                         <img class="unknownSign" src="img/unknown-white.png" alt="unknown answer sign, empty circle" />
                     </div>
                  </div> 
-            </header> <!-- TODO: Spieler anzeige  und Kategorie.-->
+            </header> 
             <div class="clr" id="questioncontent">
                 <div id="question"><p>Frage</p></div>
                 <div class="col">
                     <div class="answer" id="answer1"><p>Antwort 1</p></div>
-                    <!-- TODO: answer klasse stylen und selectable machen -->
                     <div class="answer" id="answer2"><p>Antwort 2</p></div>
                 </div>
                 <div class="col">
