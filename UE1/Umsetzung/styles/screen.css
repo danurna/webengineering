@@ -183,6 +183,40 @@ h1 {
 	width: 80%;
 }
 
+/* SCORE AND CATEGORY */
+
+.playerscore {
+	width: 33%;
+}
+
+.point {
+	display: inline;
+}
+
+#score1 {
+	float: left;
+}
+
+#score2 {
+	text-align: right;
+	float: right;
+}
+
+#category {
+	width: 33%;
+	float: left;
+	text-align: center;
+	font-weight: bold;
+}
+
+
+/* QUESTION */
+#question{
+	text-align: center;
+	font-size: 1.3em;
+	line-height: 1.5em;
+}
+
 /* CLASS ANSWER */
 .answer {
 	margin-top: 1em;
@@ -205,7 +239,6 @@ h1 {
 }
 
 /* ID QUESTIONFOOTER */
-/* TODO: das ganze questionfooter scheint mir nicht so koscher zu sein. Der rest dürfte schon gehen. */
 #questionfooter {
 	padding-top: 1em;
 	padding-bottom: 1em;
