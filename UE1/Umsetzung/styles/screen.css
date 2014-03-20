@@ -183,17 +183,29 @@ h1 {
 }
 
 .point {
-	display: inline;
+	display: block;
+	float: left;
 }
 
 #score1 {
 	float: left;
 }
 
+#score1 .point{
+	float: left;
+	margin-right: 0.1em;
+}
+
 #score2 {
 	text-align: right;
 	float: right;
 }
+
+#score2 .point{
+	float: right;
+	margin-left: 0.1em;
+}
+
 
 #category {
 	width: 33%;
@@ -229,6 +241,16 @@ h1 {
 	color: white;
 	border-color:#033058;
 	background-color: #033058;
+}
+
+#questionheader:before,
+#questionheader:after {
+	content: " ";
+	display: table;
+}
+
+#questionheader:after{
+	clear: both;
 }
 
 /* ID QUESTIONFOOTER */
