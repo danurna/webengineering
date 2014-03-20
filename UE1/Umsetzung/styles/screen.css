@@ -165,6 +165,13 @@ h1 {
 	border: 1px solid rgb(18,98,1);
 	background: rgb(198,198,198);
 }
+
+.register:after {
+	content:"";
+	position:absolute;
+	background: url("/img/white-arrow-right.png");
+}
+
 .signin {
 	float:right;
 	background: rgb(241,137,1);
