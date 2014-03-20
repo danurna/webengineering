@@ -16,7 +16,6 @@ body {
 
 p {
 	font-size: 1em;
-
 }
 
 h1 {
@@ -64,6 +63,15 @@ h1 {
 	opacity: 1;
 }
 
+.button_text {
+	float: left;
+	width: 70%;
+}
+
+.button_icon {
+	float: right;
+}
+
 
 
 /* COLUMN USED FOR RESPONSIVE GRID */
@@ -71,19 +79,6 @@ h1 {
 	display: block;
 	float: left;
 	width: 50%;
-}
-
-/* MEDIA QUERIES */
-@media screen and (max-width: 32em) {
-	.col {
-		width: 100%;
-	}
-
-	label, input, select, #register_container {
-		width: 100% !important;
-		min-width: 0 !important;
-		margin: 0 !important;
-	}
 }
 
 /* ELEMENT CUSTOMIZATION */
@@ -109,10 +104,6 @@ h1 {
 #header p{
 	text-align: right;
 	margin-right: 1em;
-}
-
-#nextbutton:after {
-	content:".";
 }
 
 #register_container {
@@ -177,7 +168,17 @@ h1 {
 	background: rgb(241,137,1);
 	border:1px solid rgb(188,108,1);
 }
+
+.next {
+	width: 40%;
+	min-width: 9em;
+	float: right;
+	background: #36d344;
+	border:1px solid #116d01;
+}
+
 /* ID CONTENT */
+
 #content {
 	margin: auto;
 	width: 80%;
@@ -185,8 +186,14 @@ h1 {
 
 /* SCORE AND CATEGORY */
 
-.playerscore {
+#questionheader {
+	font-weight: bold;}
+
+#questionheader > *{
 	width: 33%;
+}
+
+.playerscore {
 }
 
 .point {
@@ -198,9 +205,13 @@ h1 {
 	float: left;
 }
 
+#score1 p{
+	padding-left: 0.4em;
+}
+
 #score1 .point{
 	float: left;
-	margin-right: 0.1em;
+	margin-right: 0.5em;
 }
 
 #score2 {
@@ -208,19 +219,19 @@ h1 {
 	float: right;
 }
 
+#score2 p{
+	padding-right: 0.4em;
+}
+
 #score2 .point{
 	float: right;
-	margin-left: 0.1em;
+	margin-left: 0.5em;
 }
-
 
 #category {
-	width: 33%;
 	float: left;
 	text-align: center;
-	font-weight: bold;
 }
-
 
 /* QUESTION */
 #question{
@@ -284,4 +295,35 @@ h1 {
 	font-weight: lighter;
 	text-align: center;
 	font-size: 1em;
+}
+
+#next_container {
+	float: right;
+}
+
+#info_container {
+	float: left;
+}
+
+/* MEDIA QUERIES */
+@media screen and (max-width: 32em) {
+	.col {
+		width: 100%;
+	}
+
+	label, input, select, #register_container {
+		width: 100% !important;
+		min-width: 0 !important;
+		margin: 0 !important;
+	}
+
+	#next_container .button{
+		width: 96%;
+		margin-left: 1em;
+		margin-bottom: 1em;
+	}
+
+	#category p{
+		padding-top: 5em;
+	}
 }
