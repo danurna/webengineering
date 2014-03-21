@@ -1,0 +1,87 @@
+    p {
+		font-size: 1em;
+	}
+
+	h1 {
+		font-family: "Helvetica";
+	}
+	
+	body {
+		background-image:url('../img/style1-background.png');
+		background-color:#4182BD;
+		margin:0;
+		background-repeat: no-repeat;
+		background-position: top-center;
+		font-family: "Arial";
+		color:#fff;
+	}
+	
+	header {
+		background-color:#033058;
+		padding: 0.5em;
+		height: auto;
+		min-height: 47px;
+	}
+	
+	header img {
+		padding-right: 1em;
+		float: left;
+	}
+	
+	header h1{
+		color:#fff;
+		float: left;
+		margin-bottom: auto;
+		margin-top: auto;
+	}	
+	
+	header nav {
+		float:right;
+		margin-right: 1em;
+		margin-bottom: auto;
+		margin-top: auto;
+		vertical-align:middle;
+	}
+	
+	header nav button{ 
+	/* 	ANMERKUNG 
+		Button kopiert & modifizert. 
+		Quelle: http://www.webdesignerwall.com/demo/css-buttons.html 
+		Zitat Angabe:
+		"Der Einsatz von fremdem CSS-Code (zB reset.css) ist gestattet.
+		Es muss jedoch klar ersichtlich sein, woher dieser Code kommt und 
+		dass dieser Code nicht von Ihnen stammt."
+	*/
+		display: inline-block;
+		zoom: 1; /* zoom and *display = ie7 hack for display:inline-block */
+		*display: inline;
+		vertical-align: baseline;
+		margin: 0 2px;
+		outline: none;
+		cursor: pointer;
+		text-align: center;
+		font-weight: bold;
+		font-size:1em;
+		text-decoration: none;
+		padding: .5em 2em .55em;
+		text-shadow: 0 1px 1px rgba(0,0,0,.3);
+		-webkit-border-radius: .5em; 
+		-moz-border-radius: .5em;
+		border-radius: .5em;
+		-webkit-box-shadow: 0 1px 2px rgba(0,0,0,.2);
+		-moz-box-shadow: 0 1px 2px rgba(0,0,0,.2);
+		box-shadow: 0 1px 2px rgba(0,0,0,.2);
+		color: #fef4e9;
+		border: solid 1px #f29400;
+		background: #f29400;
+		background: -webkit-gradient(linear, left top, left bottom, from(#faa51a), to(#f47a20));
+		background: -moz-linear-gradient(top,  #faa51a,  #f47a20);
+		filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#faa51a', endColorstr='#f47a20');
+	/*
+		ENDE kopierter & modifizierter code.
+	*/
+	}
+	
+    
+
+    
