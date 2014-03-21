@@ -9,7 +9,7 @@
     <script type="text/javascript" src="js/framework.js"></script>
     <script type="text/javascript">
 
-    var gametime = 30;
+    var gametime, refreshRate, interval;
 
     function clickOnAnswer(object)
     {
@@ -36,28 +36,35 @@
 
     }
 
+
     function decrementTimer(){
         if( gametime > 0 ){
-            gametime = gametime - 0.05;
-            //Jquery somehow does not work for this...use standard js.
-            document.getElementById("time").value = 30-gametime;
-            // ~~ truncates
-            document.getElementById("time_text").innerHTML = secToMMSS(~~gametime);
-        }        
+            gametime -= refreshRate;
+            $("#time").val(gametime);
+
+            var ceil = Math.ceil(gametime);
+            var timeText = ceil<10?"0"+ceil:ceil;
+            $("#time_text").html("00:"+timeText);
+        } else {
+            clearInterval(interval);
+        }
     }
 
     // Setup on document ready
     // Adding click handler, hiding elements.
     $(document).ready(function() {
+        gametime = parseInt($('#time').attr('max'));
+        refreshRate = 0.05;
+
         $(".answer").click(function(){
             clickOnAnswer(this);
         });
         $(".correctSign").hide();
         $(".incorrectSign").hide();
 
-        window.setInterval(function(){
-          decrementTimer();
-        }, 50);
+        interval = setInterval(function(){
+            decrementTimer();
+        }, refreshRate*1000);
 
     });
     </script>
