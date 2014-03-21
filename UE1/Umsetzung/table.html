@@ -7,6 +7,8 @@
     <script type="text/javascript" src="js/framework.js"></script>
     <script type="text/javascript">
 
+    var gametime = 30;
+
     function clickOnAnswer(object)
     {
         if( $(object).hasClass("selected") ){
@@ -32,6 +34,16 @@
 
     }
 
+    function decrementTimer(){
+        if( gametime > 0 ){
+            gametime = gametime - 0.05;
+            //Jquery somehow does not work for this...use standard js.
+            document.getElementById("time").value = 30-gametime;
+            // ~~ truncates
+            document.getElementById("time_text").innerHTML = secToMMSS(~~gametime);
+        }        
+    }
+
     // Setup on document ready
     // Adding click handler, hiding elements.
     $(document).ready(function() {
@@ -40,6 +52,11 @@
         });
         $(".correctSign").hide();
         $(".incorrectSign").hide();
+
+        window.setInterval(function(){
+          decrementTimer();
+        }, 50);
+
     });
     </script>
 
@@ -116,7 +133,11 @@
                     </button>
                 </div>
                 <!-- TODO: Button stylen und alignen. Eigenes div? Soll beim kleinen Screen über verbleibender Zeit sein, how to? -->
-                <div class="col clearafter" id="info_container"><p>Verbleibende Zeit</p></br><p>Letztes Spiel</p></div>
+                <div class="col clearafter" id="info_container">
+                    <p>Verbleibende Zeit: </p><p id="time_text">00:30</p>
+                    <meter id="time" min="0" max="30" value="0">.</meter>
+                    <p>Letztes Spiel: Nie</p>
+                </div>
                 <!-- TODO: Zeit, progress bar, last game.-->
             </footer>
         </section>
