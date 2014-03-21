@@ -50,7 +50,7 @@ h1 {
 	transition: all .1s;
 }
 
-.button > span {
+.button > * {
   z-index: 1;
   position:relative;
 }
@@ -97,7 +97,7 @@ h1 {
 
 #header h1{
 	float: left;
-	margin-top: 0.2em;
+	margin: 0.2em;
 	margin-left: 0.5em;
 }
 
@@ -167,6 +167,7 @@ h1 {
 	float:right;
 	background: rgb(241,137,1);
 	border:1px solid rgb(188,108,1);
+	margin: 0.5em;
 }
 
 .next {
@@ -175,6 +176,16 @@ h1 {
 	float: right;
 	background: #36d344;
 	border:1px solid #116d01;
+}
+
+.includefloats:before,
+.includefloats:after {
+    content: " ";
+    display: table;
+}
+
+.includefloats:after {
+    clear: both;
 }
 
 /* ID CONTENT */
@@ -243,8 +254,7 @@ h1 {
 
 /* CLASS ANSWER */
 .answer {
-	margin-top: 1em;
-	margin-left: 1em;
+	margin: 0.5em;
 	border: 2px solid;
 	border-radius: 0.7em;
 	border-color:#b9d6f0;
@@ -296,6 +306,7 @@ h1 {
 	font-weight: lighter;
 	text-align: center;
 	font-size: 1em;
+	padding-top: 3em;
 }
 
 #next_container {
@@ -335,12 +346,11 @@ h1 {
 	}
 
 	#next_container .button{
-		width: 96%;
-		margin-left: 1em;
+		width: 100%;
 		margin-bottom: 1em;
 	}
 
 	#category p{
-		padding-top: 5em;
+		margin-top: 5em;
 	}
 }
