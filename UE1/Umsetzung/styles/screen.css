@@ -55,8 +55,8 @@ h1 {
 }
 
 .button > * {
-  z-index: 1;
-  position:relative;
+	z-index: 1;
+	position:relative;
 }
 
 .button:hover:before {
@@ -73,7 +73,7 @@ h1 {
 	position: absolute;
 	height: 21px;
 	width: 12px;
-	right: 1em;
+	right: 0.5em;
 	top: 50%;
 	margin-top: -10.5px;
 	z-index: 1;
@@ -187,12 +187,12 @@ h1 {
 
 .includefloats:before,
 .includefloats:after {
-    content: " ";
-    display: table;
+	content: " ";
+	display: table;
 }
 
 .includefloats:after {
-    clear: both;
+	clear: both;
 }
 
 /* ID CONTENT */
@@ -206,7 +206,8 @@ h1 {
 /* SCORE AND CATEGORY */
 
 #questionheader {
-	font-weight: bold;}
+	font-weight: bold;
+}
 
 #questionheader > *{
 	width: 33%;
@@ -262,22 +263,32 @@ h1 {
 /* CLASS ANSWER */
 .answer {
 	margin: 0.5em;
+	padding: 1em;
 	border: 2px solid;
 	border-radius: 0.7em;
 	border-color:#b9d6f0;
 	background-color: #b9d6f0;
 	color: #033058;
+	display:block;
+	text-align:center;
 }
 
-.answer p{
-	text-align: center;
+.questionform ul {
+  margin:0;
+  padding: 0;
 }
 
-.selected {
+.questionform input[type="checkbox"]{
+  opacity: 0;
+  position: absolute;
+}
+
+.questionform input[type="checkbox"]:checked + label{
 	color: white;
 	border-color:#033058;
 	background-color: #033058;
-}
+} 
+
 
 #questionheader:before,
 #questionheader:after {
@@ -336,7 +347,8 @@ h1 {
 }
 
 #info_container #time_text{
-	margin-left: 0.3em;}
+	margin-left: 0.3em;
+}
 
 
 
