@@ -158,14 +158,6 @@ h1 {
 	color: #000;
 }
 
-.invalid  {
-    background: #BE4C54;
-}
-
-.valid {
-    background: #17D654 ;
-}
-
 .register {
 	float:right;
 	border: 1px solid rgb(18,98,1);
@@ -176,6 +168,10 @@ h1 {
 	content:"";
 	position:absolute;
 	background: url("/img/white-arrow-right.png");
+}
+
+.valid {
+    background: #17D654 ;
 }
 
 .signin {
