@@ -26,14 +26,7 @@
 				valid = valid && requiredInputs[index].checkValidity();
 			}
 
-			var dateString;
-			if( hasNativeDateInput() ){
-				// Value will be well formed
-				dateString = $("#birthday").val();
-			}else{
-				// Value could be anything. Get normalized string.
-				dateString = getNormalizedDateString("#birthday");
-			}
+			var dateString = getNormalizedDateString("#birthday");
 
 			if( dateString.length != 0 ){
 				valid = valid && validateDate(dateString);
