@@ -43,8 +43,7 @@
             $("#time").val(gametime);
 
             var ceil = Math.ceil(gametime);
-            var timeText = ceil<10?"0"+ceil:ceil;
-            $("#time_text").html("00:"+timeText);
+            $("#time_text").html(secToMMSS(ceil));
         } else {
             clearInterval(interval);
         }
