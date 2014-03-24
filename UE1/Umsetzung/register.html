@@ -2,6 +2,66 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="de" lang="de">
 <head>
+	<script type="text/javascript" src="js/jquery.js"></script>
+	<script type="text/javascript" src="js/framework.js"></script>
+    <script type="text/javascript">
+
+
+		function hasHtml5Validation () {
+		  return typeof document.createElement('input').checkValidity === 'function';
+		}
+
+
+		function validation() {
+			if( hasFormValidation ){
+				return;
+			}
+		    // this is the "context" for the function.  In this case
+		    // the element that changed.
+		    var value = this.value;
+			console.log(value);
+		}
+
+		function validateDate(dateString){
+			return false;
+		}
+
+		function checkFormValidity(){
+			var requiredInputs = $('input[required]');
+			var valid = true;
+			var index;
+			for (index = 0; index < requiredInputs.length; index++) {
+				valid = valid && requiredInputs[index].checkValidity();
+			}
+
+			var dateString;
+			if( hasNativeDateInput() ){
+				dateString = $("#birthday").val();
+				console.log("native date input!");
+			}else{
+				dateString = getNormalizedDateString("#birthday");
+			}
+
+			console.log("date string" + dateString);
+
+			if( dateString.length != 0 ){
+				valid = valid && validateDate(dateString);
+			}
+
+			console.log(valid);
+		}
+
+
+	    // Setup on document ready
+	    $(document).ready(function() {
+			$('input').on('input', function (e) {
+			    checkFormValidity();
+			});
+	    });
+
+
+    </script>
+
 	<meta charset="UTF-8" />
 	<link rel="stylesheet" type="text/css" href="styles/screen.css">
 	<title>Business Informatics Group Quiz - Registration</title>
@@ -28,7 +88,7 @@
 					<label for="lastname">Nachname:</label>
 					<input type="text" id="lastname" />
 				</div>
-
+ 
 				<div class="fieldwrapper">
 					<label for="birthday">Geburtstag:</label>
 					<input type="date" id="birthday" />
@@ -48,11 +108,11 @@
 
 				<div class="fieldwrapper">
 					<label for="username">Benutzername*:</label>
-					<input type="text" id="username" required />
+					<input type="text" id="username" pattern=".{4,8}" title="Der Benutzername muss mindestens 4 und maximal 8 Zeichen lang sein." required />
 				</div>
 				<div class="fieldwrapper">
 					<label for="password">Passwort*:</label>
-					<input type="password" id="password" required />
+					<input type="password" id="password" pattern=".{4,8}" title="Das Password muss mindestens 4 und maximal 8 Zeichen lang sein." required />
 				</div>
 				<button class="button register" type="submit">
 					<span>Registrieren</span>
