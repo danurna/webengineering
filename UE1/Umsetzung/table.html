@@ -8,27 +8,18 @@
     <script type="text/javascript" src="js/jquery.js"></script>
     <script type="text/javascript">
 
-    var gametime, refreshRate, interval;
+        var gametime, refreshRate, interval, lastTime;
 
-    function ceiledSecToMMSS(gametime){
-        var ceil = Math.ceil(gametime);
-        var timeText;
-        if( 10 > ceil ){
-            timeText = "0"+ceil;
-        }else{
-            timeText = ceil;
+        function ceiledSecToMMSS(gametime){
+            var ceil = Math.ceil(gametime);
+            var timeText;
+            if( 10 > ceil ){
+                timeText = "0"+ceil;
+            }else{
+                timeText = ceil;
+            }
+            return "00:"+timeText;
         }
-        return "00:"+timeText;
-    }
-
-    function clickOnAnswer(object)
-    {
-        if( $(object).hasClass("selected") ){
-            $(object).removeClass("selected");
-        }else{
-            $(object).addClass("selected");
-        }
-    }
 
     // Call like setAnswered("1", "2", true)
     function setAnswered(playernumber, questionnumber, correct){
@@ -63,9 +54,6 @@
         gametime = parseInt($('#time').attr('max'));
         refreshRate = 0.05;
 
-        $(".answer").click(function(){
-            clickOnAnswer(this);
-        });
         $(".correctSign").hide();
         $(".incorrectSign").hide();
 
@@ -74,9 +62,9 @@
         }, refreshRate*1000);
 
     });
-    </script>
+</script>
 
-    <title>Business Informatics Group Quiz</title>
+<title>Business Informatics Group Quiz</title>
 </head>
 <body>
     <header class="includefloats" id="header">
@@ -124,35 +112,46 @@
                     </div>
                 </div>
             </header>
-            <div class="clr" id="questioncontent">
-                <div id="question"><p>Welche zwei LVAs werden im Modul EWA zusammengefasst?</p></div>
-                <div class="col">
-                    <div class="answer" id="answer1"><p>IT Strategie</p></div>
+            <form class="questionform">
+                <div class="clr" id="questioncontent">
+
+                    <div id="question"><p>Welche zwei LVAs werden im Modul EWA zusammengefasst?</p></div>
+
+                    <ul>
+                        <li class="col">
+                            <input type="checkbox" name="a1" id="a1" />
+                            <label class="answer" for="a1">IT Strategie</label>
+                        </li>
+                        <li class="col">
+                            <input type="checkbox" name="a2" id="a2" />
+                            <label class="answer" for="a2">Web Engineering</label>
+                        </li>
+                        <li class="col">
+                            <input type="checkbox" name="a3" id="a3" />
+                            <label class="answer" for="a3">Semistrukturierte Daten</label>
+                        </li>
+                        <li class="col">
+                            <input type="checkbox" name="a4" id="a4" />
+                            <label class="answer" for="a4">Objektorientierte Modellierung</label>
+                        </li>
+                    </ul>
+
                 </div>
-                <div class="col">
-                    <div class="answer" id="answer2"><p>Web Engineering</p></div>
-                </div>
-                <div class="col">
-                    <div class="answer" id="answer3"><p>Semistrukturierte Daten</p></div>
-                </div>
-                <div class="col">
-                    <div class="answer" id="answer4"><p>Objektorientierte Modellierung</p></div>
-                </div>
-            </div>
-            <footer class="clr" id="questionfooter">
-                <div id="next_container" class="col">
-                    <button class="button next">
-                        <span class="button_text">weiter</span><img class="button_icon" src="img/white-arrow-right.png" alt="white arrow pointing rightwards" />
-                    </button>
-                </div>
-                <!-- TODO: Button stylen und alignen. Eigenes div? Soll beim kleinen Screen über verbleibender Zeit sein, how to? -->
-                <div class="col" id="info_container">
-                    <p>Verbleibende Zeit: </p><p id="time_text">00:30</p>
-                    <meter id="time" min="0" max="30" value="30">.</meter>
-                    <p>Letztes Spiel: Nie</p>
-                </div>
-                <!-- TODO: Zeit, progress bar, last game.-->
-            </footer>
+                <footer class="clr" id="questionfooter">
+                    <div id="next_container" class="col">
+                        <button class="button next arrow">
+                            <span class="button_text">Weiter</span>
+                        </button>
+                    </div>
+                    <!-- TODO: Button stylen und alignen. Eigenes div? Soll beim kleinen Screen über verbleibender Zeit sein, how to? -->
+                    <div class="col" id="info_container">
+                        <p>Verbleibende Zeit: </p><p id="time_text">00:30</p>
+                        <meter id="time" min="0" max="30" value="30">.</meter>
+                        <p>Letztes Spiel: Nie</p>
+                    </div>
+                    <!-- TODO: Zeit, progress bar, last game.-->
+                </footer>
+            </form>
         </section>
     </main>
     <div class="clr" id="footer">
