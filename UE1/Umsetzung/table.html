@@ -6,10 +6,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
     <link rel="stylesheet" type="text/css" href="styles/screen.css" />
     <script type="text/javascript" src="js/jquery.js"></script>
-    <script type="text/javascript" src="js/framework.js"></script>
     <script type="text/javascript">
 
     var gametime, refreshRate, interval;
+
+    function ceiledSecToMMSS(gametime){
+        var ceil = Math.ceil(gametime);
+        var timeText;
+        if( 10 > ceil ){
+            timeText = "0"+ceil;
+        }else{
+            timeText = ceil;
+        }
+        return "00:"+timeText;
+    }
 
     function clickOnAnswer(object)
     {
@@ -41,10 +51,7 @@
         if( gametime > 0 ){
             gametime -= refreshRate;
             $("#time").val(gametime);
-
-            var ceil = Math.ceil(gametime);
-            var timeText = ceil<10?"0"+ceil:ceil;
-            $("#time_text").html("00:"+timeText);
+            $("#time_text").html(ceiledSecToMMSS(gametime));
         } else {
             clearInterval(interval);
         }
@@ -73,7 +80,7 @@
 </head>
 <body>
     <header class="includefloats" id="header">
-        <img src="img/big-logo-small.png" alt="Business Informatics Group Logo">
+        <img src="img/big-logo-small.png" alt="Business Informatics Group Logo" />
         <h1>Quiz</h1>
         <button class="button signin"><span>Abmelden</span></button>
     </header>
