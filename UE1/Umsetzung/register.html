@@ -27,7 +27,7 @@
 					valid = valid && requiredInputs[index].checkValidity();
 				}else{
 					// Use regexp
-					var re = new RegExp( $("#"+requiredInputs[index].id).attr("pattern") );
+					var re = new RegExp("^" + $("#"+requiredInputs[index].id).attr("pattern") + "$");
 					valid = valid && re.test( $("#"+requiredInputs[index].id).val() );
 				}
 				
