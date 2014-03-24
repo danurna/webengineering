@@ -23,7 +23,14 @@
 			var valid = true;
 			var index;
 			for (index = 0; index < requiredInputs.length; index++) {
-				valid = valid && requiredInputs[index].checkValidity();
+				if( hasFormValidation() ){
+					valid = valid && requiredInputs[index].checkValidity();
+				}else{
+					// Use regexp
+					var re = new RegExp( $("#"+requiredInputs[index].id).attr("pattern") );
+					valid = valid && re.test( $("#"+requiredInputs[index].id).val() );
+				}
+				
 			}
 
 			var dateString = getNormalizedDateString("#birthday");
