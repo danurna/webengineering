@@ -34,7 +34,7 @@ h1 {
 	outline:none;
 }
 
-.button:after {
+.button:before {
 	content: "";
 	position: absolute;
 	top:0;
@@ -55,21 +55,24 @@ h1 {
   position:relative;
 }
 
-.button:hover:after {
+.button:hover:before {
 	opacity:.5;
 }
 
-.button:active:after {
+.button:active:before {
 	opacity: 1;
 }
 
-.button_text {
-	float: left;
-	width: 70%;
-}
-
-.button_icon {
-	float: right;
+.arrow:after {
+	content:"";
+	background-image: url("/img/white-arrow-right.png");
+	position: absolute;
+	height: 21px;
+	width: 12px;
+	right: 1em;
+	top: 50%;
+	margin-top: -10.5px;
+	z-index: 1;
 }
 
 
