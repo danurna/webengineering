@@ -23,17 +23,17 @@
 
     // Call like setAnswered("1", "2", true)
     function setAnswered(playernumber, questionnumber, correct){
-        var scoreId = "score"+playernumber;
-        var pointId = "point"+questionnumber;
 
-        $("#"+scoreId+" ."+pointId+" .unknownSign").hide();
-        if( correct ){
-            $("#"+scoreId+" ."+pointId+" .incorrectSign").hide();
-            $("#"+scoreId+" ."+pointId+" .correctSign").show();
-        }else{
-            $("#"+scoreId+" ."+pointId+" .incorrectSign").show();
-            $("#"+scoreId+" ."+pointId+" .correctSign").hide();
-        }
+        var classes = ["correct", "incorrect", "unanswered"];
+        var newClass = correct ? classes[0] : classes[1];
+        var pointObject = $("#p"+playernumber+"q"+questionnumber);
+
+        classes.forEach(function(entry) {
+            pointObject.removeClass(entry);
+        });
+
+        pointObject.addClass(newClass)
+        pointObject.html(newClass.capitalize());
 
     }
 
@@ -48,14 +48,15 @@
         }
     }
 
+    String.prototype.capitalize = function() {
+        return this.charAt(0).toUpperCase() + this.slice(1);
+    }
+
     // Setup on document ready
     // Adding click handler, hiding elements.
     $(document).ready(function() {
         gametime = parseInt($('#time').attr('max'));
         refreshRate = 0.05;
-
-        $(".correctSign").hide();
-        $(".incorrectSign").hide();
 
         interval = setInterval(function(){
             decrementTimer();
@@ -73,86 +74,70 @@
         <button class="button signin"><span>Abmelden</span></button>
     </header>
 
-    <main class="clr" id="main">
-        <section id="content">
-            <header id="questionheader">
-                <div class="playerscore" id="score1"> <p>Spieler 1</p>
-                    <div class="point point1">
-                        <img class="incorrectSign" src="img/incorrect-white.png" alt="incorrect answer sign, cross" />
-                        <img class="correctSign" src="img/correct-white.png" alt="correct answer sign, filled circle" />
-                        <img class="unknownSign" src="img/unknown-white.png" alt="unknown answer sign, empty circle" />
-                    </div>
-                    <div class="point point2">
-                        <img class="incorrectSign" src="img/incorrect-white.png" alt="incorrect answer sign, cross" />
-                        <img class="correctSign" src="img/correct-white.png" alt="correct answer sign, filled circle" />
-                        <img class="unknownSign" src="img/unknown-white.png" alt="unknown answer sign, empty circle" />
-                    </div>
-                    <div class="point point3">
-                        <img class="incorrectSign" src="img/incorrect-white.png" alt="incorrect answer sign, cross" />
-                        <img class="correctSign" src="img/correct-white.png" alt="correct answer sign, filled circle" />
-                        <img class="unknownSign" src="img/unknown-white.png" alt="unknown answer sign, empty circle" />
-                    </div>
-                </div>
-                <div id="category"> <p>EWA</p> </div>
-                <div class="playerscore" id="score2"> <p>Spieler 2</p>
-                    <div class="point point1">
-                        <img class="incorrectSign" src="img/incorrect-white.png" alt="incorrect answer sign, cross" />
-                        <img class="correctSign" src="img/correct-white.png" alt="correct answer sign, filled circle" />
-                        <img class="unknownSign" src="img/unknown-white.png" alt="unknown answer sign, empty circle" />
-                    </div>
-                    <div class="point point2">
-                        <img class="incorrectSign" src="img/incorrect-white.png" alt="incorrect answer sign, cross" />
-                        <img class="correctSign" src="img/correct-white.png" alt="correct answer sign, filled circle" />
-                        <img class="unknownSign" src="img/unknown-white.png" alt="unknown answer sign, empty circle" />
-                    </div>
-                    <div class="point point3">
-                        <img class="incorrectSign" src="img/incorrect-white.png" alt="incorrect answer sign, cross" />
-                        <img class="correctSign" src="img/correct-white.png" alt="correct answer sign, filled circle" />
-                        <img class="unknownSign" src="img/unknown-white.png" alt="unknown answer sign, empty circle" />
-                    </div>
-                </div>
-            </header>
-            <form class="questionform">
-                <div class="clr" id="questioncontent">
+    <main class="clr" id="content">
+        <header id="questionheader">
 
-                    <div id="question"><p>Welche zwei LVAs werden im Modul EWA zusammengefasst?</p></div>
+            <div class="playerscore floatleft"> 
+                <h3>Spieler 1</h3>
+                <ol>
+                    <li class="ir point unanswered" id="p1q1">Unanswered</li>
+                    <li class="ir point unanswered" id="p1q2">Unanswered</li>
+                    <li class="ir point unanswered" id="p1q3">Unanswered</li>
+                </ol>
+            </div>
 
-                    <ul>
-                        <li class="col">
-                            <input type="checkbox" name="a1" id="a1" />
-                            <label class="answer" for="a1">IT Strategie</label>
-                        </li>
-                        <li class="col">
-                            <input type="checkbox" name="a2" id="a2" />
-                            <label class="answer" for="a2">Web Engineering</label>
-                        </li>
-                        <li class="col">
-                            <input type="checkbox" name="a3" id="a3" />
-                            <label class="answer" for="a3">Semistrukturierte Daten</label>
-                        </li>
-                        <li class="col">
-                            <input type="checkbox" name="a4" id="a4" />
-                            <label class="answer" for="a4">Objektorientierte Modellierung</label>
-                        </li>
-                    </ul>
 
+            <div class="playerscore floatright"> 
+                <h3>Spieler 2</h3>
+                <ol>
+                    <li class="ir point unanswered" id="p2q1">Unanswered</li>
+                    <li class="ir point unanswered" id="p2q2">Unanswered</li>
+                    <li class="ir point unanswered" id="p2q3">Unanswered</li>
+                </ol>
+            </div>
+
+            <h2 id="category">EWA</h2>
+        </header>
+        <form class="questionform">
+            <div class="clr" id="questioncontent">
+
+                <div id="question"><p>Welche zwei LVAs werden im Modul EWA zusammengefasst?</p></div>
+
+                <ul>
+                    <li class="col">
+                        <input type="checkbox" name="a1" id="a1" />
+                        <label class="answer" for="a1">IT Strategie</label>
+                    </li>
+                    <li class="col">
+                        <input type="checkbox" name="a2" id="a2" />
+                        <label class="answer" for="a2">Web Engineering</label>
+                    </li>
+                    <li class="col">
+                        <input type="checkbox" name="a3" id="a3" />
+                        <label class="answer" for="a3">Semistrukturierte Daten</label>
+                    </li>
+                    <li class="col">
+                        <input type="checkbox" name="a4" id="a4" />
+                        <label class="answer" for="a4">Objektorientierte Modellierung</label>
+                    </li>
+                </ul>
+
+            </div>
+            <footer class="clr" id="questionfooter">
+                <div id="next_container" class="col">
+                    <button class="button green next floatright arrow">
+                        <span>Weiter</span>
+                    </button>
                 </div>
-                <footer class="clr" id="questionfooter">
-                    <div id="next_container" class="col">
-                        <button class="button next arrow">
-                            <span class="button_text">Weiter</span>
-                        </button>
-                    </div>
-                    <!-- TODO: Button stylen und alignen. Eigenes div? Soll beim kleinen Screen über verbleibender Zeit sein, how to? -->
-                    <div class="col" id="info_container">
-                        <p>Verbleibende Zeit: </p><p id="time_text">00:30</p>
-                        <meter id="time" min="0" max="30" value="30">.</meter>
-                        <p>Letztes Spiel: Nie</p>
-                    </div>
-                    <!-- TODO: Zeit, progress bar, last game.-->
-                </footer>
-            </form>
-        </section>
+                <!-- TODO: Button stylen und alignen. Eigenes div? Soll beim kleinen Screen über verbleibender Zeit sein, how to? -->
+                <div class="col" id="info_container">
+                    <p>Verbleibende Zeit: <span id="time_text">00:30</span></p>
+                    <meter id="time" min="0" max="30" value="30">.</meter>
+                    <p>Letztes Spiel: Nie</p>
+                </div>
+                <!-- TODO: Zeit, progress bar, last game.-->
+            </footer>
+        </form>
     </main>
     <div class="clr" id="footer">
         <p>© 2014 BIG Quiz</p>
