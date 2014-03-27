@@ -186,7 +186,6 @@ button.signin {
 
 button[disabled], button:disabled {
 	background: rgb(198,198,198) !important;
-	pointer-events: none;
 }
 
 button.next {
@@ -229,7 +228,7 @@ button.green {
 	display: inline-block;
 }
 
-.playerscore > h3 {
+.playerscore > h2 {
 	margin-bottom: 0.2em;
 	font-size: 1em;
 	text-align: center;
@@ -257,8 +256,9 @@ button.green {
 	background-image: url("/img/unknown-white.png");
 }
 
+
+
 #category {
-	font-size: 1em;
 	text-align: center;
 	width: 100%;
 
@@ -300,15 +300,8 @@ button.green {
 	background-color: #033058;
 } 
 
-
-#questionheader:before,
-#questionheader:after {
-	content: " ";
-	display: table;
-}
-
-#questionheader:after{
-	clear: both;
+#questionheader h2 {
+	font-size: 1rem;
 }
 
 /* ID QUESTIONFOOTER */
@@ -357,11 +350,11 @@ button.green {
 	margin-bottom: 0.2em;
 }
 
-*:invalid:focus, .focus:invalid, .invalid:focus, .focus.invalid {
+.invalid:focus, .focus.invalid {
 	box-shadow: 0 0 0.5em red;
 	outline: none;
 	/* Background Image from http://chemerisuk.github.io/better-form-validation/ */
-	background-image: url(data:image/svg+xml;base64,PHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjQ4IiBoZWlnaHQ9IjQ4IiB2aWV3Qm94PSIwIDAgNDggNDgiPgogICAgPHBhdGggZmlsbD0iI0ZGMzMyOSIgZD0iTTQ4IDM0LjVsLTEzLjUtMzQuNWgtMjFsLTEzLjUgMTMuNXYyMWwxMy41IDEzLjVoMjFsMTMuNS0xMy41di0yMWwtMTMuNS0xMy41ek0yNyAzOWgtNnYtNmg2djZ6TTI3IDI3aC02di0xOGg2djE4eiIvPgo8L3N2Zz4K);
+	background-image: url('data:image/svg+xml;base64,PHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjQ4IiBoZWlnaHQ9IjQ4IiB2aWV3Qm94PSIwIDAgNDggNDgiPgogICAgPHBhdGggZmlsbD0iI0ZGMzMyOSIgZD0iTTQ4IDM0LjVsLTEzLjUtMzQuNWgtMjFsLTEzLjUgMTMuNXYyMWwxMy41IDEzLjVoMjFsMTMuNS0xMy41di0yMWwtMTMuNS0xMy41ek0yNyAzOWgtNnYtNmg2djZ6TTI3IDI3aC02di0xOGg2djE4eiIvPgo8L3N2Zz4K');
 	background-repeat: no-repeat;
 	background-position: 98% 50%;
 	background-size: 1.4rem 1.4rem;

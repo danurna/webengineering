@@ -5,7 +5,7 @@
 	<script type="text/javascript" src="js/jquery.js"></script>
 	<script type="text/javascript" src="js/framework.js"></script>
 	<script type="text/javascript">
-
+		//<![CDATA[
 
 		function hasHtml5Validation () {
 			return typeof document.createElement('input').checkValidity === 'function';
@@ -24,13 +24,19 @@
 			var valid = true;
 			var index;
 			for (index = 0; index < requiredInputs.length; index++) {
+				var inputValid, jQObject = $(requiredInputs[index]);
+
 				if( hasFormValidation() ){
-					valid = valid && requiredInputs[index].checkValidity();
+					inputValid = jQObject.get(0).checkValidity();
 				}else{
 					// Use regexp
-					var re = new RegExp("^" + $("#"+requiredInputs[index].id).attr("pattern") + "$");
-					valid = valid && re.test( $("#"+requiredInputs[index].id).val() );
+					var re = new RegExp("^" + jQObject.attr("pattern") + "$");
+					inputValid = re.test( jQObject.val() );
 				}
+
+				jQObject.toggleClass('invalid', !inputValid);
+
+				valid = valid && inputValid;
 				
 			}
 
@@ -38,17 +44,12 @@
 
 			if( dateString.length != 0 ){
 				var dateValid = validateDate(dateString);
-
-				if(!dateValid) {
-					$('#birthday').addClass('invalid');
-				} else {
-					$('#birthday').removeClass('invalid');
-				}
-
+				$('#birthday').toggleClass('invalid', !dateValid);
+				
 				valid = valid && dateValid;
 			} else {
-					$('#birthday').removeClass('invalid');
-				}
+				$('#birthday').removeClass('invalid');
+			}
 
 			// If valid enable register button
 			$(".register").prop('disabled',!valid);
@@ -68,16 +69,17 @@
 	    	$('input').focus(function(){$(this).addClass('focus')});
 	    });
 
+	    //]]>
 
 	</script>
 
 	<meta charset="UTF-8" />
-	<link rel="stylesheet" type="text/css" href="styles/screen.css">
+	<link rel="stylesheet" type="text/css" href="styles/screen.css" />
 	<title>Business Informatics Group Quiz - Registration</title>
 </head>
 <body>
 	<header class="includefloats" id="header">
-		<img src="img/big-logo-small.png" alt="Business Informatics Group Logo">
+		<img src="img/big-logo-small.png" alt="Business Informatics Group Logo" />
 		<h1>Quiz</h1>
 		<button class="button signin"><span>Abmelden</span></button>
 	</header>
@@ -90,7 +92,7 @@
 
 				<div class="fieldwrapper">
 					<label for="firstname">Vorname:</label>
-					<input type="text" id="firstname" autofocus />
+					<input type="text" id="firstname" autofocus="" />
 				</div>
 
 				<div class="fieldwrapper">
@@ -117,13 +119,13 @@
 
 				<div class="fieldwrapper includefloats"  id="bla" >
 					<label for="username">Benutzername*:</label>
-					<input type="text" id="username" pattern=".{4,8}" title="Der Benutzername muss mindestens 4 und maximal 8 Zeichen lang sein." required />
+					<input type="text" id="username" pattern=".{4,8}" title="Der Benutzername muss mindestens 4 und maximal 8 Zeichen lang sein." required="" />
 				</div>
 				<div class="fieldwrapper">
 					<label for="password">Passwort*:</label>
-					<input type="password" id="password" pattern=".{4,8}" title="Das Password muss mindestens 4 und maximal 8 Zeichen lang sein." required />
+					<input type="password" id="password" pattern=".{4,8}" title="Das Password muss mindestens 4 und maximal 8 Zeichen lang sein." required="" />
 				</div>
-				<button class="button disabled green register floatright arrow " type="submit" disabled>
+				<button class="button disabled green register floatright arrow " type="submit" disabled="">
 					<span>Registrieren</span>
 				</button>
 			</section>
