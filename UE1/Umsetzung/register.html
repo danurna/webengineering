@@ -52,7 +52,7 @@
 			}
 
 			// If valid enable register button
-			$(".register").prop('disabled',!valid);
+			$("#register_submit").prop('disabled',!valid);
 			
 
 			return valid;
@@ -67,6 +67,7 @@
 
 
 	    	$('input').focus(function(){$(this).addClass('focus')});
+	    	$("#register_submit").prop('disabled',true);
 	    });
 
 	    //]]>
@@ -87,7 +88,7 @@
 	<main id="register_container" class="clr">
 		<form action="table.html" id="register_form" name="register_form">
 
-			<section>
+			<section class="includefloats">
 				<h2>Persönliche Daten</h2>
 
 				<div class="fieldwrapper">
@@ -114,10 +115,10 @@
 				</div>
 			</section>
 
-			<section>
+			<section  class="includefloats">
 				<h2>Login Daten</h2>
 
-				<div class="fieldwrapper includefloats"  id="bla" >
+				<div class="fieldwrapper">
 					<label for="username">Benutzername*:</label>
 					<input type="text" id="username" pattern=".{4,8}" title="Der Benutzername muss mindestens 4 und maximal 8 Zeichen lang sein." required="" />
 				</div>
@@ -125,7 +126,7 @@
 					<label for="password">Passwort*:</label>
 					<input type="password" id="password" pattern=".{4,8}" title="Das Password muss mindestens 4 und maximal 8 Zeichen lang sein." required="" />
 				</div>
-				<button class="button disabled green register floatright arrow " type="submit" disabled="">
+				<button class="button disabled green register floatright arrow " type="submit" id="register_submit">
 					<span>Registrieren</span>
 				</button>
 			</section>

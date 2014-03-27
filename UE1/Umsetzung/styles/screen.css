@@ -34,6 +34,11 @@ body {
 	overflow: hidden;
 }
 
+/* http://www.paulirish.com/2012/box-sizing-border-box-ftw/ */
+*, *:before, *:after {
+  -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box;
+ }
+
 p {
 	font-size: 1em;
 }
@@ -137,7 +142,6 @@ h1 {
 }
 
 #register_container section {
-	overflow: hidden;
 	margin: 1em;
 }
 
@@ -160,17 +164,17 @@ h1 {
 }
 
 .fieldwrapper input, .fieldwrapper select {
-	-webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
-	-moz-box-sizing: border-box;    /* Firefox, other Gecko */
-	box-sizing: border-box;         /* Opera/IE 8+ */
-
-	width: 64%;
+	width: 62%;
+	float:right;
 	height: 2.2rem;
 	border-radius: 3px;
 	padding: 0.4rem;
-	padding-right: 2rem;
 	border: 1px solid #000;
 	color: #000;
+}
+
+.fieldwrapper input {
+	padding-right: 2rem;
 }
 
 .valid {
@@ -350,7 +354,7 @@ button.green {
 	margin-bottom: 0.2em;
 }
 
-.invalid:focus, .focus.invalid {
+.focus.invalid {
 	box-shadow: 0 0 0.5em red;
 	outline: none;
 	/* Background Image from http://chemerisuk.github.io/better-form-validation/ */
