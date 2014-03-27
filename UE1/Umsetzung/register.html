@@ -4,11 +4,11 @@
 <head>
 	<script type="text/javascript" src="js/jquery.js"></script>
 	<script type="text/javascript" src="js/framework.js"></script>
-    <script type="text/javascript">
+	<script type="text/javascript">
 
 
 		function hasHtml5Validation () {
-		  return typeof document.createElement('input').checkValidity === 'function';
+			return typeof document.createElement('input').checkValidity === 'function';
 		}
 
 		function validateDate(dateString){
@@ -36,27 +36,37 @@
 			var dateString = getNormalizedDateString("#birthday");
 
 			if( dateString.length != 0 ){
-				valid = valid && validateDate(dateString);
+				var dateValid = validateDate(dateString);
+
+				if(!dateValid) {
+					$('#birthday').addClass('invalid');
+				} else {
+					$('#birthday').removeClass('invalid');
+				}
+
+				valid = valid && dateValid;
 			}
 
 			// If valid enable register button
-			if( valid ){
-				$(".register").addClass("valid");
-			}else{
-				$(".register").removeClass("valid");
-			}
+			$(".register").prop('disabled',!valid);
+			
+
+			return valid;
 		}
 
 
 	    // Setup on document ready
 	    $(document).ready(function() {
-			$('input').on('input', function (e) {
-			    checkFormValidity();
-			});
+	    	$('input').on('input', function (e) {
+	    		checkFormValidity();
+	    	});
+
+
+	    	$('input').focus(function(){$(this).addClass('focus')});
 	    });
 
 
-    </script>
+	</script>
 
 	<meta charset="UTF-8" />
 	<link rel="stylesheet" type="text/css" href="styles/screen.css">
@@ -84,10 +94,10 @@
 					<label for="lastname">Nachname:</label>
 					<input type="text" id="lastname" />
 				</div>
- 
+
 				<div class="fieldwrapper">
 					<label for="birthday">Geburtstag:</label>
-					<input type="date" id="birthday" />
+					<input type="date" id="birthday" title="Das Geburtsdatum muss ein gültiges Datum im Format tt.mm.jjjj sein." />
 				</div>
 
 				<div class="fieldwrapper">
@@ -102,7 +112,7 @@
 			<section>
 				<h2>Login Daten</h2>
 
-				<div class="fieldwrapper">
+				<div class="fieldwrapper includefloats"  id="bla" >
 					<label for="username">Benutzername*:</label>
 					<input type="text" id="username" pattern=".{4,8}" title="Der Benutzername muss mindestens 4 und maximal 8 Zeichen lang sein." required />
 				</div>
@@ -110,7 +120,7 @@
 					<label for="password">Passwort*:</label>
 					<input type="password" id="password" pattern=".{4,8}" title="Das Password muss mindestens 4 und maximal 8 Zeichen lang sein." required />
 				</div>
-				<button class="button register arrow" type="submit">
+				<button class="button disabled green register floatright arrow " type="submit" disabled>
 					<span>Registrieren</span>
 				</button>
 			</section>
