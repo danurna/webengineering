@@ -20,9 +20,8 @@
 		background-color:#033058;
 		padding: 0.5em;
 		height: auto;
-		min-height: 47px;
 	}
-	
+
 	header img {
 		padding-right: 1em;
 		float: left;
@@ -43,43 +42,199 @@
 		vertical-align:middle;
 	}
 	
-	header nav button{ 
-	/* 	ANMERKUNG 
-		Button kopiert & modifizert. 
-		Quelle: http://www.webdesignerwall.com/demo/css-buttons.html 
-		Zitat Angabe:
-		"Der Einsatz von fremdem CSS-Code (zB reset.css) ist gestattet.
-		Es muss jedoch klar ersichtlich sein, woher dieser Code kommt und 
-		dass dieser Code nicht von Ihnen stammt."
-	*/
-		display: inline-block;
-		zoom: 1; /* zoom and *display = ie7 hack for display:inline-block */
-		*display: inline;
-		vertical-align: baseline;
-		margin: 0 2px;
-		outline: none;
-		cursor: pointer;
-		text-align: center;
-		font-weight: bold;
-		font-size:1em;
-		text-decoration: none;
-		padding: .5em 2em .55em;
-		text-shadow: 0 1px 1px rgba(0,0,0,.3);
-		-webkit-border-radius: .5em; 
-		-moz-border-radius: .5em;
-		border-radius: .5em;
-		-webkit-box-shadow: 0 1px 2px rgba(0,0,0,.2);
-		-moz-box-shadow: 0 1px 2px rgba(0,0,0,.2);
-		box-shadow: 0 1px 2px rgba(0,0,0,.2);
+	.BIGorange {
 		color: #fef4e9;
-		border: solid 1px #f29400;
 		background: #f29400;
-		background: -webkit-gradient(linear, left top, left bottom, from(#faa51a), to(#f47a20));
-		background: -moz-linear-gradient(top,  #faa51a,  #f47a20);
-		filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#faa51a', endColorstr='#f47a20');
-	/*
-		ENDE kopierter & modifizierter code.
-	*/
+	}
+	
+	.green {
+		color: #fef4e9;
+		background: #36d344;
+	}
+	
+	.grey {
+		color: #fef4e9;
+		background: #ccc;
+	}
+	
+	.button{ 
+		border-radius:0.5em;
+		font-size: 1.2em;
+		padding: 0.5em 2em 0.5em 2em;
+		text-decoration: none;
+		text-align: center;
+		cursor: pointer;
+		border:none;
+		margin: 0.5em;
+	}
+	
+	.question {
+		text-align: center;
+		font-weight: lighter;
+		font-size: 1.5em;
+	}
+	
+	.unselected {
+		background-color: #B9D6F0;
+		color: #0A3668;
+	}
+	
+	.selected {
+		background-color: #033058;
+		color: #fff;
+	}
+	
+	.answers {
+		padding:0;
+		margin: 0;
+	}
+	
+	.answers button {
+		width:100%;
+		max-width: 19em;
+	}
+	
+	.answer {
+		border-radius:0.5em;
+		font-size: 1.2em;
+		padding: 1em;
+		text-decoration: none;
+		text-align: center;
+		cursor: pointer;
+		border:none;
+		margin: 0.5em;
+		float: left;
+		display: block;
+	}
+	
+	.content {
+		margin: auto;
+		width: 80%;
+		max-width: 50em;
+		clear:both;
+	}
+	
+	.questionFooter {
+		padding: 1em 2em 1em 1em;
+		height: auto;
+		clear: both;
+	}
+	.remainingTime {
+		width: 50%;
+		float:left;
+	}
+	
+	.remainingTime meter{
+		width: 100%;
+	}
+	.remainingTime p {
+		font-weight: lighter;
+		font-size: 1.2em;
+	}
+	.continue {
+		width: 50%;
+		padding-top: 1em;
+		float:right;
+	}
+	
+	.continue button {
+		width: 100%;
+		max-width: 10em;
+		float:right;
+	}
+	
+	footer p{
+		font-weight: bold;
+		text-align: center;
+		font-size: 1em;
+	}
+	
+	.floating:before,
+	.floating:after {
+		content: " ";
+		display: table;
+	}
+
+	.floating:after {
+		clear: both;
+	}
+	
+	.questionheader {
+		margin-top:1em;
+		padding:0;
+	}
+	
+	.questionheader h2{
+		font-weight: bold;
+		font-size: 1.2em;
+		margin:0;
+		padding:0;
+		text-align:center;
+	}
+	
+	.score {
+		margin: 0;
+		padding: 0;
+	}
+	
+	.scorepoint {
+		margin: 1px;
+		display: block;
+		float: left;
+		width: 21px;
+		height: 21px;
+		background-position: center;
+		background-repeat: no-repeat;
+	}
+	
+	.yes {
+	background-image: url("../img/correct-white.png");
+	}
+
+	.no {
+		background-image: url("../img/incorrect-white.png");
+	}
+
+	.notanswered {
+		background-image: url("../img/unknown-white.png");
+	}
+
+	
+	.player1 {
+		float:left;
+	}
+	
+	.player2 {
+		float: right;
+	}
+	
+	
+	.inputLabelGroup {
+		margin-top:1em;
+		display: inline-block;
+		height: auto;
+		width: 100%;
+	}
+	
+	.inputLabelGroup label {
+		width: 50%;
+	}
+	.inputLabelGroup input,select {
+		float:right;
+		width: 50%;
+		font-size: 1em;
+	}
+		
+	.registersection {
+		width: 50%;
+		min-width: 420px;
+		margin: 0 auto;
+		overflow: auto;
+	}
+
+	#submitbuton {
+		float: right;
+		clear: both;
 	}
 	
     

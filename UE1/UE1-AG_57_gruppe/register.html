@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" type="text/css" href="./styles/screen.css">
+<title>Business Informatics Group Quiz</title>
+</head>
+
+<body>
+    <header class="floating" >
+		<img src="./img/big-logo-small.png" alt="Logo der Bussiness Informatiks Group" />
+		<h1>Quiz</h1>
+		<nav>
+			<button class="button BIGorange" type="button">Anmelden</button>
+		</nav>
+	</header>
+	
+	<section class="registersection floating">
+		<form name="register">
+			<h2>Pers&ouml;nliche Daten</h2>
+			<div class="inputLabelGroup floating">
+				<label for="vorname">Vorname:</label>
+				<input type="text" id="vorname" />
+			</div>
+			<div class="inputLabelGroup">
+				<label for="nachname">Nachname:</label>
+				<input type="text" id="nachname" />
+			</div>
+			<div class="inputLabelGroup">
+				<label for="geburtstag">Geburtstag:</label>
+				<input type="text" id="geburtstag" />
+			</div>
+			<div class="inputLabelGroup">
+				<label for="geschlecht">Geschlecht:</label>
+				<select id="geschlecht">
+						<option>Männlich</option>
+						<option>Weiblich</option>
+				</select>
+			</div>
+			<h2>Login Daten</h2>
+			<div class="inputLabelGroup">
+				<label for="benutzername">Benutzername&#42;:</label>
+				<input type="text" id="benutzername" />
+			</div>
+			<div class="inputLabelGroup">
+				<label for="passwort">Passwort&#42;:</label>
+				<input type="password" id="passwort" />
+			</div>
+			<div id="submitbuton">
+			<button  class="button green" type="submit">
+				<span>Registrieren</span>
+			</button></div>
+		</form>
+		<p>Mit &#42; gekennzeichnete Felder sind Pflichfelder</p>
+	</section>
+	
+	<footer class = "content">
+		<p>&copy; 2014 BIG Quiz</p>
+	</footer>
+
+</body>
+
+</html> 
