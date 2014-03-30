@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<!-- Valid XHTML5 because it gets ignored. But necessary for margin: auto in IE (http://stackoverflow.com/a/13224085) -->
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="de" lang="de">
 <head>
 	<script type="text/javascript" src="js/jquery.js"></script>
@@ -91,22 +92,22 @@
 			<section class="includefloats">
 				<h2>Persönliche Daten</h2>
 
-				<div class="fieldwrapper">
+				<div class="fieldwrapper includefloats">
 					<label for="firstname">Vorname:</label>
 					<input type="text" id="firstname" autofocus="" />
 				</div>
 
-				<div class="fieldwrapper">
+				<div class="fieldwrapper includefloats">
 					<label for="lastname">Nachname:</label>
 					<input type="text" id="lastname" />
 				</div>
 
-				<div class="fieldwrapper">
+				<div class="fieldwrapper includefloats">
 					<label for="birthday">Geburtstag:</label>
 					<input type="date" id="birthday" title="Das Geburtsdatum muss ein gültiges Datum im Format tt.mm.jjjj sein." />
 				</div>
 
-				<div class="fieldwrapper">
+				<div class="fieldwrapper includefloats">
 					<label for="sex">Geschlecht:</label>
 					<select id="sex">
 						<option>Männlich</option>
@@ -118,11 +119,11 @@
 			<section  class="includefloats">
 				<h2>Login Daten</h2>
 
-				<div class="fieldwrapper">
+				<div class="fieldwrapper includefloats">
 					<label for="username">Benutzername*:</label>
 					<input type="text" id="username" pattern=".{4,8}" title="Der Benutzername muss mindestens 4 und maximal 8 Zeichen lang sein." required="" />
 				</div>
-				<div class="fieldwrapper">
+				<div class="fieldwrapper includefloats">
 					<label for="password">Passwort*:</label>
 					<input type="password" id="password" pattern=".{4,8}" title="Das Password muss mindestens 4 und maximal 8 Zeichen lang sein." required="" />
 				</div>

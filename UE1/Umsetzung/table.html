@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<!-- Valid XHTML5 because it gets ignored. But necessary for margin: auto in IE (http://stackoverflow.com/a/13224085) -->
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="de" lang="de">
 <head>
     <meta charset="UTF-8" />
@@ -58,6 +59,7 @@
         gametime = parseInt($('#time').attr('max'));
         refreshRate = 0.05;
 
+        timerStart = Date
         interval = setInterval(function(){
             decrementTimer();
         }, refreshRate*1000);
