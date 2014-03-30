@@ -1,7 +1,7 @@
 /* GENERAL SETUP */
 body {
 	background-color: #4182bd; /* bottom color of style1-background.png */
-	background-image: url("/img/style1-background.png");
+	background-image: url("../img/style1-background.png");
 	background-repeat:no-repeat;
 	background-position: top center;
 	margin: 0;
@@ -90,7 +90,7 @@ h1 {
 
 .arrow:after {
 	content:"";
-	background-image: url("/img/white-arrow-right.png");
+	background-image: url("../img/white-arrow-right.png");
 	position: absolute;
 	height: 21px;
 	width: 12px;
@@ -246,15 +246,15 @@ button.green {
 }
 
 .correct {
-	background-image: url("/img/correct-white.png");
+	background-image: url("../img/correct-white.png");
 }
 
 .incorrect {
-	background-image: url("/img/incorrect-white.png");
+	background-image: url("../img/incorrect-white.png");
 }
 
 .unanswered {
-	background-image: url("/img/unknown-white.png");
+	background-image: url("../img/unknown-white.png");
 }
 
 
