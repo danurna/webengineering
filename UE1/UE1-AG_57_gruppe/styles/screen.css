@@ -43,6 +43,17 @@
 		vertical-align:middle;
 	}
 	
+	
+	
+	.content {
+		margin: auto;
+		width: 80%;
+		max-width: 50em;
+		clear:both;
+	}
+	
+	
+	 /** Button **/
 	.BIGorange {
 		color: #fef4e9;
 		background: #f29400;
@@ -68,13 +79,14 @@
 		border:none;
 		margin: 0.5em;
 	}
+	/** end button **/
 	
 	.question {
 		text-align: center;
 		font-weight: lighter;
 		font-size: 1.5em;
 	}
-	
+	/** answer button **/
 	.unselected {
 		background-color: #B9D6F0;
 		color: #0A3668;
@@ -84,14 +96,6 @@
 		background-color: #033058;
 		color: #fff;
 	}
-	.left {
-		float: left;
-	}
-
-	.right {
-		float: right;
-	}
-
 		
 	.answer {
 		border-radius:0.5em;
@@ -106,15 +110,9 @@
 		width: 48%;
 		margin: 3px;;
 	}
+	/** end answer button **/
 	
-	
-	.content {
-		margin: auto;
-		width: 80%;
-		max-width: 50em;
-		clear:both;
-	}
-	
+	/** question footer **/
 	.questionFooter {
 		height: auto;
 		clear: both;
@@ -122,14 +120,14 @@
 	}
 
 	.remainingTime {
-	width:50%;
-	margin:0;
-	padding:0;
+		width:50%;
+		margin:0;
+		padding:0;
 	}
 	.continue {
-	width:50%;
-	margin:0;
-	padding:0;
+		width:50%;
+		margin:0;
+		padding:0;
 	}
 		
 	.remainingTime meter{
@@ -139,6 +137,7 @@
 		font-weight: lighter;
 		font-size: 1.2em;
 	}
+	/** end question footer **/
 
 	.continue button {
 		width: 50%;
@@ -173,7 +172,7 @@
 		padding:0;
 		text-align:center;
 	}
-	
+	/** score **/
 	.score {
 		margin: 0;
 		padding: 0;
@@ -201,6 +200,8 @@
 		background-image: url("../img/unknown-white.png");
 	}
 
+	/** end score **/
+
 	
 	.player1 {
 		float:left;
@@ -211,6 +212,7 @@
 	}
 	
 	
+	/** input label group **/
 	.inputLabelGroup {
 		margin-top:1em;
 		display: inline-block;
@@ -228,7 +230,8 @@
 		font-size: 1.2em;
 		font-weight: lighter;
 	}
-	
+	/** input label group **/
+
 	#regSection {
 		width: 45%;
 		max-width: 800px;
@@ -249,9 +252,18 @@
 		clear: both;
 		margin: 0.5em;
 	}
-	
+	/* responsive 2 column layout */
+	/* orientiert an http://stackoverflow.com/questions/18433295/css-two-columns-of-lists-responsive-merge-into-one-column */
     
-	/* http://www.paulirish.com/2012/box-sizing-border-box-ftw/ */
+	.left {
+		float: left;
+	}
+
+	.right {
+		float: right;
+	}
+
+	
 	*, *:before, *:after {
 	  -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box;
 	 }
