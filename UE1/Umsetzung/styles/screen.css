@@ -135,6 +135,7 @@ h1 {
 }
 
 #register_container {
+	display: block;
 	width: 45%;
 	min-width: 420px;
 	margin: 0 auto;
@@ -212,6 +213,7 @@ button.green {
 /* ID CONTENT */
 
 #content {
+	display: block;
 	margin: auto;
 	width: 80%;
 	max-width: 45em;
