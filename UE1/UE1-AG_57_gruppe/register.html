@@ -1,9 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE html>
-<html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="de" lang="de">
 <head>
-<meta charset="UTF-8">
-<link rel="stylesheet" type="text/css" href="./styles/screen.css">
-<title>Business Informatics Group Quiz</title>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+	<link rel="stylesheet" type="text/css" href="styles/screen.css" />
+	<title>Business Informatics Group Quiz</title>
 </head>
 
 <body>
@@ -15,10 +17,10 @@
 		</nav>
 	</header>
 	
-	<section class="registersection floating">
+	<section id="regSection">
 		<form name="register">
-			<h2>Pers&ouml;nliche Daten</h2>
-			<div class="inputLabelGroup floating">
+			<h1>Persönliche Daten</h1>
+			<div class="inputLabelGroup">
 				<label for="vorname">Vorname:</label>
 				<input type="text" id="vorname" />
 			</div>
@@ -37,13 +39,13 @@
 						<option>Weiblich</option>
 				</select>
 			</div>
-			<h2>Login Daten</h2>
+			<h1>Login Daten</h1>
 			<div class="inputLabelGroup">
-				<label for="benutzername">Benutzername&#42;:</label>
+				<label for="benutzername">Benutzername*:</label>
 				<input type="text" id="benutzername" />
 			</div>
 			<div class="inputLabelGroup">
-				<label for="passwort">Passwort&#42;:</label>
+				<label for="passwort">Passwort*:</label>
 				<input type="password" id="passwort" />
 			</div>
 			<div id="submitbuton">
@@ -51,11 +53,11 @@
 				<span>Registrieren</span>
 			</button></div>
 		</form>
-		<p>Mit &#42; gekennzeichnete Felder sind Pflichfelder</p>
+		<p>Mit * gekennzeichnete Felder sind Pflichfelder</p>
 	</section>
 	
 	<footer class = "content">
-		<p>&copy; 2014 BIG Quiz</p>
+		<p>© 2014 BIG Quiz</p>
 	</footer>
 
 </body>

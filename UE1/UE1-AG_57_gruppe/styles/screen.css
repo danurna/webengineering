@@ -9,9 +9,9 @@
 	body {
 		background-image:url('../img/style1-background.png');
 		background-color:#4182BD;
-		margin:0;
 		background-repeat: no-repeat;
-		background-position: top-center;
+		background-position: center top;
+		margin: 0;
 		font-family: "Arial";
 		color:#fff;
 	}
@@ -25,6 +25,7 @@
 	header img {
 		padding-right: 1em;
 		float: left;
+		display: block;
 	}
 	
 	header h1{
@@ -83,17 +84,15 @@
 		background-color: #033058;
 		color: #fff;
 	}
-	
-	.answers {
-		padding:0;
-		margin: 0;
+	.left {
+		float: left;
 	}
-	
-	.answers button {
-		width:100%;
-		max-width: 19em;
+
+	.right {
+		float: right;
 	}
-	
+
+		
 	.answer {
 		border-radius:0.5em;
 		font-size: 1.2em;
@@ -102,10 +101,12 @@
 		text-align: center;
 		cursor: pointer;
 		border:none;
-		margin: 0.5em;
 		float: left;
 		display: block;
+		width: 48%;
+		margin: 3px;;
 	}
+	
 	
 	.content {
 		margin: auto;
@@ -115,15 +116,22 @@
 	}
 	
 	.questionFooter {
-		padding: 1em 2em 1em 1em;
 		height: auto;
 		clear: both;
+		padding-top: 2em;
 	}
+
 	.remainingTime {
-		width: 50%;
-		float:left;
+	width:50%;
+	margin:0;
+	padding:0;
 	}
-	
+	.continue {
+	width:50%;
+	margin:0;
+	padding:0;
+	}
+		
 	.remainingTime meter{
 		width: 100%;
 	}
@@ -131,15 +139,9 @@
 		font-weight: lighter;
 		font-size: 1.2em;
 	}
-	.continue {
-		width: 50%;
-		padding-top: 1em;
-		float:right;
-	}
-	
+
 	.continue button {
-		width: 100%;
-		max-width: 10em;
+		width: 50%;
 		float:right;
 	}
 	
@@ -215,28 +217,63 @@
 		height: auto;
 		width: 100%;
 	}
-	
+
 	.inputLabelGroup label {
-		width: 50%;
+		width: 35%;
+		font-size: 1.2em;
 	}
 	.inputLabelGroup input,select {
 		float:right;
-		width: 50%;
-		font-size: 1em;
+		width: 65%;
+		font-size: 1.2em;
+		font-weight: lighter;
 	}
-		
-	.registersection {
-		width: 50%;
+	
+	#regSection {
+		width: 45%;
+		max-width: 800px;
 		min-width: 420px;
 		margin: 0 auto;
 		overflow: auto;
+		clear:both;
+	}
+	#regSection p {
+		display: block; 
+		width:100%;
+		text-align: center;
+		clear: both;
 	}
 
 	#submitbuton {
 		float: right;
 		clear: both;
+		margin: 0.5em;
 	}
 	
     
+	/* http://www.paulirish.com/2012/box-sizing-border-box-ftw/ */
+	*, *:before, *:after {
+	  -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box;
+	 }
+	 
+	/* MEDIA QUERIES */
+	@media screen and (max-width: 32em) {
+	#regSection label,
+	#regSection input,
+	#regSection select,
+	#regSection {
+		width: 100% !important;
+		min-width: 0 !important;
+		margin: 0 !important;
+	}
+	
+	.left, .right {
+		float: none;
+		width: 100%;
+	}
 
+	.left button, .right button {
+		width: 100%;
+	}
+}
     
