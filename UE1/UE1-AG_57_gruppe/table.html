@@ -5,6 +5,39 @@
 	<meta charset="UTF-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
 	<link rel="stylesheet" type="text/css" href="styles/screen.css" />
+	<script type="text/javascript" src="js/jquery.js"></script>
+    <script type="text/javascript">
+		var timeleft,interval;
+		var timeleftSec;
+		function decr() {
+			if (timeleft <= 0) {
+				timeleft=30;
+			}
+			$("#timemeter").val(timeleft);
+			timeleft-=0.05;
+		}
+
+		function decrSec() {
+			if (timeleftSec <= 0) {
+				timeleftSec=30;
+			}
+			timeleftSec-=1;
+			if (timeleftSec<10) {
+				$("#sec").html("00:0"+timeleftSec);
+			} else {
+				$("#sec").html("00:"+timeleftSec);
+			}
+		}
+		
+		$(document).ready(function() {
+			timeleft=30;
+			timeleftSec=30;
+			interval=setInterval(function(){decr()},50);
+			interval=setInterval(function(){decrSec()},1000);
+		});
+		
+		
+	</script>
 	<title>Business Informatics Group Quiz</title>
 </head>
 
@@ -46,8 +79,8 @@
 		</div>
 		<div class="questionFooter">
 			<div class="remainingTime left" id="remainingTime">
-				<p>Verbleibende Zeit: 00:19</p>
-				<meter min="0" max="30" value="25"></meter>
+				<p>Verbleibende Zeit: <span id="sec">00:30</p>
+				<meter id="timemeter" min="0" max="30" value="25"></meter>
 				<p>Letzes Spiel: nie</p>
 			</div>
 			<div class="continue right">
