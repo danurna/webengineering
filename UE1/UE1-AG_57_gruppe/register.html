@@ -1,9 +1,76 @@
+<?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE html>
-<html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="de" lang="de">
 <head>
-<meta charset="UTF-8">
-<link rel="stylesheet" type="text/css" href="./styles/screen.css">
-<title>Business Informatics Group Quiz</title>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+	<script type="text/javascript" src="js/jquery.js"></script>
+	<script type="text/javascript" src="js/framework.js"></script>
+	<script type="text/javascript">
+		//Vorname (optionales Feld): Keine Einschränkungen
+		function validateFirstname(selector) {
+			'use strict';
+			var input = $(selector).val();
+			return [true, input];
+		}
+
+		//Nachname (optionales Feld): Keine Einschränkungen
+		function validateLastname(selector) {
+			'use strict';
+			var input = $(selector).val();
+			return [true, input];
+		}
+
+		//Geburtstag (optionales Feld): Überprüfen Sie, ob es sich bei der Eingabe um ein gültiges Geburtsdatum handelt
+		function validateBirthdate(selector) {
+			'use strict';
+			var dateString, dateArray, dateYear, dateMonth, dateDay, date, today;
+			//Sanatize input
+			dateString = getNormalizedDateString(selector);
+			dateArray = dateString.split('.');
+			if (dateArray.length === 3) {
+				//Create date instance
+				dateYear = dateArray[2];
+				dateMonth = dateArray[1] - 1;
+				dateDay = dateArray[0];
+				date = new Date(dateYear, dateMonth, dateDay);
+				//Check if input has been valid
+				if (date.getDate() === dateDay && date.getMonth() === dateMonth && date.getFullYear() === dateYear) {
+					//Create date instance for today 00:00
+					today = new Date();
+					today = new Date(today.getFullYear(), today.getMonth(), today.getDate());
+					//Compare with current date
+					if (date < today) {
+						return [true, dateString];
+					}
+					return [false, 'Please enter a birthdate that is in the past.'];
+				}
+			}
+			return [false, 'Please enter a birthdate in format dd.mm.yyyy (e.g. 24.12.2012).'];
+		}
+
+		//Benutzername (verpflichtendes Feld): Mindestlänge von 4 Zeichen und Maximallänge von 8 Zeichen
+		function validateUsername(selector) {
+			'use strict';
+			var input = $(selector).val();
+			if (input.length >= 4 && input.length <= 8) {
+				return [true, input];
+			}
+			return [false, 'Please enter an username which is 4 to 8 characters long.'];
+		}
+
+		//Passwort (verpflichtendes Feld): Mindestlänge von 4 Zeichen und Maximallänge von 8 Zeichen
+		function validatePassword(selector) {
+			'use strict';
+			var input = $(selector).val();
+			if (input.length >= 4 && input.length <= 8) {
+				return [true, input];
+			}
+			return [false, 'Please enter a password which is 4 to 8 characters long.'];
+		}
+	</script>
+	<link rel="stylesheet" type="text/css" href="styles/screen.css" />
+	<title>Business Informatics Group Quiz</title>
 </head>
 
 <body>
@@ -15,12 +82,12 @@
 		</nav>
 	</header>
 	
-	<section class="registersection floating">
+	<section id="regSection">
 		<form name="register">
-			<h2>Pers&ouml;nliche Daten</h2>
-			<div class="inputLabelGroup floating">
+			<h1>Persönliche Daten</h1>
+			<div class="inputLabelGroup">
 				<label for="vorname">Vorname:</label>
-				<input type="text" id="vorname" />
+				<input type="text" id="vorname" autofocus=""/>
 			</div>
 			<div class="inputLabelGroup">
 				<label for="nachname">Nachname:</label>
@@ -37,25 +104,25 @@
 						<option>Weiblich</option>
 				</select>
 			</div>
-			<h2>Login Daten</h2>
+			<h1>Login Daten</h1>
 			<div class="inputLabelGroup">
-				<label for="benutzername">Benutzername&#42;:</label>
+				<label for="benutzername">Benutzername*:</label>
 				<input type="text" id="benutzername" />
 			</div>
 			<div class="inputLabelGroup">
-				<label for="passwort">Passwort&#42;:</label>
+				<label for="passwort">Passwort*:</label>
 				<input type="password" id="passwort" />
 			</div>
 			<div id="submitbuton">
-			<button  class="button green" type="submit">
+			<button  class="button grey green" type="submit">
 				<span>Registrieren</span>
 			</button></div>
 		</form>
-		<p>Mit &#42; gekennzeichnete Felder sind Pflichfelder</p>
+		<p>Mit * gekennzeichnete Felder sind Pflichfelder</p>
 	</section>
 	
 	<footer class = "content">
-		<p>&copy; 2014 BIG Quiz</p>
+		<p>© 2014 BIG Quiz</p>
 	</footer>
 
 </body>

@@ -1,9 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE html>
-<html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="de" lang="de">
 <head>
-<meta charset="UTF-8">
-<link rel="stylesheet" type="text/css" href="./styles/screen.css">
-<title>Business Informatics Group Quiz</title>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+	<link rel="stylesheet" type="text/css" href="styles/screen.css" />
+	<script type="text/javascript" src="js/jquery.js"></script>
+    <script type="text/javascript">
+		var timeleft,interval;
+		var timeleftSec;
+		function decr() {
+			if (timeleft <= 0) {
+				timeleft=30;
+			}
+			$("#timemeter").val(timeleft);
+			timeleft-=0.05;
+		}
+
+		function decrSec() {
+			if (timeleftSec <= 0) {
+				timeleftSec=30;
+			}
+			timeleftSec-=1;
+			if (timeleftSec<10) {
+				$("#sec").html("00:0"+timeleftSec);
+			} else {
+				$("#sec").html("00:"+timeleftSec);
+			}
+		}
+		
+		$(document).ready(function() {
+			timeleft=30;
+			timeleftSec=30;
+			interval=setInterval(function(){decr()},50);
+			interval=setInterval(function(){decrSec()},1000);
+		});
+		
+		
+	</script>
+	<title>Business Informatics Group Quiz</title>
 </head>
 
 <body>
@@ -24,7 +59,7 @@
 					<li class="scorepoint notanswered"></li>
 					<li class="scorepoint yes"></li>
 					<li class="scorepoint no"></li>
-				<ul>
+				</ul>
 			</div>
 			<div class="player2">
 				<h3>Player2</h3>
@@ -32,30 +67,30 @@
 					<li class="scorepoint notanswered"></li>
 					<li class="scorepoint yes"></li>
 					<li class="scorepoint no"></li>
-				<ul>
+				</ul>
 			</div>
 		</div>
 		<h1 class="question" >Welche zwei LVAs werden im Modul EWA zusammengefasst?</h1>
 		<div class="answers">
-			<button type="button" class="answer unselected"><span>IT-Strategie</span></button>
-			<button type="button" class="answer selected"><span>Web Engineering</span></button>
-			<button type="button" class="answer selected"><span>Semistrukturierte Daten</span></button>
-			<button type="button" class="answer unselected"><span>Objektorientierte Modellierung</span></button>
+			<button type="button" class="answer unselected left"><span>IT-Strategie</span></button>
+			<button type="button" class="answer selected right"><span>Web Engineering</span></button>
+			<button type="button" class="answer selected left"><span>Semistrukturierte Daten</span></button>
+			<button type="button" class="answer unselected right"><span>Objektorientierte Modellierung</span></button>
 		</div>
 		<div class="questionFooter">
-			<div class="remainingTime" id="remainingTime">
-				<p>Verbleibende Zeit: 00:19</p>
-				<meter min="0" max="30" value="25"></meter>
+			<div class="remainingTime left" id="remainingTime">
+				<p>Verbleibende Zeit: <span id="sec">00:30</p>
+				<meter id="timemeter" min="0" max="30" value="25"></meter>
 				<p>Letzes Spiel: nie</p>
 			</div>
-			<div class="continue">
+			<div class="continue right">
 				<button class="button green" type="button"><span>Weiter</span></button>
 			</div>
 		</div>
 	</section>
 	
 	<footer class = "content">
-		<p>&copy; 2014 BIG Quiz</p>
+		<p>© 2014 BIG Quiz</p>
 	</footer>
 
 </body>
