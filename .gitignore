@@ -1,5 +1,8 @@
 *.sublime_project
 *.sublime_workspace
+*.class
+target/
 .settings/
 .project
 .classpath
+
