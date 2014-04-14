@@ -6,17 +6,17 @@ Done
 #### Was soll getan werden?
 - Eigene Quiz API
 - Trennung von:
-* Logik (API)
-* UI (JSP)
-* Spielflusskontrolle (Servlet)
-* Daten (Java Beans)
-- Seitenfluss
-- Spielablauf
-- Computergegner
-- Gleichzeitiges Spielen
-- Dynamische Inhalte
-- Local Storage
-- Standards und Barrierefreiheit
-- NICHT Registrierung und Login!
+  * Logik (API)
+  * UI (JSP)
+  * Spielflusskontrolle (Servlet)
+  * Daten (Java Beans)
+1. Seitenfluss
+2. Spielablauf
+3. Computergegner
+4. Gleichzeitiges Spielen
+5. Dynamische Inhalte
+6. Local Storage
+7. Standards und Barrierefreiheit
+8. NICHT Registrierung und Login!
 
 Gewünscht ist eine MVC-basierte Web Applikation (Folie 52, M4-HTTP_Servlets_JSP.pdf).
