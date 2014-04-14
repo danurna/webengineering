@@ -14,12 +14,15 @@ import javax.servlet.http.HttpServletResponse;
 public class BigQuizServlet extends HttpServlet{
     private static final long serialVersionUID = -2708561549069343716L;
 
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp)
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException
         {
-            resp.setContentType("text/html);charset=UTF-8");
-            PrintWriter out = resp.getWriter();
-            out.println("<html><body><h1>Hello "+ req.getParameter("userName") +"! Big Quiz Serlvet here!</h1></body></html>");
+            if( request.getParameter("action").equals("start") ){
+                response.setContentType("text/html;charset=UTF-8");
+                PrintWriter out = response.getWriter();
+                out.println("<html><body><h1>Start! Big Quiz Servlet here!</h1></body></html>");
+            }
+            
         }
     
 }
