@@ -1,15 +1,15 @@
 webengineering
 ==============
-# Übung 1
+### Übung 1
 Done
-# Übung 2
-## Was soll getan werden?
+### Übung 2
+#### Was soll getan werden?
 - Eigene Quiz API
 - Trennung von:
--- Logik (API)
--- UI (JSP)
--- Spielflusskontrolle (Servlet)
--- Daten (Java Beans)
+* Logik (API)
+* UI (JSP)
+* Spielflusskontrolle (Servlet)
+* Daten (Java Beans)
 - Seitenfluss
 - Spielablauf
 - Computergegner
