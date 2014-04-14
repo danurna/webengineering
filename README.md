@@ -20,3 +20,6 @@ Done
 8. NICHT Registrierung und Login!
 
 Gewünscht ist eine MVC-basierte Web Applikation (Folie 52, M4-HTTP_Servlets_JSP.pdf).
+
+![MVC Web App](http://images.techhive.com/images/idge/imported/article/jvw/1999/12/model2_sml-100158072-orig.gif "MVC Web App")
+Quelle: http://www.javaworld.com/article/2076557/java-web-development/understanding-javaserver-pages-model-2-architecture.html
