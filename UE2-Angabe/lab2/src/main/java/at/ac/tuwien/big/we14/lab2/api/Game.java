@@ -14,13 +14,13 @@ import java.util.List;
  */
 public interface Game {
     
-    void setPlayers(List<Player> players);
-    List<Player> getPlayers();
-    Player getPlayer(int index);
+    public void setPlayers(List<Player> players);
+    public List<Player> getPlayers();
+    public Player getPlayer(int index);
 
-    void setRounds(List<Round> rounds);
-    List<Round> getRounds();
+    public void setRounds(List<Round> rounds);
+    public List<Round> getRounds();
     
-    void increaseRoundNumber();
-    int getCurrentRoundNumber();
+    public void increaseRoundNumber();
+    public int getCurrentRoundNumber();
 }

@@ -18,9 +18,13 @@ public interface Player {
     public void setRoundAnswer(int index, boolean correct);
     public Boolean getRoundAnswer(int index);
     public Boolean[] getRoundAnswers();
-	public void setRoundAnswers(Boolean[] roundAnswers);
-	
-	public int getWonRounds();
-	public void setWonRounds(int wonRounds);
+    public void setRoundAnswers(Boolean[] roundAnswers);
+
+    public int getWonRounds();
+    public void setWonRounds(int wonRounds);
     
+    public void setRoundAnswerTime(int index, int time);
+    public int getRoundAnswerTime(int index);
+    public Integer[] getRoundAnswerTimes();
+    public void setRoundAnswerTimes(Integer[] roundAnswerTimes);
 }

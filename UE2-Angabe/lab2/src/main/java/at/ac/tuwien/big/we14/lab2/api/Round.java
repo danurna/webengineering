@@ -14,13 +14,12 @@ import java.util.List;
  */
 public interface Round {
        
+    public void setCategory(Category category);
+    public Category getCategory();
     
-    void setCategory(Category category);
-    Category getCategory();
+    public void setQuestions(List<Question> questions);
+    public List<Question> getQuestions();
     
-    void setQuestions(List<Question> questions);
-    List<Question> getQuestions();
-    
-    void increaseQuestionNumber();
-    int getCurrentQuestionNumber();
+    public void increaseQuestionNumber();
+    public int getCurrentQuestionNumber();
 }
