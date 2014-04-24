@@ -104,7 +104,7 @@ public class SimpleQuestion implements Question {
 	}
 
 	@Override
-	public List<Choice> getCorrectChoices() {
+	public List<Choice> getCorrectChoices() {      
 		return correctChoices;
 	}
 

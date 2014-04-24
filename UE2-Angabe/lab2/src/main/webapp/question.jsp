@@ -1,4 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"  pageEncoding="UTF-8"%>
+<%@page import="at.ac.tuwien.big.we14.lab2.api.Question"%>
+<%@page import="at.ac.tuwien.big.we14.lab2.api.Round"%>
+<%@page import="at.ac.tuwien.big.we14.lab2.api.Game"%>
 <jsp:useBean id="game" scope="session" class="at.ac.tuwien.big.we14.lab2.api.impl.SimpleGame" />
 <?xml version="1.0" encoding="UTF-8"?>
 <%!
@@ -15,9 +18,10 @@
 		}
 		
 	}
-
-	Round currentRound = game.getRounds().get( game.getRounds.getCurrentRoundNumber() );
-	Question currentQuestion = currentRound.getQuestions().get( currentRound.getCurrentQuestionNumber() );
+%>
+<% 
+Round currentRound = game.getRounds().get( game.getCurrentRoundNumber() );
+Question currentQuestion = currentRound.getQuestions().get( currentRound.getCurrentQuestionNumber() ); 
 %>
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="de" lang="de">

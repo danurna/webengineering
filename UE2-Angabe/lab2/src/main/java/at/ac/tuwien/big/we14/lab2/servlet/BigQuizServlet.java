@@ -17,11 +17,16 @@ import javax.servlet.http.HttpSession;
 import at.ac.tuwien.big.we14.lab2.api.Category;
 import at.ac.tuwien.big.we14.lab2.api.Game;
 import at.ac.tuwien.big.we14.lab2.api.Player;
+import at.ac.tuwien.big.we14.lab2.api.Question;
 import at.ac.tuwien.big.we14.lab2.api.QuestionDataProvider;
 import at.ac.tuwien.big.we14.lab2.api.QuizFactory;
+import at.ac.tuwien.big.we14.lab2.api.Round;
 import at.ac.tuwien.big.we14.lab2.api.impl.ServletQuizFactory;
+import at.ac.tuwien.big.we14.lab2.api.impl.SimpleCategory;
 import at.ac.tuwien.big.we14.lab2.api.impl.SimpleGame;
 import at.ac.tuwien.big.we14.lab2.api.impl.SimplePlayer;
+import at.ac.tuwien.big.we14.lab2.api.impl.SimpleQuestion;
+import at.ac.tuwien.big.we14.lab2.api.impl.SimpleRound;
 
 @WebServlet(name = "BigQuiz", urlPatterns = { "/BigQuizServlet" })
 public class BigQuizServlet extends HttpServlet {
@@ -80,10 +85,28 @@ public class BigQuizServlet extends HttpServlet {
 		players.add(test);
 		players.add(computer);
 		
+	        Category cat = new SimpleCategory();
+	        cat.setName("TestCat");
+	        
+	        List<Question> questionList = new ArrayList<Question>();
+		Question question = new SimpleQuestion();
+		question.setCategory(cat);
+		question.setId(1);
+		question.setMaxTime(20);
+		question.setText("my test questionlololo");
+		questionList.add(question);
 		
+		Round firstRound = new SimpleRound();
+		firstRound.setCategory(cat);
+		firstRound.setQuestions(questionList);
+		
+                List<Round> rounds = new ArrayList<Round>();
+                rounds.add(firstRound);
+                
 		Game game = new SimpleGame();
 		game.setPlayers(players);
 		
+		game.setRounds(rounds);
 		
 		session.setAttribute("game", game);
 		
