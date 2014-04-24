@@ -13,8 +13,14 @@ import java.util.List;
  * Represents a quiz game round
  */
 public interface Round {
+       
     
-    // Kategorie, 1
-    // Fragen, liste
-    //
+    void setCategory(Category category);
+    Category getCategory();
+    
+    void setQuestions(List<Question> questions);
+    List<Question> getQuestions();
+    
+    void increaseQuestionNumber();
+    int getCurrentQuestionNumber();
 }

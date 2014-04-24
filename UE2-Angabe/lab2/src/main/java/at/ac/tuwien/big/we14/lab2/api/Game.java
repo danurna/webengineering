@@ -14,8 +14,13 @@ import java.util.List;
  */
 public interface Game {
     
-    // Runden, liste
-    // Spieler, 2
-    //
+    void setPlayers(List<Player> players);
+    List<Player> getPlayers();
+    Player getPlayer(int index);
+
+    void setRounds(List<Round> rounds);
+    List<Round> getRounds();
     
+    void increaseRoundNumber();
+    int getCurrentRoundNumber();
 }

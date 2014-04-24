@@ -21,7 +21,10 @@ import at.ac.tuwien.big.we14.lab2.api.impl.ServletQuizFactory;
 @WebServlet(name ="BigQuiz", urlPatterns = { "/BigQuizServlet" })
 public class BigQuizServlet extends HttpServlet{
     private static final long serialVersionUID = -2708561549069343716L;
-
+    final static int maxRounds = 5;
+    final static int maxQuestions = 3; 
+    
+    
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException
         {
