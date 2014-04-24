@@ -1,8 +1,12 @@
 package at.ac.tuwien.big.we14.lab2.api.impl;
 
+import java.io.Serializable;
+
 import at.ac.tuwien.big.we14.lab2.api.Player;
 
-public class SimplePlayer implements Player {
+public class SimplePlayer implements Player, Serializable {
+
+    private static final long serialVersionUID = 1558555175093514257L;
     private String name;
     // Stores true, false or null (if unknown).
     private Boolean[] roundAnswers;
