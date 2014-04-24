@@ -7,15 +7,20 @@
  */
 package at.ac.tuwien.big.we14.lab2.api;
 
-import java.util.List;
-
 /**
  * Represents a quiz game round
  */
 public interface Player {
-    private String name;
-    // Stores true, false or null (if unknown).
-    private Boolean[] roundAnswers;
-    private int wonRounds;
+    
+    public String getName();
+    public void setName(String name);
+    
+    public void setRoundAnswer(int index, boolean correct);
+    public Boolean getRoundAnswer(int index);
+    public Boolean[] getRoundAnswers();
+	public void setRoundAnswers(Boolean[] roundAnswers);
+	
+	public int getWonRounds();
+	public void setWonRounds(int wonRounds);
     
 }
