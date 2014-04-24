@@ -1,5 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"  pageEncoding="UTF-8"%>
 <jsp:useBean id="quiz" scope="session" class="at.ac.tuwien.big.we14.lab2.api.impl.SimpleQuiz" />
+<%@page import="at.ac.tuwien.big.we14.lab2.api.Question"%>
+<%@page import="at.ac.tuwien.big.we14.lab2.api.Round"%>
+<%@page import="at.ac.tuwien.big.we14.lab2.api.Quiz"%>
+
 <?xml version="1.0" encoding="UTF-8"?>
 <%!
 
@@ -17,7 +21,7 @@
 	}
 %>
 <%
-	Round currentRound = quiz.getRounds().get( quiz.getRounds.getCurrentRoundNumber() );
+	Round currentRound = quiz.getRounds().get( quiz.getCurrentRoundNumber() );
 	Question currentQuestion = currentRound.getQuestions().get( currentRound.getCurrentQuestionNumber() );
 %>
 <!DOCTYPE html>
