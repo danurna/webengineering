@@ -12,6 +12,7 @@ public class SimplePlayer implements Player {
 
     public SimplePlayer() {
         roundAnswers = new Boolean[3];
+        roundAnswerTimes = new Integer[3];
     }
 
     public String getName() {
