@@ -2,6 +2,7 @@ package at.ac.tuwien.big.we14.lab2.servlet;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
 
@@ -15,19 +16,23 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import at.ac.tuwien.big.we14.lab2.api.Category;
-import at.ac.tuwien.big.we14.lab2.api.Game;
 import at.ac.tuwien.big.we14.lab2.api.Player;
+import at.ac.tuwien.big.we14.lab2.api.Question;
 import at.ac.tuwien.big.we14.lab2.api.QuestionDataProvider;
+import at.ac.tuwien.big.we14.lab2.api.Quiz;
 import at.ac.tuwien.big.we14.lab2.api.QuizFactory;
+import at.ac.tuwien.big.we14.lab2.api.Round;
 import at.ac.tuwien.big.we14.lab2.api.impl.ServletQuizFactory;
-import at.ac.tuwien.big.we14.lab2.api.impl.SimpleGame;
 import at.ac.tuwien.big.we14.lab2.api.impl.SimplePlayer;
+import at.ac.tuwien.big.we14.lab2.api.impl.SimpleQuiz;
+import at.ac.tuwien.big.we14.lab2.api.impl.SimpleRound;
 
 @WebServlet(name = "BigQuiz", urlPatterns = { "/BigQuizServlet" })
 public class BigQuizServlet extends HttpServlet {
 	private static final long serialVersionUID = -2708561549069343716L;
-	final static int maxRounds = 5;
-	final static int maxQuestions = 3;
+	private final static int maxRounds = 5;
+	private final static int maxQuestions = 3;
+	private final static int maxPlayers = 2;
 
 	protected void doGet(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
@@ -39,7 +44,7 @@ public class BigQuizServlet extends HttpServlet {
 
 		switch (actionParam) {
 		case "start":
-			startNewGame(request, response);
+			startNewQuiz(request, response);
 			break;
 
 		case "nextQuestion":
@@ -66,27 +71,45 @@ public class BigQuizServlet extends HttpServlet {
 		}
 	}
 
-	private void startNewGame(HttpServletRequest request,
+	private void startNewQuiz(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session = request.getSession(true);
 		ServletContext context = getServletContext();
 		RequestDispatcher dispatcher = context.getRequestDispatcher("/question.jsp");
 		
-		Player test = new SimplePlayer();
+		Quiz quiz = new SimpleQuiz();
+		Player test = new SimplePlayer(), computer = new SimplePlayer();
+		List<Player> players = new ArrayList<Player>(maxPlayers);
+		
+		List<Round> rounds = new ArrayList<Round>(maxRounds);
+		
+		
 		test.setName("Test");
-		Player computer = new SimplePlayer();
-		computer.setName("Computer");
-		List<Player> players = new ArrayList<Player>();
 		players.add(test);
+
+		computer.setName("Computer");
 		players.add(computer);
 		
+		quiz.setPlayers(players);
 		
-		Game game = new SimpleGame();
-		game.setPlayers(players);
+		List<Category> categories = ServletQuizFactory.init(context).
+				createQuestionDataProvider().loadCategoryData();
+		
+		categories = categories.subList(0, maxRounds);
+		for (Category category : categories) {
+			Round round = new SimpleRound();
+			round.setCategory(category);
+			List<Question> questions = category.getQuestions();
+			questions = questions.subList(0, maxQuestions);
+			round.setQuestions(questions);
+			rounds.add(round);
+		}
 		
 		
-		session.setAttribute("game", game);
+		quiz.setRounds(rounds);
 		
+		
+		session.setAttribute("quiz", quiz);
 		dispatcher.forward(request, response);
 	}
 

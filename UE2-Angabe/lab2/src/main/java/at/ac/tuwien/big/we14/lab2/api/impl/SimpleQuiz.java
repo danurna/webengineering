@@ -3,11 +3,11 @@ package at.ac.tuwien.big.we14.lab2.api.impl;
 import java.io.Serializable;
 import java.util.List;
 
-import at.ac.tuwien.big.we14.lab2.api.Game;
+import at.ac.tuwien.big.we14.lab2.api.Quiz;
 import at.ac.tuwien.big.we14.lab2.api.Player;
 import at.ac.tuwien.big.we14.lab2.api.Round;
 
-public class SimpleGame implements Game, Serializable {
+public class SimpleQuiz implements Quiz, Serializable {
     private static final long serialVersionUID = -6592136359294992222L;
     private List<Player> playerList;
     private List<Round> roundList;

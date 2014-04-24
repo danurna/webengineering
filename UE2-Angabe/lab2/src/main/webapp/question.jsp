@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"  pageEncoding="UTF-8"%>
-<jsp:useBean id="game" scope="session" class="at.ac.tuwien.big.we14.lab2.api.impl.SimpleGame" />
+<jsp:useBean id="quiz" scope="session" class="at.ac.tuwien.big.we14.lab2.api.impl.SimpleQuiz" />
 <?xml version="1.0" encoding="UTF-8"?>
 <%!
 
@@ -15,8 +15,9 @@
 		}
 		
 	}
-
-	Round currentRound = game.getRounds().get( game.getRounds.getCurrentRoundNumber() );
+%>
+<%
+	Round currentRound = quiz.getRounds().get( quiz.getRounds.getCurrentRoundNumber() );
 	Question currentQuestion = currentRound.getQuestions().get( currentRound.getCurrentQuestionNumber() );
 %>
 <!DOCTYPE html>
@@ -46,10 +47,10 @@
                 <% for (int i = 0; i < 2; i++) { %>
                 
                 <div id="player<%= i+1 %>info">
-                    <span id="player<%= i+1 %>name"><%= game.getPlayer(i).getName() %></span>
+                    <span id="player<%= i+1 %>name"><%= quiz.getPlayer(i).getName() %></span>
                     <ul class="playerroundsummary">
                     <% for (int j = 0; j < 3; j++) { %>
-                        <li><span class="accessibility">Frage <%= j+1 %>:</span><span id="player<%= i+1 %>answer<%= j+1 %>" class="<%=  getAnswerString(game.getPlayer(i).getRoundAnswer(j), "class") %>"><%=  getAnswerString(game.getPlayer(i).getRoundAnswer(j), "desc") %></span></li>
+                        <li><span class="accessibility">Frage <%= j+1 %>:</span><span id="player<%= i+1 %>answer<%= j+1 %>" class="<%=  getAnswerString(quiz.getPlayer(i).getRoundAnswer(j), "class") %>"><%=  getAnswerString(quiz.getPlayer(i).getRoundAnswer(j), "desc") %></span></li>
                   	<% } %>
                     </ul>
                 </div>

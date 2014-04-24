@@ -12,7 +12,7 @@ import java.util.List;
 /**
  * Represents a quiz game
  */
-public interface Game {
+public interface Quiz {
     
     public void setPlayers(List<Player> players);
     public List<Player> getPlayers();
