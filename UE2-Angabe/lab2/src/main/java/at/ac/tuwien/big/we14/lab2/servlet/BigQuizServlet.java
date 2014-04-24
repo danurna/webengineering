@@ -31,18 +31,31 @@ public class BigQuizServlet extends HttpServlet{
             if( request.getParameter("action").equals("start") ){
                 response.setContentType("text/html;charset=UTF-8");
                 PrintWriter out = response.getWriter();
-                out.println("<html><body><h1>Start! Big Quiz Servlet here!</h1></body></html>");
-            
-                ServletContext servletContext = getServletContext();
-                QuizFactory factory = ServletQuizFactory.init(servletContext); 
-                QuestionDataProvider provider = factory.createQuestionDataProvider();
-                List<Category> categories = provider.loadCategoryData();
-                for( Iterator<Category> it = categories.iterator(); it.hasNext(); ){
-                    System.out.println(it.next());
-                }
-                
+                out.println("<html><body><h1>Start! Big Quiz Servlet here!</h1></body></html>");     
             }
             
         }
+    
+    private void printList(){
+        ServletContext servletContext = getServletContext();
+        QuizFactory factory = ServletQuizFactory.init(servletContext); 
+        QuestionDataProvider provider = factory.createQuestionDataProvider();
+        List<Category> categories = provider.loadCategoryData();
+        for( Iterator<Category> it = categories.iterator(); it.hasNext(); ){
+            System.out.println(it.next());
+        }   
+    }
+    
+    private void startNewGame(){
+        
+    }
+    
+    private void showNextQuestions(){
+        
+    }
+    
+    private void showNextRound(){
+        
+    }
     
 }
