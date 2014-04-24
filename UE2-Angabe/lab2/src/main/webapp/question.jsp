@@ -1,4 +1,24 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"  pageEncoding="UTF-8"%>
+<jsp:useBean id="game" scope="session" class="at.ac.tuwien.big.we14.lab2.api.impl.SimpleGame" />
 <?xml version="1.0" encoding="UTF-8"?>
+<%!
+
+	public String getAnswerString(Boolean answer, String type){
+		if( answer == null ) {
+			return (type.equals("class")) ? "unknown" : "Unbekannt";
+		}
+		
+		if( answer ) {
+			return (type.equals("class")) ? "correct" : "Richtig";
+		}else {
+			return (type.equals("class")) ? "incorrect" : "Falsch";
+		}
+		
+	}
+
+	Round currentRound = game.getRounds().get( game.getRounds.getCurrentRoundNumber() );
+	Question currentQuestion = currentRound.getQuestions().get( currentRound.getCurrentQuestionNumber() );
+%>
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="de" lang="de">
     <head>
@@ -23,23 +43,20 @@
         <section role="main">
             <section id="roundinfo" aria-labelledby="roundinfoheading">
                 <h2 id="roundinfoheading" class="accessibility">Spielerinformationen</h2>
-                <div id="player1info">
-                    <span id="player1name">Spieler 1</span>
+                <% for (int i = 0; i < 2; i++) { %>
+                
+                <div id="player<%= i+1 %>info">
+                    <span id="player<%= i+1 %>name"><%= game.getPlayer(i).getName() %></span>
                     <ul class="playerroundsummary">
-                        <li><span class="accessibility">Frage 1:</span><span id="player1answer1" class="correct">Richtig</span></li>
-                        <li><span class="accessibility">Frage 2:</span><span id="player1answer2" class="incorrect">Falsch</span></li>
-                        <li><span class="accessibility">Frage 3:</span><span id="player1answer3" class="unknown">Unbekannt</span></li>
+                    <% for (int j = 0; j < 3; j++) { %>
+                        <li><span class="accessibility">Frage <%= j+1 %>:</span><span id="player<%= i+1 %>answer<%= j+1 %>" class="<%=  getAnswerString(game.getPlayer(i).getRoundAnswer(j), "class") %>"><%=  getAnswerString(game.getPlayer(i).getRoundAnswer(j), "desc") %></span></li>
+                  	<% } %>
                     </ul>
                 </div>
-                <div id="player2info">
-                    <span id="player2name">Spieler 2</span>
-                    <ul class="playerroundsummary">
-                        <li><span class="accessibility">Frage 1:</span><span id="player2answer1" class="correct">Richtig</span></li>
-                        <li><span class="accessibility">Frage 2:</span><span id="player2answer2" class="correct">Richtig</span></li>
-                        <li><span class="accessibility">Frage 3:</span><span id="player2answer3" class="unknown">Unbekannt</span></li>
-                    </ul>
-                </div>
-                <div id="currentcategory"><span class="accessibility">Kategorie:</span> Sport</div>
+                
+                <% } %>
+                
+                <div id="currentcategory"><span class="accessibility">Kategorie:</span><%= currentRound.getCategory().getName() %></div>
             </section>
             
             <!-- Question -->
@@ -47,7 +64,7 @@
                 
                 <form id="questionform" action="question.html" method="post">
                     <h2 id="questionheading" class="accessibility">Frage</h2>
-                    <p id="questiontext">Welche zwei LVAs werden im Model EWA zusammengefasst?</p>
+                    <p id="questiontext"><%= currentQuestion.getText() %></p>
                     <ul id="answers">
                         <li><input id="option1" type="checkbox"/><label for="option1">IT Strategie</label></li>
                         <li><input id="option2" type="checkbox"/><label for="option2">Web Engineering</label></li>
