@@ -1,8 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"  pageEncoding="UTF-8"%>
 <jsp:useBean id="quiz" scope="session" class="at.ac.tuwien.big.we14.lab2.api.impl.SimpleQuiz" />
-<%@page import="at.ac.tuwien.big.we14.lab2.api.Question"%>
-<%@page import="at.ac.tuwien.big.we14.lab2.api.Round"%>
 <%@page import="at.ac.tuwien.big.we14.lab2.api.Quiz"%>
+<%@page import="at.ac.tuwien.big.we14.lab2.api.Round"%>
+<%@page import="at.ac.tuwien.big.we14.lab2.api.Question"%>
+<%@page import="at.ac.tuwien.big.we14.lab2.api.Choice"%>
+<%@page import="java.util.List"%>
 
 <?xml version="1.0" encoding="UTF-8"?>
 <%!
@@ -66,16 +68,16 @@
             
             <!-- Question -->
             <section id="question" aria-labelledby="questionheading">
-                
-                <form id="questionform" action="question.html" method="post">
+                <form id="questionform" action="BigQuizServlet" method="POST">
                     <h2 id="questionheading" class="accessibility">Frage</h2>
                     <p id="questiontext"><%= currentQuestion.getText() %></p>
                     <ul id="answers">
-                        <li><input id="option1" type="checkbox"/><label for="option1">IT Strategie</label></li>
-                        <li><input id="option2" type="checkbox"/><label for="option2">Web Engineering</label></li>
-                        <li><input id="option3" type="checkbox"/><label for="option3">Semistrukturierte Daten</label></li>
-                        <li><input id="option4" type="checkbox"/><label for="option4">Objektorientierte Modellierung</label></li>
+                    <% List<Choice> choices = currentQuestion.getAllChoices();
+                       for (Choice choice : choices ){ %>
+                    	<li><input id="option<%= choices.indexOf(choice)+1 %>" type="checkbox"/><label for="option<%= choices.indexOf(choice)+1 %>"><%= choice.getText() %></label></li>
+                    <% }  %>
                     </ul>
+                    <input type="hidden" name="action" value="nextQuestion" />
                     <input id="timeleftvalue" type="hidden" value="100"/>
                     <input id="next" type="submit" value="weiter" accesskey="s"/>
                 </form>
@@ -83,7 +85,7 @@
             
             <section id="timer" aria-labelledby="timerheading">
                 <h2 id="timerheading" class="accessibility">Timer</h2>
-                <p><span id="timeleftlabel">Verbleibende Zeit:</span> <time id="timeleft">00:30</time></p>
+                <p><span id="timeleftlabel">Verbleibende Zeit:</span> <time id="timeleft">undefined</time></p>
                 <meter id="timermeter" min="0" low="20" value="100" max="100"/>
             </section>
             
@@ -100,7 +102,7 @@
             
             // initialize time
             $(document).ready(function() {
-                var maxtime = 30;
+                var maxtime = <%= currentQuestion.getMaxTime() %>;
                 var hiddenInput = $("#timeleftvalue");
                 var meter = $("#timer meter");
                 var timeleft = $("#timeleft");
