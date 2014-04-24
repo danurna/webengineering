@@ -85,7 +85,7 @@ public class BigQuizServlet extends HttpServlet {
 		game.setPlayers(players);
 		
 		
-		
+		session.setAttribute("game", game);
 		
 		dispatcher.forward(request, response);
 	}
