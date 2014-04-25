@@ -16,8 +16,10 @@ public interface Quiz {
     
     public void setPlayers(List<Player> players);
     public List<Player> getPlayers();
+    public void setPlayer(int index, Player player);
     public Player getPlayer(int index);
 
+    public void setRound(int index, Round round);
     public void setRounds(List<Round> rounds);
     public List<Round> getRounds();
     

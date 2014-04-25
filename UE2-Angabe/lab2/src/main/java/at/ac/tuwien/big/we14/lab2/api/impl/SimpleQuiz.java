@@ -21,12 +21,20 @@ public class SimpleQuiz implements Quiz, Serializable {
         return playerList.get(index);
     }
     
+    public void setPlayer(int index, Player player){
+        playerList.set(index, player);
+    }
+    
     public void setPlayers(List<Player> players) {
         this.playerList = players;
     }
     
     public List<Round> getRounds() {
         return roundList;
+    }
+    
+    public void setRound(int index, Round round){
+        roundList.set(index, round);
     }
     
     public void setRounds(List<Round> rounds) {

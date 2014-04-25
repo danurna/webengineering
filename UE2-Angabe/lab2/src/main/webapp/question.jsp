@@ -68,17 +68,20 @@
             
             <!-- Question -->
             <section id="question" aria-labelledby="questionheading">
-                <form id="questionform" action="BigQuizServlet" method="POST">
+                <form id="questionform" action="BigQuizServlet" method="GET">
                     <h2 id="questionheading" class="accessibility">Frage</h2>
                     <p id="questiontext"><%= currentQuestion.getText() %></p>
                     <ul id="answers">
                     <% List<Choice> choices = currentQuestion.getAllChoices();
                        for (Choice choice : choices ){ %>
-                    	<li><input id="option<%= choices.indexOf(choice)+1 %>" type="checkbox"/><label for="option<%= choices.indexOf(choice)+1 %>"><%= choice.getText() %></label></li>
+                    	<li>
+                    		<input id="option<%= choices.indexOf(choice)+1 %>" name="option<%= choices.indexOf(choice)+1 %>" type="checkbox"/><label for="option<%= choices.indexOf(choice)+1 %>"><%= choice.getText() %></label>
+                    	    <input type="hidden" name="option<%= choices.indexOf(choice)+1 %>id"" value="<%= choice.getId() %>" />
+                    	</li>
                     <% }  %>
                     </ul>
                     <input type="hidden" name="action" value="nextQuestion" />
-                    <input id="timeleftvalue" type="hidden" value="100"/>
+                    <input id="timeleftvalue" name="timeleftvalue" type="hidden" value="100"/>
                     <input id="next" type="submit" value="weiter" accesskey="s"/>
                 </form>
             </section>
