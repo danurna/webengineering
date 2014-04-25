@@ -34,6 +34,8 @@ public class BigQuizServlet extends HttpServlet {
 	private final static int maxRounds = 5;
 	private final static int maxQuestions = 3;
 	private final static int maxPlayers = 2;
+	
+	private List<Category> quizData;
 
 	protected void doGet(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
@@ -73,7 +75,6 @@ public class BigQuizServlet extends HttpServlet {
 	}
 
 	private void redirectToStart(HttpServletResponse response) throws IOException {
-		System.out.println("redirect to start!");
 		response.sendRedirect("start.jsp");
 	}
 	
@@ -89,31 +90,32 @@ public class BigQuizServlet extends HttpServlet {
 	    return items.subList(0, m);
 	}
 	
+	private List<Category> getQuizData() {
+		if(quizData == null) {
+			ServletContext servletContext = getServletContext();
+			QuizFactory factory = ServletQuizFactory.init(servletContext);
+			QuestionDataProvider provider = factory.createQuestionDataProvider();
+			quizData = provider.loadCategoryData();
+		}
+		return quizData;
+	}
+	
 	private void startNewQuiz(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
-		HttpSession session = request.getSession(true);
-		ServletContext context = getServletContext();
-		RequestDispatcher dispatcher = context.getRequestDispatcher("/question.jsp");
 		
-		Quiz quiz = new SimpleQuiz();
-		Player test = new SimplePlayer(), computer = new SimplePlayer();
 		List<Player> players = new ArrayList<Player>(maxPlayers);
 		
-		List<Round> rounds = new ArrayList<Round>(maxRounds);
-		
-		
+		Player test = new SimplePlayer();
 		test.setName("Test");
 		players.add(test);
 
+		Player computer = new SimplePlayer();
 		computer.setName("Computer");
 		players.add(computer);
 		
-		quiz.setPlayers(players);
 		
-		List<Category> categories = randomSample(ServletQuizFactory.init(context).
-				createQuestionDataProvider().loadCategoryData(), maxRounds);
-		
-		for (Category category: categories) {
+		List<Round> rounds = new ArrayList<Round>(maxRounds);
+		for (Category category: getQuizData()) {
 			Round round = new SimpleRound();
 			
 			round.setCategory(category.getName());
@@ -123,16 +125,21 @@ public class BigQuizServlet extends HttpServlet {
 		}
 		
 		
+		Quiz quiz = new SimpleQuiz();
+
+		quiz.setPlayers(players);
 		quiz.setRounds(rounds);
 		
+		setSessionQuiz(quiz, request);
 		
-		session.setAttribute("quiz", quiz);
+		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/question.jsp");
 		dispatcher.forward(request, response);
 	}
 
 	private void showNextQuestion(HttpServletRequest request,
 			HttpServletResponse response) {
-		HttpSession session = request.getSession();
+		Quiz quiz = getSessionQuiz(request);
+		
 	}
 
 	private void showNextRound(HttpServletRequest request,
@@ -140,4 +147,16 @@ public class BigQuizServlet extends HttpServlet {
 
 	}
 
+	private void setSessionQuiz(Quiz quiz, HttpServletRequest request) {
+		//TODO herausfinden ob das mit der Session auch geht
+		
+		request.getSession().setAttribute("quiz", quiz);
+	}
+	
+	private Quiz getSessionQuiz(HttpServletRequest request) {
+		//TODO herausfinden ob das mit der Session auch geht
+		
+		return (Quiz) request.getSession().getAttribute("quiz");
+	}
+	
 }
