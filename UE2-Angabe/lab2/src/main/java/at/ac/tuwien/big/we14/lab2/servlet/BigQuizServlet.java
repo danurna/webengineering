@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Random;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletContext;
@@ -36,9 +37,19 @@ public class BigQuizServlet extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
+		actionHandler(request, response);
+	}
+	
+	protected void doPost(HttpServletRequest request,
+			HttpServletResponse response) throws ServletException, IOException {
+		actionHandler(request, response);
+	}
 
+	private void actionHandler(HttpServletRequest request,
+			HttpServletResponse response) throws ServletException, IOException {
 		String actionParam = request.getParameter("action");
 		if (actionParam == null) {
+			redirectToStart(response);
 			return;
 		}
 
@@ -56,21 +67,16 @@ public class BigQuizServlet extends HttpServlet {
 			break;
 
 		default:
+			redirectToStart(response);
 			return;
 		}
-
 	}
 
-	private void printList() {
-		ServletContext servletContext = getServletContext();
-		QuizFactory factory = ServletQuizFactory.init(servletContext);
-		QuestionDataProvider provider = factory.createQuestionDataProvider();
-		List<Category> categories = provider.loadCategoryData();
-		for (Iterator<Category> it = categories.iterator(); it.hasNext();) {
-			System.out.println(it.next());
-		}
+	private void redirectToStart(HttpServletResponse response) throws IOException {
+		System.out.println("redirect to start!");
+		response.sendRedirect("start.jsp");
 	}
-
+	
 	// Source: http://eyalsch.wordpress.com/2010/04/01/random-sample/
 	private static <T> List<T> randomSample(List<T> items, int m){
 	    Random rnd = new Random();
@@ -82,6 +88,7 @@ public class BigQuizServlet extends HttpServlet {
 	    }
 	    return items.subList(0, m);
 	}
+	
 	private void startNewQuiz(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session = request.getSession(true);
@@ -125,7 +132,7 @@ public class BigQuizServlet extends HttpServlet {
 
 	private void showNextQuestion(HttpServletRequest request,
 			HttpServletResponse response) {
-
+		HttpSession session = request.getSession();
 	}
 
 	private void showNextRound(HttpServletRequest request,
