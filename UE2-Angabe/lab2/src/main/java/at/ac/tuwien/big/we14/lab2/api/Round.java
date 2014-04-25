@@ -14,8 +14,8 @@ import java.util.List;
  */
 public interface Round {
        
-    public void setCategory(Category category);
-    public Category getCategory();
+    public void setCategory(String category);
+    public String getCategory();
     
     public void setQuestions(List<Question> questions);
     public List<Question> getQuestions();

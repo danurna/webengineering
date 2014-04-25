@@ -1,5 +1,7 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"  pageEncoding="UTF-8"%>
-<jsp:useBean id="quiz" scope="session" class="at.ac.tuwien.big.we14.lab2.api.impl.SimpleQuiz" />
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<jsp:useBean id="quiz" scope="session"
+	class="at.ac.tuwien.big.we14.lab2.api.impl.SimpleQuiz" />
 <%@page import="at.ac.tuwien.big.we14.lab2.api.Quiz"%>
 <%@page import="at.ac.tuwien.big.we14.lab2.api.Round"%>
 <%@page import="at.ac.tuwien.big.we14.lab2.api.Question"%>
@@ -63,7 +65,7 @@
                 
                 <% } %>
                 
-                <div id="currentcategory"><span class="accessibility">Kategorie:</span><%= currentRound.getCategory().getName() %></div>
+                <div id="currentcategory"><span class="accessibility">Kategorie:</span><%= currentRound.getCategory() %></div>
             </section>
             
             <!-- Question -->
@@ -91,16 +93,18 @@
                 <p><span id="timeleftlabel">Verbleibende Zeit:</span> <time id="timeleft">undefined</time></p>
                 <meter id="timermeter" min="0" low="20" value="100" max="100"/>
             </section>
-            
-            <section id="lastgame">
-                <p>Letztes Spiel: Nie</p>
-            </section>
-        </section>
 
-        <!-- footer -->
-        <footer role="contentinfo">© 2014 BIG Quiz</footer>
-        
-        <script type="text/javascript">
+		<section id="lastgame">
+			<p>
+				Letztes Spiel: <span id="lastGameDate">Nie</span>
+			</p>
+		</section>
+	</section>
+
+	<!-- footer -->
+	<footer role="contentinfo">© 2014 BIG Quiz</footer>
+
+	<script type="text/javascript">
             //<![CDATA[
             
             // initialize time
@@ -109,12 +113,24 @@
                 var hiddenInput = $("#timeleftvalue");
                 var meter = $("#timer meter");
                 var timeleft = $("#timeleft");
+                var lastGameDate = $("#lastGameDate");
                 
                 hiddenInput.val(maxtime);
                 meter.val(maxtime);
                 meter.attr('max', maxtime);
                 meter.attr('low', maxtime/100*20);
                 timeleft.text(secToMMSS(maxtime));
+                
+                if(supportsLocalStorage()) {
+                	var storedValue = localStorage.getItem("lastGame");
+                	if(storedValue != null) {
+	                	var lastGame = new Date(Number(storedValue));
+	                	lastGameDate.text(lastGame.toLocaleDateString() + ", " +
+	                			lastGame.toLocaleTimeString().substr(0,5));
+                	}
+                } else {
+                	lastGameDate.text("Nie");
+                }
             });
             
             // update time
@@ -141,5 +157,5 @@
             
             //]]>
         </script>
-    </body>
+</body>
 </html>

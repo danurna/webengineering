@@ -12,7 +12,7 @@ public class SimpleRound implements Round, Serializable {
 
 	private static final long serialVersionUID = -2189728736793103389L;
 
-	private Category category;
+	private String category;
 	private List<Question> questions;
 	private int questionNumber;
 	
@@ -22,12 +22,12 @@ public class SimpleRound implements Round, Serializable {
 	}
 	
 	@Override
-	public void setCategory(Category category) {
+	public void setCategory(String category) {
 		this.category = category;
 	}
 
 	@Override
-	public Category getCategory() {
+	public String getCategory() {
 		return category;
 	}
 
