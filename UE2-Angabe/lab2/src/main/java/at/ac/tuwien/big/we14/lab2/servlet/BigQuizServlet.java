@@ -71,6 +71,17 @@ public class BigQuizServlet extends HttpServlet {
 		}
 	}
 
+	// Source: http://eyalsch.wordpress.com/2010/04/01/random-sample/
+	private static <T> List<T> randomSample(List<T> items, int m){
+	    Random rnd = new Random();
+		for(int i=0;i<m;i++){
+	        int pos = i + rnd.nextInt(items.size() - i);
+	        T tmp = items.get(pos);
+	        items.set(pos, items.get(i));
+	        items.set(i, tmp);
+	    }
+	    return items.subList(0, m);
+	}
 	private void startNewQuiz(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session = request.getSession(true);
@@ -92,18 +103,15 @@ public class BigQuizServlet extends HttpServlet {
 		
 		quiz.setPlayers(players);
 		
-		List<Category> categories = ServletQuizFactory.init(context).
-				createQuestionDataProvider().loadCategoryData();
+		List<Category> categories = randomSample(ServletQuizFactory.init(context).
+				createQuestionDataProvider().loadCategoryData(), maxRounds);
 		
-		//TODO random eg. Collections.shuffle(categories);
-		
-		categories = categories.subList(0, maxRounds);
-		for (Category category : categories) {
+		for (Category category: categories) {
 			Round round = new SimpleRound();
-			round.setCategory(category);
-			List<Question> questions = category.getQuestions();
-			questions = questions.subList(0, maxQuestions);
-			round.setQuestions(questions);
+			
+			round.setCategory(category.getName());
+			round.setQuestions(randomSample(category.getQuestions(), maxQuestions));
+			
 			rounds.add(round);
 		}
 		
