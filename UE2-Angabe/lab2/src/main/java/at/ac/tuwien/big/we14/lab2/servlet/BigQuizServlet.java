@@ -95,6 +95,8 @@ public class BigQuizServlet extends HttpServlet {
 		List<Category> categories = ServletQuizFactory.init(context).
 				createQuestionDataProvider().loadCategoryData();
 		
+		//TODO random eg. Collections.shuffle(categories);
+		
 		categories = categories.subList(0, maxRounds);
 		for (Category category : categories) {
 			Round round = new SimpleRound();

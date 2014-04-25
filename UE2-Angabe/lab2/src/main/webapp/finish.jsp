@@ -43,5 +43,16 @@
 
         <!-- footer -->
         <footer role="contentinfo">© 2014 BIG Quiz</footer>
+        <script type="text/javascript">
+            //<![CDATA[
+            
+            $(document).ready(function() {
+            	if(supportsLocalStorage()) {
+            		localStorage.setItem("lastGame", new Date().getTime());
+            	}
+            });
+            
+            //]]>
+        </script>
     </body>
 </html>
