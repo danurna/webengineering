@@ -65,7 +65,7 @@
                 
                 <% } %>
                 
-                <div id="currentcategory"><span class="accessibility">Kategorie:</span><%= currentRound.getCategory() %></div>
+                <div id="currentcategory"><span class="accessibility">Kategorie:</span><%= currentRound.getCategory().getName() %></div>
             </section>
             
             <!-- Question -->
