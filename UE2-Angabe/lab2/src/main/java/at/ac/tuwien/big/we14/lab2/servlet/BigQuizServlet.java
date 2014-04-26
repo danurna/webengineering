@@ -2,8 +2,6 @@ package at.ac.tuwien.big.we14.lab2.servlet;
 
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Random;
 

@@ -70,7 +70,7 @@
             
             <!-- Question -->
             <section id="question" aria-labelledby="questionheading">
-                <form id="questionform" action="BigQuizServlet" method="GET">
+                <form id="questionform" action="BigQuizServlet" method="POST">
                     <h2 id="questionheading" class="accessibility">Frage</h2>
                     <p id="questiontext"><%= currentQuestion.getText() %></p>
                     <ul id="answers">
