@@ -1,3 +1,7 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<jsp:useBean id="quiz" scope="session"
+	class="at.ac.tuwien.big.we14.lab2.api.impl.SimpleQuiz" />
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="de" lang="de">
@@ -37,7 +41,10 @@
                     <span id="player2name" class="playername">Spieler 2</span>
                     <p id="player2roundcounter" class="playerroundcounter">Gewonnene Runden: <span id="player2wonrounds" class="playerwonrounds">1</span></p>
                 </div>
-                <a id="next" href="question.html" accesskey="n">Neues Spiel</a>
+            	<form action="BigQuizServlet" method="POST">
+                	<input type="hidden" name="action" value="start" />
+                	<input type="submit" id="next" accesskey="n" value="Neues Spiel" />
+            	</form>
             </section>
         </section>
 
