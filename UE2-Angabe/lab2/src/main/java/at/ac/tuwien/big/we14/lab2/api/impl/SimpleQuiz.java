@@ -57,4 +57,20 @@ public class SimpleQuiz implements Quiz, Serializable {
         return roundNumber;
     }
     
+    public Player getPlayerWithMostRoundsWon(){
+        int numberOfRoundsWon = -1;
+        Player winner = null;
+        
+        for( Player player : playerList ){
+            if( player.getWonRounds() > numberOfRoundsWon ){
+                winner = player;
+                numberOfRoundsWon = player.getWonRounds();
+            }else if( player.getWonRounds() == numberOfRoundsWon ){
+                winner = null;
+            }
+        }
+        
+        return winner;
+    }
+    
 }

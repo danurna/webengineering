@@ -25,4 +25,7 @@ public interface Quiz {
     
     public void increaseRoundNumber();
     public int getCurrentRoundNumber();
+    
+    // Returns null, if game is draw. Otherwise the player who won.
+    public Player getPlayerWithMostRoundsWon();
 }

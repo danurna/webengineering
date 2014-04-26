@@ -2,6 +2,22 @@
 	pageEncoding="UTF-8"%>
 <jsp:useBean id="quiz" scope="session"
 	class="at.ac.tuwien.big.we14.lab2.api.impl.SimpleQuiz" />
+	<%@page import="at.ac.tuwien.big.we14.lab2.api.Player"%>
+	<%@page import="at.ac.tuwien.big.we14.lab2.api.Quiz"%>
+<%!
+
+	public String getResultText(Player player){
+    	if( player != null ){
+    	    return player.getName() + "gewinnt !";
+    	}
+    	
+    	return "Unentschieden!";
+	}
+
+%>
+<% 
+	Player winner = quiz.getPlayerWithMostRoundsWon();
+%>
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="de" lang="de">
@@ -27,19 +43,19 @@
             <!-- winner message -->
             <section id="roundwinner" aria-labelledby="roundwinnerheading">
                 <h2 id="roundwinnerheading" class="accessibility">Endstand</h2>
-                <p class="roundwinnermessage">Spieler 2 gewinnt!</p>
+                <p class="roundwinnermessage"><%= getResultText(winner) %> </p>
             </section>
         
             <!-- round info -->    
             <section id="roundinfo" aria-labelledby="roundinfoheading">
                 <h2 id="roundinfoheading" class="accessibility">Spielerinformationen</h2>
                 <div id="player1info" class="playerinfo">
-                    <span id="player1name" class="playername">Spieler 1</span>
-                    <p id="player1roundcounter" class="playerroundcounter">Gewonnene Runden: <span id="player1wonrounds" class="playerwonrounds">2</span></p>
+                    <span id="player1name" class="playername"><%= quiz.getPlayer(0).getName() %></span>
+                    <p id="player1roundcounter" class="playerroundcounter">Gewonnene Runden: <span id="player1wonrounds" class="playerwonrounds"><%= quiz.getPlayer(0).getWonRounds() %></span></p>
                 </div>
                 <div id="player2info" class="playerinfo">
-                    <span id="player2name" class="playername">Spieler 2</span>
-                    <p id="player2roundcounter" class="playerroundcounter">Gewonnene Runden: <span id="player2wonrounds" class="playerwonrounds">1</span></p>
+                    <span id="player2name" class="playername"><%= quiz.getPlayer(1).getName() %></span>
+                    <p id="player2roundcounter" class="playerroundcounter">Gewonnene Runden: <span id="player2wonrounds" class="playerwonrounds"><%= quiz.getPlayer(1).getWonRounds() %></span></p>
                 </div>
             	<form action="BigQuizServlet" method="POST">
                 	<input type="hidden" name="action" value="start" />
