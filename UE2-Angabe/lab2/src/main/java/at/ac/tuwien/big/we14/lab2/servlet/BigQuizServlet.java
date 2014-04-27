@@ -176,8 +176,6 @@ public class BigQuizServlet extends HttpServlet {
         user.setRoundAnswerTime(currentRound.getCurrentQuestionNumber(), (int)currentQuestion.getMaxTime() - Integer.valueOf(request.getParameter("timeleftvalue")));
         npc.setRoundAnswer(currentRound.getCurrentQuestionNumber(), new Random().nextBoolean());
 
-        activeQuiz.setPlayer(0, user);
-        activeQuiz.setPlayer(1, npc);
         currentRound.increaseQuestionNumber();
 
         if( currentRound.getCurrentQuestionNumber() == maxQuestions){
@@ -187,8 +185,7 @@ public class BigQuizServlet extends HttpServlet {
             dispatcher.forward(request, response);
             return;
         }
-
-        activeQuiz.setRound(activeQuiz.getCurrentRoundNumber(), currentRound);
+        
         session.setAttribute("quiz", activeQuiz);
         RequestDispatcher dispatcher = context.getRequestDispatcher("/question.jsp");
         dispatcher.forward(request, response);
