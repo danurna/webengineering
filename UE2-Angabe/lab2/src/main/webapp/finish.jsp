@@ -8,17 +8,17 @@
 
 	public String getResultText(Player player){
     	if( player != null ){
-    	    return player.getName() + "gewinnt !";
+    	    return player.getName() + " gewinnt!";
     	}
     	
     	return "Unentschieden!";
 	}
 
 %>
-<% 
+<%
 	try{ // try/catch for null pointer exception if session is not set. Redirects to start.jsp
 		Player winner;
-	    winner = quiz.getPlayerWithMostRoundsWon();
+	    winner = quiz.getQuizWinner();
 %>
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE html>
