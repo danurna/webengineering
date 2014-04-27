@@ -18,11 +18,11 @@ public class SimpleQuiz implements Quiz, Serializable {
     }
    
     public Player getPlayer(int index) {
-        return playerList.get(index);
-    }
-    
-    public void setPlayer(int index, Player player){
-        playerList.set(index, player);
+    	if (index >= 0) {
+    		return playerList.get(index);
+    	} else {
+    		return null;
+    	}
     }
     
     public void setPlayers(List<Player> players) {
@@ -31,10 +31,6 @@ public class SimpleQuiz implements Quiz, Serializable {
     
     public List<Round> getRounds() {
         return roundList;
-    }
-    
-    public void setRound(int index, Round round){
-        roundList.set(index, round);
     }
     
     public void setRounds(List<Round> rounds) {
@@ -57,7 +53,7 @@ public class SimpleQuiz implements Quiz, Serializable {
         return roundNumber;
     }
     
-    public Player getPlayerWithMostRoundsWon(){
+    public Player getQuizWinner(){
         int numberOfRoundsWon = -1;
         Player winner = null;
         
@@ -72,5 +68,31 @@ public class SimpleQuiz implements Quiz, Serializable {
         
         return winner;
     }
+
+	@Override
+	public Player getRoundWinner() {
+		
+		Player winner = null;
+		int correctAnswers = 0, time = Integer.MAX_VALUE;
+        
+        for( Player player : playerList ){
+        	int playerScore = player.getNumberOfCorrectAnswers();
+        	int playerTime = player.getCorrectAnswerTimes();
+        	
+            if( playerScore > correctAnswers ){
+                winner = player;
+                correctAnswers = playerScore;
+                time = playerTime;
+            } else if( playerScore == correctAnswers && correctAnswers > 0){
+                if(playerTime < time) {
+                	winner = player;
+                } else if (playerTime == time) {
+                	winner = null;
+                }
+            }
+        }
+        
+		return winner;
+	}
     
 }

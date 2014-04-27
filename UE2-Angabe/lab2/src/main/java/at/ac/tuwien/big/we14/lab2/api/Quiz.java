@@ -16,10 +16,9 @@ public interface Quiz {
     
     public void setPlayers(List<Player> players);
     public List<Player> getPlayers();
-    public void setPlayer(int index, Player player);
     public Player getPlayer(int index);
+    public Player getRoundWinner();
 
-    public void setRound(int index, Round round);
     public void setRounds(List<Round> rounds);
     public List<Round> getRounds();
     
@@ -27,5 +26,5 @@ public interface Quiz {
     public int getCurrentRoundNumber();
     
     // Returns null, if game is draw. Otherwise the player who won.
-    public Player getPlayerWithMostRoundsWon();
+    public Player getQuizWinner();
 }
