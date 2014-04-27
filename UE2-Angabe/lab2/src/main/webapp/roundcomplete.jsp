@@ -6,6 +6,7 @@
 <%@page import="at.ac.tuwien.big.we14.lab2.api.Round"%>
 <%@page import="at.ac.tuwien.big.we14.lab2.api.Question"%>
 <%@page import="at.ac.tuwien.big.we14.lab2.api.Choice"%>
+<%@page import="at.ac.tuwien.big.we14.lab2.api.Player"%>
 <%@page import="java.util.List"%>
 
 <%!
@@ -56,8 +57,15 @@
 		<section id="roundwinner" aria-labelledby="roundwinnerheading">
 			<h2 id="roundwinnerheading" class="accessibility">Rundenzwischenstand</h2>
 			<p class="roundwinnermessage">
-				<%= quiz.getRoundWinner() %> gewinnt Runde
-				<%= quiz.getCurrentRoundNumber() %>!
+				<%
+				Player winner = quiz.getRoundWinner();
+				if(winner == null) {
+					out.println("Unentschieden!");
+				} else {
+					out.println(winner.getName() + " gewinnt Runde " + 
+						(quiz.getCurrentRoundNumber()+1) + "!");
+				}
+				%>
 			</p>
 		</section>
 
