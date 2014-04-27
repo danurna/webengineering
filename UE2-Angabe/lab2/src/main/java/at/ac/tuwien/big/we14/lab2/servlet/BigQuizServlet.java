@@ -172,28 +172,57 @@ public class BigQuizServlet extends HttpServlet {
             }
         }
 
-        user.setRoundAnswer(currentRound.getCurrentQuestionNumber(), userAnswerCorrect);
-        user.setRoundAnswerTime(currentRound.getCurrentQuestionNumber(), (int)currentQuestion.getMaxTime() - Integer.valueOf(request.getParameter("timeleftvalue")));
-        npc.setRoundAnswer(currentRound.getCurrentQuestionNumber(), new Random().nextBoolean());
+        int currentQuestionIndex = currentRound.getCurrentQuestionNumber();
+        int maxTime = (int)currentQuestion.getMaxTime();
+        
+        user.setRoundAnswer(currentQuestionIndex, userAnswerCorrect);
+        user.setRoundAnswerTime(currentQuestionIndex, maxTime - Integer.valueOf(request.getParameter("timeleftvalue")));
+        npc.setRoundAnswer(currentQuestionIndex, new Random().nextBoolean());
+        npc.setRoundAnswerTime(currentQuestionIndex, new Random().nextInt(maxTime));
 
         currentRound.increaseQuestionNumber();
+        session.setAttribute("quiz", activeQuiz);
 
+        RequestDispatcher dispatcher;
         if( currentRound.getCurrentQuestionNumber() == maxQuestions){
             // Forward to round end page
-            session.setAttribute("quiz", activeQuiz);
-            RequestDispatcher dispatcher = context.getRequestDispatcher("/roundcomplete.jsp");
-            dispatcher.forward(request, response);
-            return;
+            dispatcher = context.getRequestDispatcher("/roundcomplete.jsp");
+        } else {
+        	dispatcher = context.getRequestDispatcher("/question.jsp");
         }
-        
-        session.setAttribute("quiz", activeQuiz);
-        RequestDispatcher dispatcher = context.getRequestDispatcher("/question.jsp");
         dispatcher.forward(request, response);
     }
 
     private void showNextRound(HttpServletRequest request,
-            HttpServletResponse response) {
+            HttpServletResponse response) throws ServletException, IOException {
+    	HttpSession session = request.getSession(false);
+        if(session == null){
+            // No session, so don't show next question.
+            showStartPage(request, response);
+            return;
+        }
 
+        ServletContext context = getServletContext();
+        Quiz activeQuiz = (Quiz)session.getAttribute("quiz");
+    	
+        Player winner = activeQuiz.getRoundWinner();
+        if (winner != null ) {
+        	winner.increaseWonRounds();
+        }
+        activeQuiz.increaseRoundNumber();
+        
+        for (Player p: activeQuiz.getPlayers()) {
+        	p.setRoundAnswers(new Boolean[3]);
+        }
+        
+    	RequestDispatcher dispatcher;
+        if( activeQuiz.getCurrentRoundNumber() == maxRounds){
+            // Forward to round end page
+            dispatcher = context.getRequestDispatcher("/finish.jsp");
+        } else {
+        	dispatcher = context.getRequestDispatcher("/question.jsp");
+        }
+        dispatcher.forward(request, response);
     }
 
     private void showStartPage(HttpServletRequest request,
