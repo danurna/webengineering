@@ -47,8 +47,8 @@ public class SimplePlayer implements Player, Serializable {
         return wonRounds;
     }
 
-    public void setWonRounds(int wonRounds) {
-        this.wonRounds = wonRounds;
+    public void increaseWonRounds() {
+        wonRounds++;
     }
 
     public Integer[] getRoundAnswerTimes() {
@@ -67,5 +67,29 @@ public class SimplePlayer implements Player, Serializable {
         return roundAnswerTimes[index];
     }
 
+	@Override
+	public int getCorrectAnswerTimes() {
+		int sumOfAnswers = 0, i = 0;
+		for (Boolean b: this.getRoundAnswers()) {
+			if(b) {
+				sumOfAnswers += this.getRoundAnswerTime(i);
+			}
+			i++;
+		}
+		return sumOfAnswers == 0 ? Integer.MAX_VALUE : sumOfAnswers;
+	}
+
+	@Override
+	public int getNumberOfCorrectAnswers() {
+		int out = 0;
+		
+		for (Boolean b: this.getRoundAnswers()) {
+			if(b) {
+				out++;
+			}
+		}
+		
+		return out;
+	}
     
 }
