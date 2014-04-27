@@ -102,7 +102,6 @@ public class BigQuizServlet extends HttpServlet {
 
     private void startNewQuiz(HttpServletRequest request,
             HttpServletResponse response) throws ServletException, IOException {
-        HttpSession session = request.getSession(true);
         ServletContext context = getServletContext();
         RequestDispatcher dispatcher = context.getRequestDispatcher("/question.jsp");
 
@@ -120,21 +119,17 @@ public class BigQuizServlet extends HttpServlet {
 
         quiz.setPlayers(players);
 
-        List<Category> categories = ServletQuizFactory.init(context).
-                createQuestionDataProvider().loadCategoryData();
-
-        categories = categories.subList(0, maxRounds);
+        List<Category> categories = randomSample(getQuizData(), maxRounds);
         for (Category category : categories) {
             Round round = new SimpleRound();
             round.setCategory(category);
-            List<Question> questions = category.getQuestions();
-            questions = questions.subList(0, maxQuestions);
+            List<Question> questions = randomSample(category.getQuestions(),maxQuestions);
             round.setQuestions(questions);
             rounds.add(round);
         }
 
         quiz.setRounds(rounds);
-        session.setAttribute("quiz", quiz);
+        setSessionQuiz(quiz, request);
         dispatcher.forward(request, response);
     }
 
@@ -217,10 +212,5 @@ public class BigQuizServlet extends HttpServlet {
         request.getSession().setAttribute("quiz", quiz);
     }
 
-    private Quiz getSessionQuiz(HttpServletRequest request) {
-        //TODO herausfinden ob das mit der Session auch geht
-
-        return (Quiz) request.getSession().getAttribute("quiz");
-    }
 
 }
