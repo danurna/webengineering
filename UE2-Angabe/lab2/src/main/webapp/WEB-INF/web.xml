@@ -4,4 +4,12 @@
 <welcome-file-list>
    <welcome-file>start.jsp</welcome-file>
 </welcome-file-list>
+<servlet>
+        <servlet-name>BigQuizServlet</servlet-name>
+        <servlet-class>at.ac.tuwien.big.we14lab2.api.servlet.BigQuizServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>BigQuizServlet</servlet-name>
+        <url-pattern>/*</url-pattern>
+    </servlet-mapping>
 </web-app>
