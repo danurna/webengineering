@@ -14,4 +14,4 @@ play.Project.playJavaSettings
 
 templatesImport += "scala.collection._"
 
-templatesImport += "ac.at.tuwien.big.we14.lab2.api_"
+templatesImport += "at.ac.tuwien.big.we14.lab2.api._"
