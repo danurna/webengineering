@@ -3,7 +3,8 @@
 # ~~~~
 
 # Home page
-GET    /                            controllers.AuthenticationController.index()
+GET    /                            controllers.FlowController.index()
+GET    /authenticate 				controllers.AuthenticationController.authentication()
 POST   /							controllers.AuthenticationController.login()
 GET    /register    				controllers.AuthenticationController.register()
 POST   /register    				controllers.AuthenticationController.register()
