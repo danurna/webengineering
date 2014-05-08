@@ -38,7 +38,7 @@ public class FlowController extends Controller {
 	@Security.Authenticated(Secured.class)
     public static Result roundOver() {
     	// Render round over or quizover?
-        return ok(index.render("Your application is ready."));
+        return ok(quizover.render());
     }
 	
 	@Security.Authenticated(Secured.class)
