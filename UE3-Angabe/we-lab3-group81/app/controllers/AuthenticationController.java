@@ -29,6 +29,6 @@ public class AuthenticationController extends Controller {
     }
     
     public static Result registerSubmit() {
-    	return null;
+    	return null;   	
     }
 }
