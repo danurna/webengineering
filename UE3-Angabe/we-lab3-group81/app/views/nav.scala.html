@@ -1,0 +1,16 @@
+@(navType: String)
+ 
+@navType match {
+	case "registration" => {
+		<li><a id="loginlink" title="Klicke hier um dich anzumelden" href="#" accesskey="l">Anmelden</a></li>
+	}
+	case "authentication" => {
+		<li><a id="registerlink"
+			title="Klicke hier um dich zu registrieren" href="register.html"
+			accesskey="r">Registrieren</a></li>
+	}
+	case _ => {
+		<li><a id="logoutlink" title="Klicke hier um dich abzumelden" href="#"
+    	accesskey="l">Abmelden</a></li>
+    }
+}
