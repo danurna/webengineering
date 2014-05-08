@@ -9,10 +9,8 @@ import at.ac.tuwien.big.we14.lab2.api.impl.*;
 
 public class AuthenticationController extends Controller {
 	
-    public static Result index() {
-    	// Wenn erstes mal aufgerufen --> render authentication.html
-    	// Ansonsten (eingeloggt) --> redirect quiz.html
-    	
+    public static Result authentication() {
+    	// Render authentication
         return ok(index.render("Your application is ready."));
     }
     

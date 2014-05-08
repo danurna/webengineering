@@ -6,7 +6,7 @@
 GET    /                            controllers.AuthenticationController.index()
 POST   /							controllers.AuthenticationController.login()
 GET    /register    				controllers.AuthenticationController.register()
-POST    /register    				controllers.AuthenticationController.register()
+POST   /register    				controllers.AuthenticationController.register()
 
 # Map static resources from the /public folder to the /assets URL path
 GET     /assets/*file               controllers.Assets.at(path="/public", file)
