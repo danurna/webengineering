@@ -13,7 +13,7 @@ public class AuthenticationController extends Controller {
     	// Wenn erstes mal aufgerufen --> render authentication.html
     	// Ansonsten (eingeloggt) --> redirect quiz.html
     	
-        return ok(index.render("Your application is ready."));
+        return ok(authentication.render());
     }
     
     public static Result login() {
