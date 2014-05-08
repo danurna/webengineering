@@ -1,0 +1,29 @@
+@(pageName: String)
+
+@pageName match {
+	case "authentication" => {
+		@anchor("#login","Zum Login springen")
+	}
+	
+	case "quiz" => {
+		@anchor("#question","Zur Frage springen")
+	}
+	
+	case "quizover" => {
+		@anchor("#roundwinner","Zur Spielwertung springen")
+	}
+	
+	case "registration" => {
+		@anchor("#register","Zur Registrierung springen")
+	}
+	
+	case "roundover" => {
+		@anchor("#roundwinner","Zur Rundenwertung springen")
+	}
+}
+
+
+
+@anchor(href: String, text: String) = {
+	<a class="accessibility" href="@href">@text</a>
+}

@@ -11,7 +11,7 @@ public class AuthenticationController extends Controller {
 	
     public static Result authentication() {
     	// Render authentication
-        return ok(index.render("Your application is ready."));
+        return ok(authentication.render());
     }
     
     public static Result login() {
