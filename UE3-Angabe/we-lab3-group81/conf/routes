@@ -4,8 +4,8 @@
 
 # Home page
 GET    /                            controllers.FlowController.index()
-GET    /authenticate 				controllers.AuthenticationController.authentication()
-POST   /							controllers.AuthenticationController.login()
+GET    /login 				        controllers.AuthenticationController.authentication()
+POST   /login						controllers.AuthenticationController.login()
 GET    /register    				controllers.AuthenticationController.register()
 POST   /register    				controllers.AuthenticationController.register()
 
