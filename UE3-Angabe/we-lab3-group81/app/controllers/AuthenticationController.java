@@ -15,7 +15,7 @@ public class AuthenticationController extends Controller {
     }
     
     public static Result login() {
-    	return null;
+    	return ok(index.render("Logged in"));
     }
     
     public static Result register() {

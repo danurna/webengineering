@@ -2,7 +2,7 @@
 <!-- Login section -->
 <section role="main">
 	<section id="login" aria-labelledby="loginheading">
-		<form action="login.html" method="get">
+		<form action="@routes.AuthenticationController.login()" method="post">
 			<fieldset>
 				<legend id="loginheading">Login</legend>
 				<label for="username">Benutzername:</label> <input id="username"
