@@ -16,7 +16,7 @@ public class AuthenticationController extends Controller {
         return ok(authentication.render());
     }
     
-    public static Result login() {
+    public static Result loginSubmit() {
     	DynamicForm dynamicForm = Form.form().bindFromRequest();
     	//TODO: read information from form
         Logger.info("Username is: " + dynamicForm.get("username"));
@@ -25,6 +25,10 @@ public class AuthenticationController extends Controller {
     }
     
     public static Result register() {
+    	return ok(registration.render());
+    }
+    
+    public static Result registerSubmit() {
     	return null;
     }
 }

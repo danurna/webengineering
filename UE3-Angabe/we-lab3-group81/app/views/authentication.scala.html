@@ -2,7 +2,7 @@
 <!-- Login section -->
 <section role="main">
 	<section id="login" aria-labelledby="loginheading">
-		<form action="@routes.AuthenticationController.login()" method="post">
+		<form action="@routes.AuthenticationController.loginSubmit()" method="post">
 			<fieldset>
 				<legend id="loginheading">Login</legend>
 				<label for="username">Benutzername:</label> <input id="username"
@@ -16,7 +16,7 @@
 	<section id="register" aria-labelledby="registerheading">
 		<h2 id="registerheading" class="accessibility">Registrierung</h2>
 		<p>Nicht registriert?</p>
-		<a href="register.html">Zur Registierung</a>
+		<a href="register">Zur Registierung</a>
 	</section>
 </section>
 }
