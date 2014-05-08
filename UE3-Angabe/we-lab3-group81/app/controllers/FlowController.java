@@ -31,19 +31,19 @@ public class FlowController extends Controller {
 	 * ###############################################################
 	 *  Bellow here, methods that are redirected from the above ones.
 	 *  Not called directly via routes. (Maybe they have to be defined 
-	 *  inside routes to use redirect)
+	 *  inside routes to use redirect?)
 	 * ###############################################################
 	 */
 	
 	@Security.Authenticated(Secured.class)
     public static Result roundOver() {
     	// Render round over or quizover?
-        return ok(quizover.render());
+        return ok(roundover.render());
     }
 	
 	@Security.Authenticated(Secured.class)
     public static Result quizOver() {
     	// Render quiz over
-        return ok(index.render("Your application is ready."));
+        return ok(quizover.render());
     }
 }
