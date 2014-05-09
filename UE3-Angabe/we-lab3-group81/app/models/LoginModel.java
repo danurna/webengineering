@@ -15,11 +15,16 @@ public class LoginModel {
 	public String password;
 	
 	public String validate() {
+		//FOR DEV
+		return null;
+		
+		/*
         if (authenticate(username, password) == null) {
             return "Invalid email or password";
         }
         // If passes, return null.
         return null;
+        */
     }
 
 	private Object authenticate(String username, String password) {

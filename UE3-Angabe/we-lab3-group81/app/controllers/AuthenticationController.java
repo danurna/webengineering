@@ -8,6 +8,7 @@ import play.mvc.*;
 import views.html.*;
 import at.ac.tuwien.big.we14.lab2.api.impl.*;
 import play.i18n.Lang;
+import play.cache.Cache;
 
 public class AuthenticationController extends Controller {
 	
@@ -23,12 +24,14 @@ public class AuthenticationController extends Controller {
     	if( loginForm.hasErrors() ){
     		return badRequest(authentication.render(loginForm));
     	}
+    	
+    	// CACHE EXAMPLE
+    	LoginModel login  = new LoginModel();
+    	login.username = "gerry";
+    	login.password = "gerry";
+    	Cache.set("userkey", login);
 
-    	LoginModel userModel = loginForm.get();
-    	Logger.info("Username is: " + userModel.username);
-    	Logger.info("Passwort is: " + userModel.password);
-
-    	return ok(index.render("Logged in"));
+    	return redirect(routes.FlowController.quiz());
     }
     
     public static Result register() {
