@@ -1,6 +1,6 @@
 package controllers;
 
-import models.User;
+import models.UserModel;
 import play.*;
 import play.api.templates.Html;
 import play.data.Form;
@@ -12,17 +12,17 @@ public class AuthenticationController extends Controller {
 	
     public static Result authentication() {
     	// Render authentication
-    	User test;
-    	Form<User> userForm = Form.form(User.class);
+    	UserModel test;
+    	Form<UserModel> userForm = Form.form(UserModel.class);
         return ok(authentication.render(userForm));
     }
     
     public static Result loginSubmit() {
-    	Form<User> userForm = Form.form(User.class).bindFromRequest();
-    	User user = userForm.get();
+    	Form<UserModel> userForm = Form.form(UserModel.class).bindFromRequest();
+    	UserModel userModel = userForm.get();
     	//TODO: read information from form
-        Logger.info("Username is: " + user.username);
-        Logger.info("Passwort is: " + user.password);
+        Logger.info("Username is: " + userModel.username);
+        Logger.info("Passwort is: " + userModel.password);
     	return ok(index.render("Logged in"));
     }
     
@@ -31,6 +31,6 @@ public class AuthenticationController extends Controller {
     }
     
     public static Result registerSubmit() {
-    	return null;
+    	return null;   	
     }
 }

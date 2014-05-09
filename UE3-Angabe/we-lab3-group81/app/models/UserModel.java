@@ -2,7 +2,7 @@ package models;
 
 import play.data.validation.Constraints.Required;
 
-public class User {
+public class UserModel {
 	@Required
 	public String username;
 	@Required

@@ -1,22 +1,25 @@
-@()@main("winnerpage", "quizover") {
+@(quiz: QuizGame)
+
+@users = @{ quiz.getPlayers() }
+
+@main("winnerpage", "quizover") {
          <section role="main">
             <!-- winner message -->
             <section id="roundwinner" aria-labelledby="roundwinnerheading">
                 <h2 id="roundwinnerheading" class="accessibility">Endstand</h2>
-                <p class="roundwinnermessage">Spieler 2 gewinnt!</p>
+                <p class="roundwinnermessage">@quiz.getWinner().getName()</p>
             </section>
         
             <!-- round info -->    
             <section id="roundinfo" aria-labelledby="roundinfoheading">
                 <h2 id="roundinfoheading" class="accessibility">Spielerinformationen</h2>
-                <div id="player1info" class="playerinfo">
-                    <span id="player1name" class="playername">Spieler 1</span>
-                    <p id="player1roundcounter" class="playerroundcounter">Gewonnene Runden: <span id="player1wonrounds" class="playerwonrounds">2</span></p>
-                </div>
-                <div id="player2info" class="playerinfo">
-                    <span id="player2name" class="playername">Spieler 2</span>
-                    <p id="player2roundcounter" class="playerroundcounter">Gewonnene Runden: <span id="player2wonrounds" class="playerwonrounds">1</span></p>
-                </div>
+                @for((user, i) <- users.zipWithIndex) {
+	                <div id="player@(i+1)info" class="playerinfo">
+	                    <span id="player@(i+1)name" class="playername">@users(i).getName()</span>
+	                    <p id="player@(i+1)roundcounter" class="playerroundcounter">
+	                    Gewonnene Runden: <span id="player@(i+1)wonrounds" class="playerwonrounds">@quiz.getWonRounds(users(i))</span></p>
+	                </div>
+                }
                 <a id="next" href="question.html" accesskey="n">Neues Spiel</a>
             </section>
         </section>
