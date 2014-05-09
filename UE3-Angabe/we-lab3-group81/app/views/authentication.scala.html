@@ -6,13 +6,13 @@
 		@helper.form(action = routes.AuthenticationController.loginSubmit) {
 			<legend id="loginheading">Login</legend>
 			
-			@helper.input(myForm("username")) { (id, name, value, args) =>
-			  <label for="username">Benutzername:</label> <input name="@name" id="@id"
+			@helper.input(myForm("username"), '_label -> "Benutzername:", '_showConstraints -> false) { (id, name, value, args) =>
+			   <input name="@name" id="@id"
 					type="text" @toHtmlArgs(args) />
 			}
 			
-			@helper.input(myForm("password")) { (id, name, value, args) =>
-			  <label for="username">Passwort:</label> <input name="@name" id="@id"
+			@helper.input(myForm("password"), '_label -> "Passwort:",'_showConstraints -> false) { (id, name, value, args) =>
+			 <input name="@name" id="@id"
 					type="password" @toHtmlArgs(args) />
 			}
 			<input id="loginsubmit" type="submit" value="Anmelden" />
