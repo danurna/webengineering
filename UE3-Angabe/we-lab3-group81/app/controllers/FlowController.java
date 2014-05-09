@@ -38,12 +38,12 @@ public class FlowController extends Controller {
 	@Security.Authenticated(Secured.class)
     public static Result roundOver() {
     	// Render round over or quizover?
-        return ok(roundover.render());
+        return null;//ok(roundover.render());
     }
 	
 	@Security.Authenticated(Secured.class)
     public static Result quizOver() {
     	// Render quiz over
-        return ok(quizover.render());
+        return null;//ok(quizover.render());
     }
 }

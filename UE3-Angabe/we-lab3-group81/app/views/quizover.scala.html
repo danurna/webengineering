@@ -13,7 +13,7 @@
             <!-- round info -->    
             <section id="roundinfo" aria-labelledby="roundinfoheading">
                 <h2 id="roundinfoheading" class="accessibility">Spielerinformationen</h2>
-                @for ((user, i) <- users.zipWithIndex) {
+                @for((user, i) <- users.zipWithIndex) {
 	                <div id="player@(i+1)info" class="playerinfo">
 	                    <span id="player@(i+1)name" class="playername">@users(i).getName()</span>
 	                    <p id="player@(i+1)roundcounter" class="playerroundcounter">
