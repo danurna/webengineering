@@ -1,4 +1,6 @@
-@(myForm : play.data.Form[UserModel])
+@(myForm : play.data.Form[LoginModel])
+@import play.i18n._
+
 @main("loginpage", "authentication") {
 <!-- Login section -->
 <section role="main">
@@ -6,23 +8,41 @@
 		@helper.form(action = routes.AuthenticationController.loginSubmit) {
 			<legend id="loginheading">Login</legend>
 			
-			@helper.input(myForm("username"), '_label -> "Benutzername:", '_showConstraints -> false) { (id, name, value, args) =>
+			@if(myForm.hasGlobalErrors) {
+			    <p class="error">
+			        @Messages.get( myForm.globalError.message ) 
+			    </p>
+			}
+			
+			@if(myForm.hasErrors) {
+				<p>@Messages.get("error.form")</p>
+        	}
+        	
+        	@for(error <- myForm("username").errors) {
+			    <p>@Messages.get( error.message() )</p>
+			}
+			
+			@helper.input(myForm("username"), '_label -> Messages.get("form.username"), '_showConstraints -> false, '_showErrors -> false) { (id, name, value, args) =>
 			   <input name="@name" id="@id"
 					type="text" @toHtmlArgs(args) />
 			}
 			
-			@helper.input(myForm("password"), '_label -> "Passwort:",'_showConstraints -> false) { (id, name, value, args) =>
+			@for(error <- myForm("password").errors) {
+			    <p>@Messages.get( error.message() )</p>
+			}
+			
+			@helper.input(myForm("password"), '_label -> Messages.get("form.password"),'_showConstraints -> false, '_showErrors -> false) { (id, name, value, args) =>
 			 <input name="@name" id="@id"
 					type="password" @toHtmlArgs(args) />
 			}
-			<input id="loginsubmit" type="submit" value="Anmelden" />
+			<input id="loginsubmit" type="submit" value=@Messages.get("auth.login") />
 		}	
 	</section>
 	<!-- Register section -->
 	<section id="register" aria-labelledby="registerheading">
 		<h2 id="registerheading" class="accessibility">Registrierung</h2>
-		<p>Nicht registriert?</p>
-		<a href="register">Zur Registierung</a>
+		<p>@Messages.get("auth.regquestion")</p>
+		<a href="register">@Messages.get("auth.gotoreg")</a>
 	</section>
 </section>
 }

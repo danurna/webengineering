@@ -1,0 +1,6 @@
+error.required = Eingabe für dieses Feld verpflichtend.
+error.form = Fehler im Formular
+form.username = Benutzername:
+form.password = Passwort:
+auth.gotoreg = Zur Registrierung
+auth.regquestion = Nicht registriert?
