@@ -1,22 +1,23 @@
 @(pageName: String)
- 
+@import play.i18n._
+
 @pageName match {
 	case "registration" => {
 		<li>
 			<a id="loginlink" title="Klicke hier um dich anzumelden" href="#"
-				accesskey="l">Anmelden</a>
+				accesskey="l"> @Messages.get( "nav.logout" )</a>
 		</li>
 	}
 	case "authentication" => {
 		<li>
 			<a id="registerlink" title="Klicke hier um dich zu registrieren" href="register.html"
-				accesskey="r">Registrieren</a>
+				accesskey="r"> @Messages.get( "nav.register" )</a>
 		</li>
 	}
 	case _ => {
 		<li>
 			<a id="logoutlink" title="Klicke hier um dich abzumelden" href="#"
-    			accesskey="l">Abmelden</a>
+    			accesskey="l"> @Messages.get( "nav.logout" )</a>
     	</li>
     }
 }

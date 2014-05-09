@@ -1,6 +1,7 @@
 @()
+@import play.i18n._
 @main("startpage", "index"){
         <section role="main" id="quiz">
-          <a id="startgame" href="quiz">Quiz starten</a>
+          <a id="startgame" href="quiz"> @Messages.get( "index.start" )</a>
         </section>
 }

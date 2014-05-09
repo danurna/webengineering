@@ -5,3 +5,6 @@ form.password = Passwort:
 auth.gotoreg = Zur Registrierung
 auth.regquestion = Nicht registriert?
 auth.login = Anmelden
+index.start = Quiz starten
+nav.logout = Abmelden
+nav.register = Registrieren
