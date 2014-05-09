@@ -12,7 +12,6 @@ public class AuthenticationController extends Controller {
 	
     public static Result authentication() {
     	// Render authentication
-    	UserModel test;
     	Form<UserModel> userForm = Form.form(UserModel.class);
         return ok(authentication.render(userForm));
     }
