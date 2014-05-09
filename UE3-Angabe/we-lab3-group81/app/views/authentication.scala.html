@@ -9,32 +9,24 @@
 			<legend id="loginheading">Login</legend>
 			
 			@if(myForm.hasGlobalErrors) {
-			    <p class="error">
-			        @Messages.get( myForm.globalError.message ) 
-			    </p>
+			    <div role="alert" class="errors">
+			        @Messages.get( myForm.globalError.message )
+			    </div>
 			}
 			
-			@if(myForm.hasErrors) {
-				<p>@Messages.get("error.form")</p>
-        	}
-        	
-        	@for(error <- myForm("username").errors) {
-			    <p>@Messages.get( error.message() )</p>
-			}
 			
-			@helper.input(myForm("username"), '_label -> Messages.get("form.username"), '_showConstraints -> false, '_showErrors -> false) { (id, name, value, args) =>
-			   <input name="@name" id="@id"
-					type="text" @toHtmlArgs(args) />
-			}
+			@textFormField(
+				myForm("username"),
+            	label = Messages.get("form.username"),
+            	placeholder = "",
+            	help = "")
+            	
+            @passwordFormField(
+				myForm("password"),
+            	label = Messages.get("form.password"),
+            	placeholder = "",
+            	help = "")
 			
-			@for(error <- myForm("password").errors) {
-			    <p>@Messages.get( error.message() )</p>
-			}
-			
-			@helper.input(myForm("password"), '_label -> Messages.get("form.password"),'_showConstraints -> false, '_showErrors -> false) { (id, name, value, args) =>
-			 <input name="@name" id="@id"
-					type="password" @toHtmlArgs(args) />
-			}
 			<input id="loginsubmit" type="submit" value=@Messages.get("auth.login") />
 		}	
 	</section>

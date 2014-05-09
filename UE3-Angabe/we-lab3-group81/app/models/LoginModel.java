@@ -1,10 +1,15 @@
 package models;
 
+
+import play.data.validation.Constraints.MaxLength;
+import play.data.validation.Constraints.MinLength;
 import play.data.validation.Constraints.Required;
 
 public class LoginModel {
 	
 	@Required
+	@MinLength(4)
+	@MaxLength(10)
 	public String username;
 	@Required
 	public String password;
