@@ -31,7 +31,7 @@ public class AuthenticationController extends Controller {
     	login.password = "gerry";
     	Cache.set("userkey", login);
 
-    	return redirect(routes.FlowController.quiz());
+    	return redirect(routes.FlowController.index());
     }
     
     public static Result register() {

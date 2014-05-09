@@ -13,19 +13,19 @@ public class FlowController extends Controller {
 	
 	@Security.Authenticated(Secured.class)
     public static Result index() {
+		LoginModel login = (LoginModel) Cache.get("userkey");
+		Logger.info("username  is: " + login.username);
+		Logger.info("password  is: " + login.password);
+		
     	// Render index
         return ok(index.render());
     }
     
 	@Security.Authenticated(Secured.class)
     public static Result quiz() {
-		
-		LoginModel login = (LoginModel) Cache.get("userkey");
-		Logger.info("username  is: " + login.username);
-		Logger.info("password  is: " + login.password);
-		
+
     	// Render quiz with first question
-        return ok(index.render());
+        return ok(quiz.render(null, null));
     }
 	
 	@Security.Authenticated(Secured.class)

@@ -10,6 +10,7 @@ GET    /register    				controllers.AuthenticationController.register()
 POST   /register    				controllers.AuthenticationController.registerSubmit()
 GET    /gameover					controllers.FlowController.quizOver()
 GET    /quiz						controllers.FlowController.quiz()
+GET    /index                       controllers.FlowController.index()
 
 # Map static resources from the /public folder to the /assets URL path
 GET     /assets/*file               controllers.Assets.at(path="/public", file)
