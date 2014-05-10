@@ -7,7 +7,7 @@
             <!-- winner message -->
             <section id="roundwinner" aria-labelledby="roundwinnerheading">
                 <h2 id="roundwinnerheading" class="accessibility">Endstand</h2>
-                <p class="roundwinnermessage">@quiz.getWinner().getName()</p>
+                <p class="roundwinnermessage">@quiz.getWinner().getName() gewinnt!</p>
             </section>
         
             <!-- round info -->    
@@ -20,7 +20,7 @@
 	                    Gewonnene Runden: <span id="player@(i+1)wonrounds" class="playerwonrounds">@quiz.getWonRounds(users(i))</span></p>
 	                </div>
                 }
-                <a id="next" href="question.html" accesskey="n">Neues Spiel</a>
+                <a id="next" href="@routes.FlowController.quiz" accesskey="n">Neues Spiel</a>
             </section>
         </section>
         <script type="text/javascript">

@@ -4,13 +4,13 @@
 @pageName match {
 	case "registration" => {
 		<li>
-			<a id="loginlink" title="Klicke hier um dich anzumelden" href="#"
+			<a id="loginlink" title="Klicke hier um dich anzumelden" href="@routes.AuthenticationController.authentication"
 				accesskey="l"> @Messages.get( "nav.logout" )</a>
 		</li>
 	}
 	case "authentication" => {
 		<li>
-			<a id="registerlink" title="Klicke hier um dich zu registrieren" href="register.html"
+			<a id="registerlink" title="Klicke hier um dich zu registrieren" href="@routes.AuthenticationController.register"
 				accesskey="r"> @Messages.get( "nav.register" )</a>
 		</li>
 	}

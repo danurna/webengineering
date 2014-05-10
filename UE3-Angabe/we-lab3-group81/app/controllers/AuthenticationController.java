@@ -1,7 +1,6 @@
 package controllers;
 
 import models.LoginModel;
-import models.UserModel;
 import models.UserRegisterModel;
 import play.data.Form;
 import play.mvc.Controller;
@@ -29,6 +28,11 @@ public class AuthenticationController extends Controller {
 		}
 	}
 
+	public static Result logout() {
+		session().clear();
+		return redirect(routes.FlowController.index());
+	}
+	
 	public static Result register() {
 		Form<UserRegisterModel> registerForm = Form.form(UserRegisterModel.class);
 		return ok(registration.render(registerForm));

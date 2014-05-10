@@ -6,11 +6,12 @@
 GET    /                            controllers.FlowController.index()
 GET    /login 				        controllers.AuthenticationController.authentication()
 POST   /login						controllers.AuthenticationController.loginSubmit()
+GET	   /logout						controllers.AuthenticationController.logout()
 GET    /register    				controllers.AuthenticationController.register()
 POST   /register    				controllers.AuthenticationController.registerSubmit()
-GET    /gameover					controllers.FlowController.quizOver()
 GET    /quiz						controllers.FlowController.quiz()
 POST   /quiz						controllers.FlowController.nextQuestion()
+GET	   /newRound					controllers.FlowController.newRound()
 GET    /index                       controllers.FlowController.index()
 
 # Map static resources from the /public folder to the /assets URL path

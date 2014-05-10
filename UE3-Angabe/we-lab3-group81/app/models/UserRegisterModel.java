@@ -3,13 +3,10 @@ package models;
 import java.util.Date;
 
 import play.Logger;
+import play.data.format.Formats;
 import play.data.validation.Constraints.MaxLength;
 import play.data.validation.Constraints.MinLength;
 import play.data.validation.Constraints.Required;
-import play.data.format.*;
-
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 public class UserRegisterModel {
 	

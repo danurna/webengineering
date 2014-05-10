@@ -17,10 +17,14 @@
             <p id="questiontext">@currentQuestion.getText()</p>
             <ul id="answers">
             @for((choice, i) <- currentQuestion.getAllChoices().zipWithIndex) {
-                <li><input id="option@(i+1)" type="checkbox"/><label for="option@(i+1)">@choice.getText()</label></li>
+                <li>
+                	<input type="hidden" name="option@(i+1)Id" value="@choice.getId()" />
+                	<input id="option@(i+1)" name="option@(i+1)" type="checkbox"/>
+                	<label for="option@(i+1)">@choice.getText()</label>
+                </li>
             }
             </ul>
-            <input id="timeleftvalue" type="hidden" value="-1"/>
+            <input id="timeleftvalue" name="timeleftvalue" type="hidden" value="-1"/>
             <input id="next" type="submit" value="weiter" accesskey="s"/>
         </form>
     </section>

@@ -1,14 +1,8 @@
 package models;
 
-import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.MapsId;
-import javax.persistence.OneToOne;
-
-import play.db.jpa.JPA;
-import at.ac.tuwien.big.we14.lab2.api.QuizGame;
 
 
 public class QuizMapper {

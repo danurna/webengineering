@@ -1,17 +1,21 @@
-@(users: List[User], round: Round)
+@(game: QuizGame)
+
+@users = @{ game.getPlayers() }
+@round = @{ game.getCurrentRound() }
+@count = @{ game.getCurrentRoundCount() }
 
 @main("winnerpage","roundover") {
 	<section role="main">
 	    <!-- winner message -->
 	    <section id="roundwinner" aria-labelledby="roundwinnerheading">
 	        <h2 id="roundwinnerheading" class="accessibility">Rundenzwischenstand</h2>
-	        <p class="roundwinnermessage">@round.getRoundWinner().getName() gewinnt Runde 1!</p>
+	        <p class="roundwinnermessage">@round.getRoundWinner().getName() gewinnt Runde @count!</p>
 	    </section>
 	
 	    <!-- round info -->    
 	    <section id="roundinfo" aria-labelledby="roundinfoheading">
 	        @playerInfo(users, round)
-	        <a id="next" href="question.html">Weiter</a>
+	        <a id="next" href="@routes.FlowController.newRound">Weiter</a>
 	    </section>
 	</section>
 
