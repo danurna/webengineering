@@ -2,6 +2,6 @@
 @import play.i18n._
 @main("startpage", "index"){
         <section role="main" id="quiz">
-          <a id="startgame" href="@controllers.FlowController.quiz()"> @Messages.get( "index.start" )</a>
+          <a id="startgame" href="@routes.FlowController.quiz"> @Messages.get( "index.start" )</a>
         </section>
 }
