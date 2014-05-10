@@ -10,7 +10,7 @@
 	    <!-- winner message -->
 	    <section id="roundwinner" aria-labelledby="roundwinnerheading">
 	        <h2 id="roundwinnerheading" class="accessibility">@Messages.get("roundover.heading")</h2>
-	        <p class="roundwinnermessage">@Messages.get("roundover.winmessage", round.getRoundWinner().getName(), count)</p>
+	        <p class="roundwinnermessage">@round.getRoundWinner().getName() @Messages.get("roundover.winmessage") @count!</p>
 	    </section>
 	
 	    <!-- round info -->    

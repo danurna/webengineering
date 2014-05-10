@@ -42,7 +42,7 @@ register.personallegend=Personal Data
 register.loginlegend=Login Data
 
 roundover.heading=Current round score
-roundover.winmessage={1} wins round {2}!
+roundover.winmessage=wins round
 
 quiz.category=Category: 
 quiz.question=Question
@@ -51,7 +51,7 @@ quiz.lastgame=Last game:
 quiz.never=Never
 
 quizover.score=Final score
-quizover.wins={1} wins!
+quizover.wins=wins!
 quizover.info=Player Information
 quizover.wonround=Won rounds: 
 quizover.newgame=New game

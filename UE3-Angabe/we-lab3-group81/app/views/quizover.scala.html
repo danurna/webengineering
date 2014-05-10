@@ -8,7 +8,7 @@
             <!-- winner message -->
             <section id="roundwinner" aria-labelledby="roundwinnerheading">
                 <h2 id="roundwinnerheading" class="accessibility">@Messages.get("quizover.score")</h2>
-                <p class="roundwinnermessage">@Messages.get("quizover.wins", quiz.getWinner().getName())</p>
+                <p class="roundwinnermessage">@quiz.getWinner().getName() @Messages.get("quizover.wins")</p>
             </section>
         
             <!-- round info -->    
