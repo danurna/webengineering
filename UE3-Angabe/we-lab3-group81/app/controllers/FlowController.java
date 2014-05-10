@@ -17,22 +17,7 @@ public class FlowController extends Controller {
 
 	@Security.Authenticated(Secured.class)
 	public static Result index() {
-		
-		
-		if (session().get("username") == null) {
-			return redirect(routes.AuthenticationController.authentication());
-		} else {
-			// Render index
-
-			return ok(index.render());
-		}
-		/*
-		 * CACHE EXAMPLE LoginModel login = (LoginModel) Cache.get("userkey");
-		 * if(login != null) { Logger.info("username  is: " + login.username);
-		 * Logger.info("password  is: " + login.password); } else {
-		 * Logger.info("login is null"); } //
-		 */
-
+		return ok(index.render());
 	}
 
 	@Security.Authenticated(Secured.class)

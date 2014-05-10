@@ -12,12 +12,12 @@ import at.ac.tuwien.big.we14.lab2.api.QuizGame;
 
 
 public class QuizMapper {
-
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
-	@OneToOne @MapsId
+	/*
 	private UserModel user;
 
 	private QuizGame quiz;
@@ -48,6 +48,6 @@ public class QuizMapper {
 		
 		return mapper.getQuiz();
 	}
-	
+	*/
 
 }

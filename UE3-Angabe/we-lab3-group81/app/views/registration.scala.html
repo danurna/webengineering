@@ -1,38 +1,63 @@
-@()@main("registerpage", "registration") {
+@(myForm : play.data.Form[UserRegisterModel])
+@import play.i18n._
+
+@main("registerpage", "registration") {
         <section role="main" id="register" aria-labelledby="registerheading">
             <!-- Register section -->
             <h2 id="registerheading" class="accessibility">Registrierung</h2>
-            <form action="register.html" method="post">
-                <fieldset>
-                    <legend>Persönliche Daten</legend>
-                    <label for="firstname">Vorname:</label>
-                    <input id="firstname" type="text" name="firstName"/>
-                    
-                    <label for="lastname">Nachname:</label>
-                    <input id="lastname" type="text" name="lastName"/>
-                    
-                    <label for="birthdate">Geburtstag:</label>
-                    <input id="birthdate" type="date" name="birthDate"/>
-                    <div id="error_msg_birthdate" class="hide" role="alert">Verwenden Sie bitte folgendes Datumsformat: dd.mm.yyyy (z.B. 24.12.2012).</div>
-                    
-                    <label for="gender">Geschlecht:</label>
-                    <select id="gender" name="gender">
-                        <option value="m">Männlich</option>
-                        <option value="f">Weiblich</option>
-                    </select>
-                </fieldset>
-                <fieldset>
-                    <legend>Login Daten</legend>
-                    <label for="username">Benutzername*:</label>
-                    <input id="username" type="text" required="required" pattern="\w{4,8}" name="userName"/>
-                    <div id="error_msg_username" class="hide" role="alert">Der Benutzername muss mindestens 4 Zeichen und darf maximal 8 Zeichen enthalten.</div>
-                    
-                    <label for="password">Passwort*:</label>
-                    <input id="password" type="password" required="required" pattern="\w{4,8}" name="password"/>
-                    <div id="error_msg_password" class="hide" role="alert">Das Passwort muss mindestens 4 Zeichen und darf maximal 8 Zeichen enthalten.</div>
-                    <input id="registersubmit" type="submit" value="Registrieren" accesskey="s"/>
-                    <p id="requiredhint">Mit "*" gekennzeichnete Felder sind Pflichtfelder</p>
-                </fieldset>
+            
+            @helper.form(action = routes.AuthenticationController.registerSubmit) {
+				<legend>Persönliche Daten</legend>
+				
+				@if(myForm.hasGlobalErrors) {
+				    <div role="alert" class="errors">
+				        @Messages.get( myForm.globalError.message )
+				    </div>
+				}
+				
+				@formfields.textFormField(
+					myForm("firstname"),
+	            	label = Messages.get("form.firstname"),
+	            	placeholder = "",
+	            	help = "")
+	            	
+	            @formfields.textFormField(
+					myForm("lastname"),
+	            	label = Messages.get("form.lastname"),
+	            	placeholder = "",
+	            	help = "")
+	          
+	            @formfields.dateFormField(
+					myForm("birthdate"),
+	            	label = Messages.get("form.birthdate"),
+	            	placeholder = "",
+	            	help = "")
+	            	
+	       		@formfields.genderFormField(
+					myForm("gender"),
+	            	label = Messages.get("form.gender"),
+	            	placeholder = "",
+	            	help = "")
+				
+				<legend>Login Daten</legend>
+				
+				@formfields.textFormField(
+					myForm("username"),
+	            	label = Messages.get("form.register.username"),
+	            	placeholder = "",
+	            	help = "")
+	            	
+	            @formfields.passwordFormField(
+					myForm("password"),
+	            	label = Messages.get("form.register.password"),
+	            	placeholder = "",
+	            	help = "")
+				
+				<input id="registersubmit" type="submit" value=@Messages.get("nav.register") />
+				
+				<p id="requiredhint">Mit "*" gekennzeichnete Felder sind Pflichtfelder</p>
+			}	
+            
             </form>
         </section>
 }

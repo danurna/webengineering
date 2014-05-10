@@ -9,9 +9,12 @@ public class LoginModel {
 	
 	@Required
 	@MinLength(4)
-	@MaxLength(10)
+	@MaxLength(8)
 	public String username;
+	
 	@Required
+	@MinLength(4)
+	@MaxLength(8)
 	public String password;
 	
 	public String validate() {

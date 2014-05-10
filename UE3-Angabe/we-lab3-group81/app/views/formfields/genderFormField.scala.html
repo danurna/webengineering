@@ -1,0 +1,22 @@
+@(field: Field, label: String = "", placeholder: String = "", help: String = "")
+@import play.i18n._
+
+<div class="@if(field.hasErrors) {error}"> 
+    @if(field.hasErrors){
+    	<div role="alert" class="errors"> 	   	
+    		@for(error <- field.errors) {
+			    <span> @Messages.get( error.message, error.args )</span>
+			}
+    	</div>
+    }    
+    <label>  @label </label>
+    <div class="input">
+        <select id="gender" name="gender">
+             <option value="m">@Messages.get( "form.male" )</option>
+             <option value="f">@Messages.get( "form.female" )</option>
+        </select>
+    </div>
+</div>
+
+
+
