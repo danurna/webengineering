@@ -1,28 +1,36 @@
 package models;
 
+import java.util.Date;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EntityManager;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.TypedQuery;
 
 import play.db.jpa.JPA;
 import at.ac.tuwien.big.we14.lab2.api.User;
 
 @Entity
 public class UserModel implements User {
-
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
 	
+	@Id
 	@Column(unique=true)
 	private String name;
 	
 	@Column(length = 255)
-	private String hashedPass; 
+	private String password; 
+	
+	@Column(length = 50)
+	private String firstname;
+	
+	@Column(length = 50)
+	private String lastname;
+	
+	@Column(length = 50)
+	private Date birthdate;
+
+	@Column(length = 30)
+	private String gender;
 	
 	@Override
 	public String getName() {
@@ -34,32 +42,60 @@ public class UserModel implements User {
 		this.name= name;
 	}
 	
-	public Long getId() {
-		return id;
+	public String getId() {
+		return name;
 	}
 
 	public String getPassword() {
-		return hashedPass;
+		return password;
 	}
 
 	public void setPassword(String password) {
-		this.hashedPass = password;
+		this.password = password;
 	}
 	
+	public String getFirstname() {
+		return firstname;
+	}
+
+	public void setFirstname(String firstname) {
+		this.firstname = firstname;
+	}
+
+	public String getLastname() {
+		return lastname;
+	}
+
+	public void setLastname(String lastname) {
+		this.lastname = lastname;
+	}
+
+	public Date getBirthdate() {
+		return birthdate;
+	}
+
+	public void setBirthdate(Date birthdate) {
+		this.birthdate = birthdate;
+	}
+
+	public String getGender() {
+		return gender;
+	}
+
+	public void setGender(String gender) {
+		this.gender = gender;
+	}
+
 	public static UserModel authenticate(String username, String password) {
 		UserModel out = new UserModel();
-		out.setName("maxi");
-		out.setPassword("password");
+		out.setName(username);
+		out.setPassword(password);
 		
 		return out;
 	}
 
 	public static UserModel findUserByName(String username) {
 		EntityManager em = JPA.em();
-		String queryString = "SELECT u FROM UserModel u WHERE username = :username";
-		TypedQuery<UserModel> query = em.createQuery(queryString, UserModel.class);
-		query.setParameter("username", username);
-		
-		return query.getSingleResult();
+		return em.find(UserModel.class, username);
 	}
 }
