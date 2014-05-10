@@ -18,13 +18,8 @@ public class FlowController extends Controller {
 
 	@Security.Authenticated(Secured.class)
 	public static Result index() {
-		if (session().get("username") == null) {
-			return redirect(routes.AuthenticationController.authentication());
-		} else {
-			// Render index
-
-			return ok(index.render());
-		}
+		// Render index
+		return ok(index.render());
 		/*
 		 * CACHE EXAMPLE LoginModel login = (LoginModel) Cache.get("userkey");
 		 * if(login != null) { Logger.info("username  is: " + login.username);
@@ -38,7 +33,8 @@ public class FlowController extends Controller {
 	@Transactional
 	public static Result quiz() {
 		Logger.info("StartQuiz: "+request().username());
-		
+		return null;
+		/*
 		UserModel user = UserModel.findUserByName(request().username());
 		QuizFactory factory = new PlayQuizFactory(
 				Messages.get("jsonFilePath"),
@@ -49,9 +45,9 @@ public class FlowController extends Controller {
 		QuizGame quizGame = quizMapper.getQuiz();
 		
 		JPA.em().persist(quizMapper);
-		
+		*/
 		// Render quiz with first question
-		return ok(views.html.quiz.render(quizGame.getPlayers(), quizGame.getCurrentRound()));
+	//	return ok(views.html.quiz.render(quizGame.getPlayers(), quizGame.getCurrentRound()));
 	}
 
 	@Security.Authenticated(Secured.class)

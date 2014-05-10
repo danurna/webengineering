@@ -1,6 +1,8 @@
 package controllers;
 
 import models.LoginModel;
+import models.UserModel;
+import models.UserRegisterModel;
 import play.data.Form;
 import play.mvc.Controller;
 import play.mvc.Result;
@@ -21,24 +23,24 @@ public class AuthenticationController extends Controller {
 		if( loginForm.hasErrors() ){
 			return badRequest(authentication.render(loginForm));
 		} else {
-			
-			/* CACHE EXAMPLE
-			LoginModel login  = new LoginModel();
-			login.username = "gerry";
-			login.password = "gerry";
-			Cache.set("userkey", login);
-			//*/
-			
 			session("username", loginForm.get().username);
 			return redirect(routes.FlowController.index());
 		}
 	}
 
 	public static Result register() {
-		return ok(registration.render());
+		Form<UserRegisterModel> registerForm = Form.form(UserRegisterModel.class);
+		return ok(registration.render(registerForm));
 	}
 
 	public static Result registerSubmit() {
-		return null;   	
+		Form<UserRegisterModel> registerForm = Form.form(UserRegisterModel.class).bindFromRequest();
+
+		if( registerForm.hasErrors() ){
+			return badRequest(registration.render(registerForm));
+		} else {	
+			session("username", registerForm.get().username);
+			return redirect(routes.FlowController.index());
+		}	
 	}
 }
