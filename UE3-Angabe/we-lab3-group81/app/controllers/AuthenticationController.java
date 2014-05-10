@@ -1,10 +1,7 @@
 package controllers;
 
-
-import java.security.NoSuchAlgorithmException;
-import java.security.spec.InvalidKeySpecException;
-
 import models.LoginModel;
+import models.UserModel;
 import models.UserRegisterModel;
 import play.Logger;
 import play.data.Form;
