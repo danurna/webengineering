@@ -1,5 +1,6 @@
 error.required = Eingabe für dieses Feld verpflichtend.
 error.form = Fehler im Formular
+error.login = Ungültiger Benutzername oder Passwort
 form.username = Benutzername:
 form.password = Passwort:
 auth.gotoreg = Zur Registrierung
