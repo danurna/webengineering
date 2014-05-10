@@ -29,6 +29,7 @@ public class AuthenticationController extends Controller {
 			Cache.set("userkey", login);
 			//*/
 			
+			
 			session("username", loginForm.get().username);
 			return redirect(routes.FlowController.index());
 		}

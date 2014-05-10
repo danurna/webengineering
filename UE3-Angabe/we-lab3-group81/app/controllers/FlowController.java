@@ -1,10 +1,8 @@
 package controllers;
 
-import models.QuizMapper;
 import models.UserModel;
 import play.Logger;
 import play.cache.Cache;
-import play.db.jpa.JPA;
 import play.db.jpa.Transactional;
 import play.i18n.Messages;
 import play.mvc.Controller;
@@ -19,7 +17,7 @@ public class FlowController extends Controller {
 
 	@Security.Authenticated(Secured.class)
 	public static Result index() {
-		Logger.info("hallo");
+		
 		
 		if (session().get("username") == null) {
 			return redirect(routes.AuthenticationController.authentication());
