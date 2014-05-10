@@ -1,3 +1,4 @@
+jsonFilePath = conf/data.en.json
 error.required = Field Input is required.
 error.form = Error inside form
 error.login = Invalid user or password

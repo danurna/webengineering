@@ -1,7 +1,7 @@
 @(users: List[User], round: Round)
 
 @currentQuestion = @{ round.getCurrentQuestion(users(0)); }
-
+@main("questionpage","quiz") {
 <!-- round info -->
 <section role="main">
     <section id="roundinfo" aria-labelledby="roundinfoheading">
@@ -20,7 +20,7 @@
                 <li><input id="option@(i+1)" type="checkbox"/><label for="option@(i+1)">@choice.getText()</label></li>
             }
             </ul>
-            <input id="timeleftvalue" type="hidden" value="100"/>
+            <input id="timeleftvalue" type="hidden" value="-1"/>
             <input id="next" type="submit" value="weiter" accesskey="s"/>
         </form>
     </section>
@@ -91,3 +91,4 @@
     
     //]]>
 </script>
+}

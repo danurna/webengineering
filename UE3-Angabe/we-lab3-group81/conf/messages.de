@@ -1,3 +1,4 @@
+jsonFilePath = conf/data.de.json
 error.required = Eingabe für dieses Feld verpflichtend.
 error.form = Fehler im Formular
 error.login = Ungültiger Benutzername oder Passwort

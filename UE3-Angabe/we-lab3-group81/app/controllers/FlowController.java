@@ -3,6 +3,7 @@ package controllers;
 import models.QuizMapper;
 import models.UserModel;
 import play.Logger;
+import play.cache.Cache;
 import play.db.jpa.JPA;
 import play.db.jpa.Transactional;
 import play.i18n.Messages;
@@ -18,6 +19,8 @@ public class FlowController extends Controller {
 
 	@Security.Authenticated(Secured.class)
 	public static Result index() {
+		Logger.info("hallo");
+		
 		if (session().get("username") == null) {
 			return redirect(routes.AuthenticationController.authentication());
 		} else {
@@ -39,19 +42,19 @@ public class FlowController extends Controller {
 	public static Result quiz() {
 		Logger.info("StartQuiz: "+request().username());
 		
-		UserModel user = UserModel.findUserByName(request().username());
+		//UserModel user = UserModel.findUserByName(request().username());
+		UserModel user = UserModel.authenticate("hans", "huber");
+		
 		QuizFactory factory = new PlayQuizFactory(
 				Messages.get("jsonFilePath"),
 				user);
-		QuizMapper quizMapper = new QuizMapper();
-		quizMapper.setQuiz(factory.createQuizGame());
-		quizMapper.setUser(user);
-		QuizGame quizGame = quizMapper.getQuiz();
+		QuizGame game = factory.createQuizGame();
+		game.startNewRound();
 		
-		JPA.em().persist(quizMapper);
+		Cache.set("game", game);
 		
-		// Render quiz with first question
-		return ok(views.html.quiz.render(quizGame.getPlayers(), quizGame.getCurrentRound()));
+		// Render quiz with first question*/
+		return ok(views.html.quiz.render(game.getPlayers(), game.getCurrentRound()));
 	}
 
 	@Security.Authenticated(Secured.class)
