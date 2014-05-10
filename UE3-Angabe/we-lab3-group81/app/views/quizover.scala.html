@@ -1,4 +1,5 @@
 @(quiz: QuizGame)
+@import play.i18n._
 
 @users = @{ quiz.getPlayers() }
 
@@ -6,21 +7,21 @@
          <section role="main">
             <!-- winner message -->
             <section id="roundwinner" aria-labelledby="roundwinnerheading">
-                <h2 id="roundwinnerheading" class="accessibility">Endstand</h2>
-                <p class="roundwinnermessage">@quiz.getWinner().getName() gewinnt!</p>
+                <h2 id="roundwinnerheading" class="accessibility">@Messages.get("quizover.score")</h2>
+                <p class="roundwinnermessage">@Messages.get("quizover.wins", quiz.getWinner().getName())</p>
             </section>
         
             <!-- round info -->    
             <section id="roundinfo" aria-labelledby="roundinfoheading">
-                <h2 id="roundinfoheading" class="accessibility">Spielerinformationen</h2>
+                <h2 id="roundinfoheading" class="accessibility">@Messages.get("quizover.info")</h2>
                 @for((user, i) <- users.zipWithIndex) {
 	                <div id="player@(i+1)info" class="playerinfo">
 	                    <span id="player@(i+1)name" class="playername">@users(i).getName()</span>
 	                    <p id="player@(i+1)roundcounter" class="playerroundcounter">
-	                    Gewonnene Runden: <span id="player@(i+1)wonrounds" class="playerwonrounds">@quiz.getWonRounds(users(i))</span></p>
+	                    @Messages.get("quizover.wonround")<span id="player@(i+1)wonrounds" class="playerwonrounds">@quiz.getWonRounds(users(i))</span></p>
 	                </div>
                 }
-                <a id="next" href="@routes.FlowController.quiz" accesskey="n">Neues Spiel</a>
+                <a id="next" href="@routes.FlowController.quiz" accesskey="n">@Messages.get("quizover.newgame")</a>
             </section>
         </section>
         <script type="text/javascript">

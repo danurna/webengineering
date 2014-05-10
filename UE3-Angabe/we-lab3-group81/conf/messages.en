@@ -1,20 +1,63 @@
-jsonFilePath = conf/data.en.json
-error.required = Field Input is required.
-error.form = Error inside form
-error.login = Invalid user or password
-form.username = Username:
-form.password = Password:
-form.register.username = Username*:
-form.register.password = Password*:
-form.firstname = Firstname:
-form.lastname = Lastname:
-form.gender = Gender:
-form.birthdate = Birthdate:
-form.male = Male
-form.female = Female
-auth.gotoreg = Go to registration
-auth.regquestion = No account?
-auth.login = Login
-index.start = Start Quiz
-nav.logout = Log out
-nav.register = Register
+jsonFilePath=conf/data.en.json
+next=Next
+
+error.required=Field Input is required.
+error.form=Error inside form
+error.login=Invalid user or password
+
+form.username=Username:
+form.password=Password:
+form.register.username=Username*:
+form.register.password=Password*:
+form.firstname=First Name:
+form.lastname=Last Name:
+form.gender=Gender:
+form.birthdate=Birthdate:
+form.male=Male
+form.female=Female
+form.requiredhint=Fields marked with "*" are required
+
+auth.gotoreg=Go to registration
+auth.regquestion=No Account?
+auth.login=Login
+auth.registerheading=Registration
+
+acc.auth=Jump to Login
+acc.quiz=Jump to Question
+acc.quizover=Jump to final game score
+acc.registration=Jump to Registration
+acc.roundover=Jump to round score
+
+nav.login=Login
+nav.altlogin=Click here to log in
+nav.logout=Log out
+nav.altlogout=Click here to log out
+nav.register=Register
+nav.altregister=Click here to register
+
+index.start=Start Quiz
+
+register.heading=Registration
+register.personallegend=Personal Data
+register.loginlegend=Login Data
+
+roundover.heading=Current round score
+roundover.winmessage={1} wins round {2}!
+
+quiz.category=Category: 
+quiz.question=Question
+quiz.timeleft=Remaining time:
+quiz.lastgame=Last game:
+quiz.never=Never
+
+quizover.score=Final score
+quizover.wins={1} wins!
+quizover.info=Player Information
+quizover.wonround=Won rounds: 
+quizover.newgame=New game
+
+info.unknown=unknown
+info.correct=Correct
+info.incorrect=Incorrect
+info.heading=Player Information
+info.question=Question

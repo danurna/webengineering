@@ -1,25 +1,29 @@
 @(pageName: String)
+@import play.i18n._
 
 @pageName match {
 	case "authentication" => {
-		@anchor("#login","Zum Login springen")
+		@anchor("#login",Messages.get("acc.auth"))
 	}
 	
 	case "quiz" => {
-		@anchor("#question","Zur Frage springen")
+		@anchor("#question",Messages.get("acc.quiz"))
 	}
 	
 	case "quizover" => {
-		@anchor("#roundwinner","Zur Spielwertung springen")
+		@anchor("#roundwinner",Messages.get("acc.quizover"))
 	}
 	
 	case "registration" => {
-		@anchor("#register","Zur Registrierung springen")
+		@anchor("#register",Messages.get("acc.registration"))
 	}
 	
 	case "roundover" => {
-		@anchor("#roundwinner","Zur Rundenwertung springen")
+		@anchor("#roundwinner",Messages.get("acc.roundover"))
 	}
+	
+	case _ => {}
+		
 }
 
 

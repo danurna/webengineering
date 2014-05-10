@@ -1,20 +1,63 @@
-jsonFilePath = conf/data.de.json
-error.required = Eingabe für dieses Feld verpflichtend.
-error.form = Fehler im Formular
-error.login = Ungültiger Benutzername oder Passwort
-form.username = Benutzername:
-form.password = Passwort:
-form.register.username = Benutzername*:
-form.register.password = Passwort*:
-form.firstname = Vorname:
-form.lastname = Nachname:
-form.gender = Geschlecht:
-form.birthdate = Geburtsdatum:
-form.male = Männlich
-form.female = Weiblich
-auth.gotoreg = Zur Registrierung
-auth.regquestion = Nicht registriert?
-auth.login = Anmelden
-index.start = Quiz starten
-nav.logout = Abmelden
-nav.register = Registrieren
+jsonFilePath=conf/data.de.json
+next=Weiter
+
+error.required=Eingabe für dieses Feld verpflichtend.
+error.form=Fehler im Formular
+error.login=Ungültiger Benutzername oder Passwort
+
+form.username=Benutzername:
+form.password=Passwort:
+form.register.username=Benutzername*:
+form.register.password=Passwort*:
+form.firstname=Vorname:
+form.lastname=Nachname:
+form.gender=Geschlecht:
+form.birthdate=Geburtsdatum:
+form.male=Männlich
+form.female=Weiblich
+form.requiredhint=Mit "*" gekennzeichnete Felder sind Pflichtfelder
+
+auth.gotoreg=Zur Registrierung
+auth.regquestion=Nicht registriert?
+auth.login=Anmelden
+auth.registerheading=Registrierung
+
+acc.auth=Zum Login springen
+acc.quiz=Zur Frage springen
+acc.quizover=Zur Spielwertung springen
+acc.registration=Zur Registrierung springen
+acc.roundover=Zur Rundenwertung springen
+
+nav.login=Anmelden
+nav.altlogin=Klicke hier um dich anzumelden
+nav.logout=Abmelden
+nav.altlogout=Klicke hier um dich abzumelden
+nav.register=Registrieren
+nav.altregister=Klicke hier um dich zu registrieren
+
+index.start=Quiz starten
+
+register.heading=Registrierung
+register.personallegend=Persönliche Daten
+register.loginlegend=Login Daten
+
+roundover.heading=Rundenzwischenstand
+roundover.winmessage={1} gewinnt Runde {2}!
+
+quiz.category=Kategorie:
+quiz.question=Frage
+quiz.timeleft=Verbleibende Zeit:
+quiz.lastgame=Letztes Spiel:
+quiz.never=Nie
+
+quizover.score=Endstand
+quizover.wins={1} gewinnt!
+quizover.info=Spielerinformationen
+quizover.wonround=Gewonnene Runden: 
+quizover.newgame=Neues Spiel
+
+info.unknown=Unbekannt
+info.correct=Richtig
+info.incorrect=Falsch
+info.heading=Spielerinformationen
+info.question=Frage

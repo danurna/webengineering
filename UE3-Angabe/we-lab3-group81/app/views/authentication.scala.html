@@ -6,7 +6,7 @@
 <section role="main">
 	<section id="login" aria-labelledby="loginheading">
 		@helper.form(action = routes.AuthenticationController.loginSubmit) {
-			<legend id="loginheading">Login</legend>
+			<legend id="loginheading">@Messages.get("auth.login")</legend>
 			
 			@if(myForm.hasGlobalErrors) {
 			    <div role="alert" class="errors">
@@ -31,7 +31,7 @@
 	</section>
 	<!-- Register section -->
 	<section id="register" aria-labelledby="registerheading">
-		<h2 id="registerheading" class="accessibility">Registrierung</h2>
+		<h2 id="registerheading" class="accessibility">@Messages.get("auth.registerheading")</h2>
 		<p>@Messages.get("auth.regquestion")</p>
 		<a href="register">@Messages.get("auth.gotoreg")</a>
 	</section>
