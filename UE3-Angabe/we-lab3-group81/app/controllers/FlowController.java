@@ -46,12 +46,12 @@ public class FlowController extends Controller {
 		QuizMapper quizMapper = new QuizMapper();
 		quizMapper.setQuiz(factory.createQuizGame());
 		quizMapper.setUser(user);
-		QuizGame quiz = quizMapper.getQuiz();
+		QuizGame quizGame = quizMapper.getQuiz();
 		
 		JPA.em().persist(quizMapper);
 		
 		// Render quiz with first question
-		return ok(quiz.render(quiz.getPlayers(), quiz.getCurrentRound()));
+		return ok(views.html.quiz.render(quizGame.getPlayers(), quizGame.getCurrentRound()));
 	}
 
 	@Security.Authenticated(Secured.class)
