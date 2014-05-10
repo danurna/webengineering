@@ -4,10 +4,10 @@
 @main("registerpage", "registration") {
         <section role="main" id="register" aria-labelledby="registerheading">
             <!-- Register section -->
-            <h2 id="registerheading" class="accessibility">Registrierung</h2>
+            <h2 id="registerheading" class="accessibility">@Messages.get("register.heading")</h2>
             
             @helper.form(action = routes.AuthenticationController.registerSubmit) {
-				<legend>Persönliche Daten</legend>
+				<legend>@Messages.get("register.personallegend")</legend>
 				
 				@if(myForm.hasGlobalErrors) {
 				    <div role="alert" class="errors">
@@ -39,7 +39,7 @@
 	            	placeholder = "",
 	            	help = "")
 				
-				<legend>Login Daten</legend>
+				<legend>@Messages.get("register.loginlegend")</legend>
 				
 				@formfields.textFormField(
 					myForm("username"),
@@ -54,7 +54,10 @@
 	            	help = "")
 				
 				<input id="registersubmit" type="submit" value=@Messages.get("nav.register") />
-				<p id="requiredhint">Mit "*" gekennzeichnete Felder sind Pflichtfelder</p>
+				
+				<p id="requiredhint">@Messages.get("form.requiredhint")</p>
 			}	
+            
+            </form>
         </section>
 }

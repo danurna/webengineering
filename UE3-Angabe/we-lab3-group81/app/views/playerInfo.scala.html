@@ -1,26 +1,27 @@
 @(users: List[User], round: Round)
+@import play.i18n._
 
 @AnswerToSpan(playerId: Integer, answerId: Integer, answer: Answer) = {
 	@if(answer == null) {
-		<span id="player@(playerId)answer@(answerId)" class="unknown">Unbekannt</span>
+		<span id="player@(playerId)answer@(answerId)" class="unknown">@Messages.get("info.unknown")</span>
 	} else {
 		@if(answer.isCorrect()) {
-			<span id="player@(playerId)answer(@answerId)" class="correct">Richtig</span>
+			<span id="player@(playerId)answer(@answerId)" class="correct">@Messages.get("info.correct")</span>
 		} else {
-			<span id="player@(playerId)answer(@answerId)" class="incorrect">Falsch</span>
+			<span id="player@(playerId)answer(@answerId)" class="incorrect">@Messages.get("info.incorrect")</span>
 		}
 	}
 
 }
 
 @for((user, i) <- users.zipWithIndex) {
-	<h2 id="roundinfoheading" class="accessibility">Spielerinformationen</h2>
+	<h2 id="roundinfoheading" class="accessibility">@Messages.get("info.heading")</h2>
    	<div id="player@(i+1)info">
     	<span id="player@(i+1)name">@user.getName()</span>
     	<ul class="playerroundsummary">
     		@for(j <- 0 to 2) {
      		<li>
-     			<span class="accessibility">Frage @(j+1):</span>
+     			<span class="accessibility">@Messages.get("info.question") @(j+1):</span>
       			@AnswerToSpan(i+1, j+1, round.getAnswer(j, user))	        			
      		</li>
     		}

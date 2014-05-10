@@ -1,4 +1,5 @@
 @(users: List[User], round: Round)
+@import play.i18n._
 
 @currentQuestion = @{ round.getCurrentQuestion(users(0)); }
 @main("questionpage","quiz") {
@@ -6,33 +7,37 @@
 <section role="main">
     <section id="roundinfo" aria-labelledby="roundinfoheading">
         @playerInfo(users,round)
-        <div id="currentcategory"><span class="accessibility">Kategorie:</span> @currentQuestion.getCategory().getName()</div>
+        <div id="currentcategory"><span class="accessibility">@Messages.get("quiz.category")</span> @currentQuestion.getCategory().getName()</div>
     </section>
     
     <!-- Question -->
     <section id="question" aria-labelledby="questionheading">
         
-        <form id="questionform" action="question.html" method="post">
-            <h2 id="questionheading" class="accessibility">Frage</h2>
+        <form id="questionform" action="@routes.FlowController.nextQuestion" method="post">
+            <h2 id="questionheading" class="accessibility">@Messages.get("quiz.question")</h2>
             <p id="questiontext">@currentQuestion.getText()</p>
             <ul id="answers">
             @for((choice, i) <- currentQuestion.getAllChoices().zipWithIndex) {
-                <li><input id="option@(i+1)" type="checkbox"/><label for="option@(i+1)">@choice.getText()</label></li>
+                <li>
+                	<input type="hidden" name="option@(i+1)Id" value="@choice.getId()" />
+                	<input id="option@(i+1)" name="option@(i+1)" type="checkbox"/>
+                	<label for="option@(i+1)">@choice.getText()</label>
+                </li>
             }
             </ul>
-            <input id="timeleftvalue" type="hidden" value="-1"/>
+            <input id="timeleftvalue" name="timeleftvalue" type="hidden" value="-1"/>
             <input id="next" type="submit" value="weiter" accesskey="s"/>
         </form>
     </section>
     
     <section id="timer" aria-labelledby="timerheading">
         <h2 id="timerheading" class="accessibility">Timer</h2>
-        <p><span id="timeleftlabel">Verbleibende Zeit:</span> <time id="timeleft">-1</time></p>
+        <p><span id="timeleftlabel">@Messages.get("quiz.timeleft")</span> <time id="timeleft">-1</time></p>
         <meter id="timermeter" min="0" low="-1" value="-1" max="-1"/>
     </section>
     
     <section id="lastgame">
-        <p>Letztes Spiel: Nie</p>
+        <p>@Messages.get("quiz.lastgame") @Messages.get("quiz.never")</p>
     </section>
 </section>
 
@@ -58,7 +63,7 @@
       var lastGameMillis = parseInt(localStorage['lastGame'])
       if(!isNaN(parseInt(localStorage['lastGame']))){
           var lastGame = new Date(lastGameMillis);
-      	$("#lastgame p").replaceWith('<p>Letztes Spiel: <time datetime="'
+      	$("#lastgame p").replaceWith('<p>@Messages.get("quiz.lastgame") <time datetime="'
       			+ lastGame.toUTCString()
       			+ '">'
       			+ lastGame.toLocaleString()

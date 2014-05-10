@@ -5,7 +5,6 @@ import java.security.NoSuchAlgorithmException;
 import java.security.spec.InvalidKeySpecException;
 
 import models.LoginModel;
-import models.UserModel;
 import models.UserRegisterModel;
 import play.Logger;
 import play.data.Form;
@@ -36,6 +35,11 @@ public class AuthenticationController extends Controller {
 		return redirect(routes.FlowController.index());
 	}
 
+	public static Result logout() {
+		session().clear();
+		return redirect(routes.FlowController.index());
+	}
+	
 	public static Result register() {
 		Form<UserRegisterModel> registerForm = Form.form(UserRegisterModel.class);
 		return ok(registration.render(registerForm));
