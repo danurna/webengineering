@@ -2,7 +2,7 @@
 
 @AnswerToSpan(playerId: Integer, answerId: Integer, answer: Answer) = {
 	@if(answer == null) {
-		<span class="player@(playerId)answer@(answerId)" class="unknown">Unbekannt</span>
+		<span id="player@(playerId)answer@(answerId)" class="unknown">Unbekannt</span>
 	} else {
 		@if(answer.isCorrect()) {
 			<span id="player@(playerId)answer(@answerId)" class="correct">Richtig</span>
@@ -20,7 +20,7 @@
     	<ul class="playerroundsummary">
     		@for(j <- 0 to 2) {
      		<li>
-     			<span class="accessibility">Frage: @(j+1)</span>
+     			<span class="accessibility">Frage @(j+1):</span>
       			@AnswerToSpan(i+1, j+1, round.getAnswer(j, user))	        			
      		</li>
     		}

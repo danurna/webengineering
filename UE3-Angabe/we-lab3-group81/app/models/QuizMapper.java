@@ -10,7 +10,7 @@ import javax.persistence.OneToOne;
 import play.db.jpa.JPA;
 import at.ac.tuwien.big.we14.lab2.api.QuizGame;
 
-@Entity
+
 public class QuizMapper {
 
 	@Id
