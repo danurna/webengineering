@@ -34,7 +34,7 @@ public class UserModel implements User {
 	
 	@Override
 	public String getName() {
-		return firstname+" "+lastname;
+		return name;
 	}
 
 	@Override
