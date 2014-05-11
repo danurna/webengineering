@@ -4,6 +4,9 @@ next=Weiter
 error.required=Eingabe für dieses Feld verpflichtend.
 error.form=Fehler im Formular
 error.login=Ungültiger Benutzername oder Passwort
+error.futuredate = Das Geburtsdatum darf nicht in der Zukunft liegen
+error.userexists = Der Benutzername ist schon in Verwendung
+error.invaliddate = Bitte verwenden Sie ein Datum der Form TT.MM.JJJJ
 
 form.username=Benutzername:
 form.password=Passwort:
@@ -16,6 +19,7 @@ form.birthdate=Geburtsdatum:
 form.male=Männlich
 form.female=Weiblich
 form.requiredhint=Mit "*" gekennzeichnete Felder sind Pflichtfelder
+form.dateformat=DD.MM.YYYY
 
 auth.gotoreg=Zur Registrierung
 auth.regquestion=Nicht registriert?

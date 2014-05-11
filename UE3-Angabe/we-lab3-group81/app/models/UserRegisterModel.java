@@ -2,10 +2,12 @@ package models;
 
 import java.util.Date;
 
+import play.api.i18n.Messages.Message;
 import play.data.validation.Constraints.MaxLength;
 import play.data.validation.Constraints.MinLength;
 import play.data.validation.Constraints.Required;
 import play.data.format.*;
+import play.i18n.Messages;
 
 public class UserRegisterModel {	
 	public String firstname;
@@ -28,12 +30,12 @@ public class UserRegisterModel {
 	public String validate() {  
 	      // Validate birthdate
 	      if( birthdate != null && birthdate.after(new Date()) ){
-	    	  return "Birthdate can't be in the future";
+	    	  return Messages.get("error.futuredate"); 
 	      }
 	      
 	      // Validate username uniquness
 	      if( !uniqueUsername(username) ){
-	    	  return "Username already exists!";
+	    	  return Messages.get("error.userexists");
 	      }
 	      
 	      return null;

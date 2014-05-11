@@ -4,6 +4,9 @@ next=Next
 error.required=Field Input is required.
 error.form=Error inside form
 error.login=Invalid user or password
+error.futuredate = Birthdate can not be in the future
+error.userexists = Username already exists
+error.invaliddate = Please use date format MM/DD/YYYY
 
 form.username=Username:
 form.password=Password:
@@ -16,6 +19,8 @@ form.birthdate=Birthdate:
 form.male=Male
 form.female=Female
 form.requiredhint=Fields marked with "*" are required
+form.dateformat=MM/DD/YYYY
+form.fallbackformat=YYYY-MM-DD
 
 auth.gotoreg=Go to registration
 auth.regquestion=No Account?

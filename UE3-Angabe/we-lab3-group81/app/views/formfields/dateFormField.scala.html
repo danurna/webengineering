@@ -5,7 +5,7 @@
     @if(field.hasErrors){
     	<div role="alert" class="errors"> 	   	
     		@for(error <- field.errors) {
-			    <span> @Messages.get( error.message, error.args )</span>
+			    <span> @Messages.get( "error.invaliddate" )</span>
 			}
     	</div>
     }    
