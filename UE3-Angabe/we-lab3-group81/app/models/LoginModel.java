@@ -1,24 +1,15 @@
 package models;
 
 
-import java.security.NoSuchAlgorithmException;
-import java.security.spec.InvalidKeySpecException;
-
-import controllers.PasswordHash;
-import play.data.validation.Constraints.MaxLength;
-import play.data.validation.Constraints.MinLength;
 import play.data.validation.Constraints.Required;
+import controllers.PasswordHash;
 
 public class LoginModel {
 	
 	@Required
-	@MinLength(4)
-	@MaxLength(8)
 	public String username;
 	
 	@Required
-	@MinLength(4)
-	@MaxLength(8)
 	public String password;
 	
 	public String validate() {

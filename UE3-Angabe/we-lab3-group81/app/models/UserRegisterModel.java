@@ -2,11 +2,9 @@ package models;
 
 import java.util.Date;
 
-import play.api.i18n.Messages.Message;
 import play.data.validation.Constraints.MaxLength;
 import play.data.validation.Constraints.MinLength;
 import play.data.validation.Constraints.Required;
-import play.data.format.*;
 import play.i18n.Messages;
 
 public class UserRegisterModel {	

@@ -34,7 +34,7 @@ public class UserModel implements User {
 	
 	@Override
 	public String getName() {
-		return name;
+		return firstname+" "+lastname;
 	}
 
 	@Override
@@ -84,14 +84,6 @@ public class UserModel implements User {
 
 	public void setGender(String gender) {
 		this.gender = gender;
-	}
-
-	public static UserModel authenticate(String username, String password) {
-		UserModel out = new UserModel();
-		out.setName(username);
-		out.setPassword(password);
-		
-		return out;
 	}
 
 	public static UserModel findUserByName(String username) {
