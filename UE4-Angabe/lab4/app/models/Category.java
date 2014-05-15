@@ -3,17 +3,23 @@ package models;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.CascadeType;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.OneToMany;
+import javax.validation.constraints.NotNull;
+
 /**
  * Represents a category, which is stored in the DB
  */
+@Entity
 public class Category extends BaseEntity {
-
 
     private String nameDE;
     private String nameEN;
 
-
     //A list of questions in this category
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "category")
     private List<Question> questions = new ArrayList<Question>();
 
     /**
