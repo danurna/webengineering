@@ -79,7 +79,7 @@ public class AuthenticationController extends Controller {
 			@Override
 			public String print(Date arg0, Locale arg1) {
 				// TODO Auto-generated method stub
-				return "";
+				return arg0.toString()
 			}
 		  });
 		  
