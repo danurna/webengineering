@@ -1,0 +1,29 @@
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
+	xmlns:data="http://big.tuwien.ac.at/we/highscore/data">
+	<soapenv:Header />
+	<soapenv:Body>
+		<data:HighScoreRequest>
+			<data:UserKey>rkf4394dwqp49x</data:UserKey>
+			<quiz>
+				<users>
+				
+				
+					<!--
+					<user name="loser" gender="male">
+						<password></password>
+						<firstname></firstname>
+						<lastname></lastname>
+						<birthdate></birthdate>
+					</user>
+					<user name="winner" gender="female">
+						<password></password>
+						<firstname>Barbara</firstname>
+						<lastname>Reistendorfer</lastname>
+						<birthdate>1985-03-03</birthdate>
+					</user>
+					-->
+				</users>
+			</quiz>
+		</data:HighScoreRequest>
+	</soapenv:Body>
+</soapenv:Envelope>

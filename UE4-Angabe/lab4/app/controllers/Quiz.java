@@ -1,6 +1,24 @@
 package controllers;
 
-import models.*;
+import highscore.Failure;
+import highscore.Gender;
+import highscore.HighScoreRequestType;
+import highscore.PublishHighScoreEndpoint;
+import highscore.PublishHighScoreService;
+import highscore.User;
+import highscore.Users;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
+import java.util.UUID;
+
+import models.Category;
+import models.Choice;
+import models.Question;
+import models.QuizDAO;
+import models.QuizGame;
+import models.QuizUser;
 import play.Logger;
 import play.Play;
 import play.api.Application;
@@ -13,15 +31,11 @@ import play.mvc.Controller;
 import play.mvc.Result;
 import play.mvc.Security;
 import scala.Option;
+import twitter.TwitterClient;
 import views.html.quiz.index;
 import views.html.quiz.quiz;
 import views.html.quiz.quizover;
 import views.html.quiz.roundover;
-
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
-import java.util.UUID;
 
 @Security.Authenticated(Secured.class)
 public class Quiz extends Controller {
@@ -160,6 +174,41 @@ public class Quiz extends Controller {
 	public static Result endResult() {
 		QuizGame game = cachedGame();
 		if (game != null && isGameOver(game)) {
+			PublishHighScoreService service = new PublishHighScoreService();
+			PublishHighScoreEndpoint endpoint = service.getPort(PublishHighScoreEndpoint.class);
+			
+			QuizUser gameLoser = null, gameWinner = game.getWinner();
+			List<QuizUser> players = game.getPlayers();
+			for(QuizUser qu : players) {
+				if(qu != gameWinner) {
+					gameLoser = qu;
+				}
+			}
+			
+			
+			
+			Users users = new Users();
+			users.getUser().add(new User(gameWinner, true));
+			users.getUser().add(new User(gameLoser, false));
+			
+			highscore.Quiz q = new highscore.Quiz();
+			q.setUsers(users);
+			
+			HighScoreRequestType request = new HighScoreRequestType();
+			request.setUserKey("rkf4394dwqp49x");
+			request.setQuiz(q);
+			
+			try {
+				String uuid = endpoint.publishHighScore(request);
+				TwitterClient.share(uuid);
+
+				
+			} catch (Failure e) {
+				Logger.debug("Something went wrong");
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
 			return ok(quizover.render(game));
 		} else {
 			return badRequest(Messages.get("quiz.no-end-result"));

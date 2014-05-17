@@ -1,0 +1,194 @@
+2014-05-17 17:01:44,248 - [INFO] - from play in pool-6-thread-5 
+Listening for HTTP on /0:0:0:0:0:0:0:0:9000
+
+2014-05-17 18:12:05,777 - [INFO] - from play in play-internal-execution-context-1 
+datasource [jdbc:h2:~/dblab4;DB_CLOSE_DELAY=-1;AUTO_SERVER=TRUE;AUTO_SERVER_PORT=9333] bound to JNDI as DefaultDS
+
+2014-05-17 18:12:06,121 - [INFO] - from play in play-internal-execution-context-1 
+database [default] connected at jdbc:h2:~/dblab4
+
+2014-05-17 18:12:09,587 - [INFO] - from application in play-internal-execution-context-1 
+Data from json file 'data.json' inserted.
+
+2014-05-17 18:12:09,587 - [INFO] - from application in play-internal-execution-context-1 
+Start loading from DBPedia...
+
+2014-05-17 18:12:12,780 - [INFO] - from application in play-internal-execution-context-1 
+DBPedia data inserted.
+
+2014-05-17 18:12:12,843 - [INFO] - from play in play-internal-execution-context-1 
+Application started (Dev)
+
+2014-05-17 18:12:49,628 - [INFO] - from application in play-akka.actor.default-dispatcher-8 
+Start game with 6 categories.
+
+2014-05-17 18:13:09,473 - [ERROR] - from play in play-internal-execution-context-1 
+Cannot invoke the action, eventually got an error: java.lang.UnsupportedOperationException
+
+2014-05-17 18:13:09,495 - [ERROR] - from application in play-internal-execution-context-1 
+
+
+! @6i9295jnj - Internal server error, for (GET) [/quiz/result] ->
+
+play.api.Application$$anon$1: Execution exception[[UnsupportedOperationException: null]]
+	at play.api.Application$class.handleError(Application.scala:293) ~[play_2.10.jar:2.2.2]
+	at play.api.DefaultApplication.handleError(Application.scala:399) [play_2.10.jar:2.2.2]
+	at play.core.server.netty.PlayDefaultUpstreamHandler$$anonfun$2$$anonfun$applyOrElse$3.apply(PlayDefaultUpstreamHandler.scala:261) [play_2.10.jar:2.2.2]
+	at play.core.server.netty.PlayDefaultUpstreamHandler$$anonfun$2$$anonfun$applyOrElse$3.apply(PlayDefaultUpstreamHandler.scala:261) [play_2.10.jar:2.2.2]
+	at scala.Option.map(Option.scala:145) [scala-library.jar:na]
+	at play.core.server.netty.PlayDefaultUpstreamHandler$$anonfun$2.applyOrElse(PlayDefaultUpstreamHandler.scala:261) [play_2.10.jar:2.2.2]
+	at play.core.server.netty.PlayDefaultUpstreamHandler$$anonfun$2.applyOrElse(PlayDefaultUpstreamHandler.scala:257) [play_2.10.jar:2.2.2]
+	at scala.concurrent.Future$$anonfun$recoverWith$1.apply(Future.scala:344) [scala-library.jar:na]
+	at scala.concurrent.Future$$anonfun$recoverWith$1.apply(Future.scala:343) [scala-library.jar:na]
+	at scala.concurrent.impl.CallbackRunnable.run(Promise.scala:32) [scala-library.jar:na]
+	at play.api.libs.iteratee.Execution$$anon$1.execute(Execution.scala:43) [play-iteratees_2.10.jar:2.2.2]
+	at scala.concurrent.impl.CallbackRunnable.executeWithValue(Promise.scala:40) [scala-library.jar:na]
+	at scala.concurrent.impl.Promise$DefaultPromise.tryComplete(Promise.scala:248) [scala-library.jar:na]
+	at scala.concurrent.Promise$class.complete(Promise.scala:55) [scala-library.jar:na]
+	at scala.concurrent.impl.Promise$DefaultPromise.complete(Promise.scala:153) [scala-library.jar:na]
+	at scala.concurrent.Future$$anonfun$map$1.apply(Future.scala:235) [scala-library.jar:na]
+	at scala.concurrent.Future$$anonfun$map$1.apply(Future.scala:235) [scala-library.jar:na]
+	at scala.concurrent.impl.CallbackRunnable.run(Promise.scala:32) [scala-library.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinTask$AdaptedRunnableAction.exec(ForkJoinTask.java:1361) [scala-library.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinTask.doExec(ForkJoinTask.java:260) [scala-library.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:1339) [scala-library.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinPool.runWorker(ForkJoinPool.java:1979) [scala-library.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:107) [scala-library.jar:na]
+Caused by: java.lang.UnsupportedOperationException: null
+	at java.util.AbstractList.remove(AbstractList.java:161) ~[na:1.7.0_21]
+	at java.util.AbstractList$Itr.remove(AbstractList.java:374) ~[na:1.7.0_21]
+	at java.util.AbstractCollection.remove(AbstractCollection.java:283) ~[na:1.7.0_21]
+	at controllers.Quiz.endResult(Quiz.java:182) ~[na:na]
+	at Routes$$anonfun$routes$1$$anonfun$applyOrElse$13$$anonfun$apply$13.apply(routes_routing.scala:197) ~[na:na]
+	at Routes$$anonfun$routes$1$$anonfun$applyOrElse$13$$anonfun$apply$13.apply(routes_routing.scala:197) ~[na:na]
+	at play.core.Router$HandlerInvoker$$anon$7$$anon$2.invocation(Router.scala:183) ~[play_2.10.jar:2.2.2]
+	at play.core.Router$Routes$$anon$1.invocation(Router.scala:377) ~[play_2.10.jar:2.2.2]
+	at play.core.j.JavaAction$$anon$1.call(JavaAction.scala:56) ~[play_2.10.jar:2.2.2]
+	at play.GlobalSettings$1.call(GlobalSettings.java:64) ~[play_2.10.jar:2.2.2]
+	at play.mvc.Security$AuthenticatedAction.call(Security.java:45) ~[play_2.10.jar:2.2.2]
+	at play.db.jpa.TransactionalAction$1.apply(TransactionalAction.java:20) ~[play-java-jpa_2.10.jar:2.2.2]
+	at play.db.jpa.TransactionalAction$1.apply(TransactionalAction.java:18) ~[play-java-jpa_2.10.jar:2.2.2]
+	at play.db.jpa.JPA.withTransactionAsync(JPA.java:177) ~[play-java-jpa_2.10.jar:2.2.2]
+	at play.db.jpa.TransactionalAction.call(TransactionalAction.java:15) ~[play-java-jpa_2.10.jar:2.2.2]
+	at play.core.j.JavaAction$$anon$3.apply(JavaAction.scala:91) ~[play_2.10.jar:2.2.2]
+	at play.core.j.JavaAction$$anon$3.apply(JavaAction.scala:90) ~[play_2.10.jar:2.2.2]
+	at play.core.j.FPromiseHelper$$anonfun$flatMap$1.apply(FPromiseHelper.scala:82) ~[play_2.10.jar:2.2.2]
+	at play.core.j.FPromiseHelper$$anonfun$flatMap$1.apply(FPromiseHelper.scala:82) ~[play_2.10.jar:2.2.2]
+	at scala.concurrent.Future$$anonfun$flatMap$1.apply(Future.scala:251) ~[scala-library.jar:na]
+	at scala.concurrent.Future$$anonfun$flatMap$1.apply(Future.scala:249) ~[scala-library.jar:na]
+	at scala.concurrent.impl.CallbackRunnable.run(Promise.scala:32) [scala-library.jar:na]
+	at play.core.j.HttpExecutionContext$$anon$2.run(HttpExecutionContext.scala:37) ~[play_2.10.jar:2.2.2]
+	at akka.dispatch.TaskInvocation.run(AbstractDispatcher.scala:42) ~[akka-actor_2.10.jar:2.2.0]
+	at akka.dispatch.ForkJoinExecutorConfigurator$AkkaForkJoinTask.exec(AbstractDispatcher.scala:386) ~[akka-actor_2.10.jar:2.2.0]
+	... 4 common frames omitted
+
+2014-05-17 18:14:36,833 - [INFO] - from application in play-internal-execution-context-1 
+Application shutdown...
+
+2014-05-17 18:14:37,139 - [INFO] - from play in play-internal-execution-context-1 
+datasource [jdbc:h2:~/dblab4;DB_CLOSE_DELAY=-1;AUTO_SERVER=TRUE;AUTO_SERVER_PORT=9333] bound to JNDI as DefaultDS
+
+2014-05-17 18:14:37,145 - [INFO] - from play in play-internal-execution-context-1 
+database [default] connected at jdbc:h2:~/dblab4
+
+2014-05-17 18:14:37,805 - [INFO] - from application in play-internal-execution-context-1 
+Data from json file 'data.json' inserted.
+
+2014-05-17 18:14:37,805 - [INFO] - from application in play-internal-execution-context-1 
+Start loading from DBPedia...
+
+2014-05-17 18:14:39,241 - [INFO] - from application in play-internal-execution-context-1 
+DBPedia data inserted.
+
+2014-05-17 18:14:39,278 - [INFO] - from play in play-internal-execution-context-1 
+Application started (Dev)
+
+2014-05-17 18:14:46,111 - [INFO] - from application in play-akka.actor.default-dispatcher-4 
+Start game with 6 categories.
+
+2014-05-17 18:15:01,581 - [ERROR] - from play in play-internal-execution-context-2 
+Cannot invoke the action, eventually got an error: java.lang.NullPointerException
+
+2014-05-17 18:15:01,586 - [ERROR] - from application in play-internal-execution-context-2 
+
+
+! @6i929c3j7 - Internal server error, for (GET) [/quiz/result] ->
+
+play.api.Application$$anon$1: Execution exception[[NullPointerException: null]]
+	at play.api.Application$class.handleError(Application.scala:293) ~[play_2.10.jar:2.2.2]
+	at play.api.DefaultApplication.handleError(Application.scala:399) [play_2.10.jar:2.2.2]
+	at play.core.server.netty.PlayDefaultUpstreamHandler$$anonfun$2$$anonfun$applyOrElse$3.apply(PlayDefaultUpstreamHandler.scala:261) [play_2.10.jar:2.2.2]
+	at play.core.server.netty.PlayDefaultUpstreamHandler$$anonfun$2$$anonfun$applyOrElse$3.apply(PlayDefaultUpstreamHandler.scala:261) [play_2.10.jar:2.2.2]
+	at scala.Option.map(Option.scala:145) [scala-library.jar:na]
+	at play.core.server.netty.PlayDefaultUpstreamHandler$$anonfun$2.applyOrElse(PlayDefaultUpstreamHandler.scala:261) [play_2.10.jar:2.2.2]
+	at play.core.server.netty.PlayDefaultUpstreamHandler$$anonfun$2.applyOrElse(PlayDefaultUpstreamHandler.scala:257) [play_2.10.jar:2.2.2]
+	at scala.concurrent.Future$$anonfun$recoverWith$1.apply(Future.scala:344) [scala-library.jar:na]
+	at scala.concurrent.Future$$anonfun$recoverWith$1.apply(Future.scala:343) [scala-library.jar:na]
+	at scala.concurrent.impl.CallbackRunnable.run(Promise.scala:32) [scala-library.jar:na]
+	at play.api.libs.iteratee.Execution$$anon$1.execute(Execution.scala:43) [play-iteratees_2.10.jar:2.2.2]
+	at scala.concurrent.impl.CallbackRunnable.executeWithValue(Promise.scala:40) [scala-library.jar:na]
+	at scala.concurrent.impl.Promise$DefaultPromise.tryComplete(Promise.scala:248) [scala-library.jar:na]
+	at scala.concurrent.Promise$class.complete(Promise.scala:55) [scala-library.jar:na]
+	at scala.concurrent.impl.Promise$DefaultPromise.complete(Promise.scala:153) [scala-library.jar:na]
+	at scala.concurrent.Future$$anonfun$map$1.apply(Future.scala:235) [scala-library.jar:na]
+	at scala.concurrent.Future$$anonfun$map$1.apply(Future.scala:235) [scala-library.jar:na]
+	at scala.concurrent.impl.CallbackRunnable.run(Promise.scala:32) [scala-library.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinTask$AdaptedRunnableAction.exec(ForkJoinTask.java:1361) [scala-library.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinTask.doExec(ForkJoinTask.java:260) [scala-library.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:1339) [scala-library.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinPool.runWorker(ForkJoinPool.java:1979) [scala-library.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:107) [scala-library.jar:na]
+Caused by: java.lang.NullPointerException: null
+	at java.util.Calendar.setTime(Calendar.java:1106) ~[na:1.7.0_21]
+	at highscore.User.<init>(User.java:81) ~[na:na]
+	at controllers.Quiz.endResult(Quiz.java:191) ~[na:na]
+	at Routes$$anonfun$routes$1$$anonfun$applyOrElse$13$$anonfun$apply$13.apply(routes_routing.scala:197) ~[na:na]
+	at Routes$$anonfun$routes$1$$anonfun$applyOrElse$13$$anonfun$apply$13.apply(routes_routing.scala:197) ~[na:na]
+	at play.core.Router$HandlerInvoker$$anon$7$$anon$2.invocation(Router.scala:183) ~[play_2.10.jar:2.2.2]
+	at play.core.Router$Routes$$anon$1.invocation(Router.scala:377) ~[play_2.10.jar:2.2.2]
+	at play.core.j.JavaAction$$anon$1.call(JavaAction.scala:56) ~[play_2.10.jar:2.2.2]
+	at play.GlobalSettings$1.call(GlobalSettings.java:64) ~[play_2.10.jar:2.2.2]
+	at play.mvc.Security$AuthenticatedAction.call(Security.java:45) ~[play_2.10.jar:2.2.2]
+	at play.db.jpa.TransactionalAction$1.apply(TransactionalAction.java:20) ~[play-java-jpa_2.10.jar:2.2.2]
+	at play.db.jpa.TransactionalAction$1.apply(TransactionalAction.java:18) ~[play-java-jpa_2.10.jar:2.2.2]
+	at play.db.jpa.JPA.withTransactionAsync(JPA.java:177) ~[play-java-jpa_2.10.jar:2.2.2]
+	at play.db.jpa.TransactionalAction.call(TransactionalAction.java:15) ~[play-java-jpa_2.10.jar:2.2.2]
+	at play.core.j.JavaAction$$anon$3.apply(JavaAction.scala:91) ~[play_2.10.jar:2.2.2]
+	at play.core.j.JavaAction$$anon$3.apply(JavaAction.scala:90) ~[play_2.10.jar:2.2.2]
+	at play.core.j.FPromiseHelper$$anonfun$flatMap$1.apply(FPromiseHelper.scala:82) ~[play_2.10.jar:2.2.2]
+	at play.core.j.FPromiseHelper$$anonfun$flatMap$1.apply(FPromiseHelper.scala:82) ~[play_2.10.jar:2.2.2]
+	at scala.concurrent.Future$$anonfun$flatMap$1.apply(Future.scala:251) ~[scala-library.jar:na]
+	at scala.concurrent.Future$$anonfun$flatMap$1.apply(Future.scala:249) ~[scala-library.jar:na]
+	at scala.concurrent.impl.CallbackRunnable.run(Promise.scala:32) [scala-library.jar:na]
+	at play.core.j.HttpExecutionContext$$anon$2.run(HttpExecutionContext.scala:37) ~[play_2.10.jar:2.2.2]
+	at akka.dispatch.TaskInvocation.run(AbstractDispatcher.scala:42) ~[akka-actor_2.10.jar:2.2.0]
+	at akka.dispatch.ForkJoinExecutorConfigurator$AkkaForkJoinTask.exec(AbstractDispatcher.scala:386) ~[akka-actor_2.10.jar:2.2.0]
+	... 4 common frames omitted
+
+2014-05-17 18:16:00,655 - [INFO] - from application in play-internal-execution-context-1 
+Application shutdown...
+
+2014-05-17 18:16:00,898 - [INFO] - from play in play-internal-execution-context-1 
+datasource [jdbc:h2:~/dblab4;DB_CLOSE_DELAY=-1;AUTO_SERVER=TRUE;AUTO_SERVER_PORT=9333] bound to JNDI as DefaultDS
+
+2014-05-17 18:16:00,903 - [INFO] - from play in play-internal-execution-context-1 
+database [default] connected at jdbc:h2:~/dblab4
+
+2014-05-17 18:16:01,430 - [INFO] - from application in play-internal-execution-context-1 
+Data from json file 'data.json' inserted.
+
+2014-05-17 18:16:01,430 - [INFO] - from application in play-internal-execution-context-1 
+Start loading from DBPedia...
+
+2014-05-17 18:16:02,756 - [INFO] - from application in play-internal-execution-context-1 
+DBPedia data inserted.
+
+2014-05-17 18:16:02,786 - [INFO] - from play in play-internal-execution-context-1 
+Application started (Dev)
+
+2014-05-17 18:16:03,952 - [INFO] - from application in play-akka.actor.default-dispatcher-25 
+Start game with 6 categories.
+
+2014-05-17 18:18:22,380 - [INFO] - from application in play-akka.actor.default-dispatcher-20 
+Start game with 6 categories.
+
