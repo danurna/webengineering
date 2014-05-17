@@ -48,8 +48,14 @@ public class Global extends GlobalSettings {
 			public Boolean apply() throws Throwable {
 				insertJSonData();
 				insertDBPediaData();
-				//For testing the client, enable this ;)
-				//TwitterClient.share();
+				//For sharing, enable this:
+				/*
+				try {
+					TwitterClient.share(new TwitterStatusMessage("me", "oanszwoa", new Date()));
+				}catch (IllegalArgumentException e){
+					Logger.info("Provide proper values for status message.");
+				}
+				 */
 				return true;
 			}
 			   

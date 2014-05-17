@@ -10,13 +10,13 @@ import twitter4j.conf.ConfigurationBuilder;
 
 public class TwitterClient implements ITwitterClient{
 
-	public static void share(String UUID){
-		TwitterClient client = new TwitterClient();
+	public static void share(TwitterStatusMessage message){
+		if( message == null ){
+			return;
+		}
 		
 		try {
-			client.publishUuid(new TwitterStatusMessage("Group81", UUID, new Date()));
-		} catch (IllegalArgumentException e){
-			Logger.info("Provide proper values for status message.");
+			new TwitterClient().publishUuid(message);
 		} catch (Exception e) {
 			Logger.info("Tweeting went wrong :/");
 		}
