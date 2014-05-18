@@ -2,7 +2,6 @@
 package highscore;
 
 import java.util.Date;
-import java.util.GregorianCalendar;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
@@ -18,6 +17,10 @@ import javax.xml.datatype.DatatypeFactory;
 import javax.xml.datatype.XMLGregorianCalendar;
 
 import models.QuizUser;
+
+import org.joda.time.DateTime;
+
+import play.Logger;
 
 
 /**
@@ -73,21 +76,34 @@ public class User {
     public User() {}
     
     public User(QuizUser user, boolean winner) {
+    	this.password = "";
     	this.firstname = user.getFirstName();
     	this.lastname = user.getLastName();
     	this.gender = (user.getGender() == models.QuizUser.Gender.male)
     			? Gender.MALE : Gender.FEMALE;
     	this.name = winner ? "winner" : "loser";
-    	GregorianCalendar c = new GregorianCalendar();
-    	c.setTime(user.getBirthDate() == null ? new Date() : user.getBirthDate());
     	try {
-			this.birthdate = DatatypeFactory.newInstance().newXMLGregorianCalendar(c);
+			this.birthdate = DateToXML(user.getBirthDate());
 		} catch (DatatypeConfigurationException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+    	Logger.debug(firstname);
+    	Logger.debug(lastname);
+    	Logger.debug(gender.toString());
+    	Logger.debug(name);
+    	Logger.debug(birthdate.toString());
     }
     
+    private XMLGregorianCalendar DateToXML(Date date) throws DatatypeConfigurationException {
+    	DateTime dateTime = new DateTime(date);
+    	XMLGregorianCalendar xmlGregorianCalendar =
+    			DatatypeFactory.newInstance().newXMLGregorianCalendar();
+        xmlGregorianCalendar.setDay(dateTime.getDayOfMonth());
+        xmlGregorianCalendar.setMonth(dateTime.getMonthOfYear());
+        xmlGregorianCalendar.setYear(dateTime.getYear());
+        return xmlGregorianCalendar;
+    }
     
     /**
      * Gets the value of the password property.

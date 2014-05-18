@@ -1,118 +1,154 @@
-2014-05-17 17:01:44,248 - [INFO] - from play in pool-6-thread-5 
+2014-05-18 12:25:14,440 - [INFO] - from play in pool-6-thread-2 
 Listening for HTTP on /0:0:0:0:0:0:0:0:9000
 
-2014-05-17 18:12:05,777 - [INFO] - from play in play-internal-execution-context-1 
+2014-05-18 12:25:25,588 - [INFO] - from play in play-internal-execution-context-1 
 datasource [jdbc:h2:~/dblab4;DB_CLOSE_DELAY=-1;AUTO_SERVER=TRUE;AUTO_SERVER_PORT=9333] bound to JNDI as DefaultDS
 
-2014-05-17 18:12:06,121 - [INFO] - from play in play-internal-execution-context-1 
+2014-05-18 12:25:26,052 - [INFO] - from play in play-internal-execution-context-1 
 database [default] connected at jdbc:h2:~/dblab4
 
-2014-05-17 18:12:09,587 - [INFO] - from application in play-internal-execution-context-1 
+2014-05-18 12:25:29,003 - [INFO] - from application in play-internal-execution-context-1 
 Data from json file 'data.json' inserted.
 
-2014-05-17 18:12:09,587 - [INFO] - from application in play-internal-execution-context-1 
+2014-05-18 12:25:29,003 - [INFO] - from application in play-internal-execution-context-1 
 Start loading from DBPedia...
 
-2014-05-17 18:12:12,780 - [INFO] - from application in play-internal-execution-context-1 
-DBPedia data inserted.
+2014-05-18 12:25:29,976 - [INFO] - from application in play-internal-execution-context-1 
+DBpedia is currently not available.
 
-2014-05-17 18:12:12,843 - [INFO] - from play in play-internal-execution-context-1 
+2014-05-18 12:25:30,029 - [INFO] - from play in play-internal-execution-context-1 
 Application started (Dev)
 
-2014-05-17 18:12:49,628 - [INFO] - from application in play-akka.actor.default-dispatcher-8 
-Start game with 6 categories.
+2014-05-18 12:26:36,392 - [INFO] - from application in play-akka.actor.default-dispatcher-11 
+Start game with 5 categories.
 
-2014-05-17 18:13:09,473 - [ERROR] - from play in play-internal-execution-context-1 
-Cannot invoke the action, eventually got an error: java.lang.UnsupportedOperationException
+2014-05-18 12:27:06,211 - [INFO] - from application in play-akka.actor.default-dispatcher-15 
+null
 
-2014-05-17 18:13:09,495 - [ERROR] - from application in play-internal-execution-context-1 
+2014-05-18 12:27:06,212 - [INFO] - from application in play-akka.actor.default-dispatcher-15 
+null
 
+2014-05-18 12:27:06,212 - [INFO] - from application in play-akka.actor.default-dispatcher-15 
+FEMALE
 
-! @6i9295jnj - Internal server error, for (GET) [/quiz/result] ->
+2014-05-18 12:27:06,212 - [INFO] - from application in play-akka.actor.default-dispatcher-15 
+winner
 
-play.api.Application$$anon$1: Execution exception[[UnsupportedOperationException: null]]
-	at play.api.Application$class.handleError(Application.scala:293) ~[play_2.10.jar:2.2.2]
-	at play.api.DefaultApplication.handleError(Application.scala:399) [play_2.10.jar:2.2.2]
-	at play.core.server.netty.PlayDefaultUpstreamHandler$$anonfun$2$$anonfun$applyOrElse$3.apply(PlayDefaultUpstreamHandler.scala:261) [play_2.10.jar:2.2.2]
-	at play.core.server.netty.PlayDefaultUpstreamHandler$$anonfun$2$$anonfun$applyOrElse$3.apply(PlayDefaultUpstreamHandler.scala:261) [play_2.10.jar:2.2.2]
-	at scala.Option.map(Option.scala:145) [scala-library.jar:na]
-	at play.core.server.netty.PlayDefaultUpstreamHandler$$anonfun$2.applyOrElse(PlayDefaultUpstreamHandler.scala:261) [play_2.10.jar:2.2.2]
-	at play.core.server.netty.PlayDefaultUpstreamHandler$$anonfun$2.applyOrElse(PlayDefaultUpstreamHandler.scala:257) [play_2.10.jar:2.2.2]
-	at scala.concurrent.Future$$anonfun$recoverWith$1.apply(Future.scala:344) [scala-library.jar:na]
-	at scala.concurrent.Future$$anonfun$recoverWith$1.apply(Future.scala:343) [scala-library.jar:na]
-	at scala.concurrent.impl.CallbackRunnable.run(Promise.scala:32) [scala-library.jar:na]
-	at play.api.libs.iteratee.Execution$$anon$1.execute(Execution.scala:43) [play-iteratees_2.10.jar:2.2.2]
-	at scala.concurrent.impl.CallbackRunnable.executeWithValue(Promise.scala:40) [scala-library.jar:na]
-	at scala.concurrent.impl.Promise$DefaultPromise.tryComplete(Promise.scala:248) [scala-library.jar:na]
-	at scala.concurrent.Promise$class.complete(Promise.scala:55) [scala-library.jar:na]
-	at scala.concurrent.impl.Promise$DefaultPromise.complete(Promise.scala:153) [scala-library.jar:na]
-	at scala.concurrent.Future$$anonfun$map$1.apply(Future.scala:235) [scala-library.jar:na]
-	at scala.concurrent.Future$$anonfun$map$1.apply(Future.scala:235) [scala-library.jar:na]
-	at scala.concurrent.impl.CallbackRunnable.run(Promise.scala:32) [scala-library.jar:na]
-	at scala.concurrent.forkjoin.ForkJoinTask$AdaptedRunnableAction.exec(ForkJoinTask.java:1361) [scala-library.jar:na]
-	at scala.concurrent.forkjoin.ForkJoinTask.doExec(ForkJoinTask.java:260) [scala-library.jar:na]
-	at scala.concurrent.forkjoin.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:1339) [scala-library.jar:na]
-	at scala.concurrent.forkjoin.ForkJoinPool.runWorker(ForkJoinPool.java:1979) [scala-library.jar:na]
-	at scala.concurrent.forkjoin.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:107) [scala-library.jar:na]
-Caused by: java.lang.UnsupportedOperationException: null
-	at java.util.AbstractList.remove(AbstractList.java:161) ~[na:1.7.0_21]
-	at java.util.AbstractList$Itr.remove(AbstractList.java:374) ~[na:1.7.0_21]
-	at java.util.AbstractCollection.remove(AbstractCollection.java:283) ~[na:1.7.0_21]
-	at controllers.Quiz.endResult(Quiz.java:182) ~[na:na]
-	at Routes$$anonfun$routes$1$$anonfun$applyOrElse$13$$anonfun$apply$13.apply(routes_routing.scala:197) ~[na:na]
-	at Routes$$anonfun$routes$1$$anonfun$applyOrElse$13$$anonfun$apply$13.apply(routes_routing.scala:197) ~[na:na]
-	at play.core.Router$HandlerInvoker$$anon$7$$anon$2.invocation(Router.scala:183) ~[play_2.10.jar:2.2.2]
-	at play.core.Router$Routes$$anon$1.invocation(Router.scala:377) ~[play_2.10.jar:2.2.2]
-	at play.core.j.JavaAction$$anon$1.call(JavaAction.scala:56) ~[play_2.10.jar:2.2.2]
-	at play.GlobalSettings$1.call(GlobalSettings.java:64) ~[play_2.10.jar:2.2.2]
-	at play.mvc.Security$AuthenticatedAction.call(Security.java:45) ~[play_2.10.jar:2.2.2]
-	at play.db.jpa.TransactionalAction$1.apply(TransactionalAction.java:20) ~[play-java-jpa_2.10.jar:2.2.2]
-	at play.db.jpa.TransactionalAction$1.apply(TransactionalAction.java:18) ~[play-java-jpa_2.10.jar:2.2.2]
-	at play.db.jpa.JPA.withTransactionAsync(JPA.java:177) ~[play-java-jpa_2.10.jar:2.2.2]
-	at play.db.jpa.TransactionalAction.call(TransactionalAction.java:15) ~[play-java-jpa_2.10.jar:2.2.2]
-	at play.core.j.JavaAction$$anon$3.apply(JavaAction.scala:91) ~[play_2.10.jar:2.2.2]
-	at play.core.j.JavaAction$$anon$3.apply(JavaAction.scala:90) ~[play_2.10.jar:2.2.2]
-	at play.core.j.FPromiseHelper$$anonfun$flatMap$1.apply(FPromiseHelper.scala:82) ~[play_2.10.jar:2.2.2]
-	at play.core.j.FPromiseHelper$$anonfun$flatMap$1.apply(FPromiseHelper.scala:82) ~[play_2.10.jar:2.2.2]
-	at scala.concurrent.Future$$anonfun$flatMap$1.apply(Future.scala:251) ~[scala-library.jar:na]
-	at scala.concurrent.Future$$anonfun$flatMap$1.apply(Future.scala:249) ~[scala-library.jar:na]
-	at scala.concurrent.impl.CallbackRunnable.run(Promise.scala:32) [scala-library.jar:na]
-	at play.core.j.HttpExecutionContext$$anon$2.run(HttpExecutionContext.scala:37) ~[play_2.10.jar:2.2.2]
-	at akka.dispatch.TaskInvocation.run(AbstractDispatcher.scala:42) ~[akka-actor_2.10.jar:2.2.0]
-	at akka.dispatch.ForkJoinExecutorConfigurator$AkkaForkJoinTask.exec(AbstractDispatcher.scala:386) ~[akka-actor_2.10.jar:2.2.0]
-	... 4 common frames omitted
+2014-05-18 12:27:06,215 - [INFO] - from application in play-akka.actor.default-dispatcher-15 
+2014-05-18T12:27:06.212+02:00
 
-2014-05-17 18:14:36,833 - [INFO] - from application in play-internal-execution-context-1 
+2014-05-18 12:27:06,215 - [INFO] - from application in play-akka.actor.default-dispatcher-15 
+Klaus
+
+2014-05-18 12:27:06,215 - [INFO] - from application in play-akka.actor.default-dispatcher-15 
+Muster
+
+2014-05-18 12:27:06,215 - [INFO] - from application in play-akka.actor.default-dispatcher-15 
+MALE
+
+2014-05-18 12:27:06,215 - [INFO] - from application in play-akka.actor.default-dispatcher-15 
+loser
+
+2014-05-18 12:27:06,215 - [INFO] - from application in play-akka.actor.default-dispatcher-15 
+1991-12-31T00:00:00.000+01:00
+
+2014-05-18 12:27:06,215 - [DEBUG] - from application in play-akka.actor.default-dispatcher-15 
+q.getUsers
+
+2014-05-18 12:27:06,432 - [DEBUG] - from application in play-akka.actor.default-dispatcher-15 
+Something went wrong
+
+2014-05-18 12:52:16,846 - [INFO] - from application in play-internal-execution-context-2 
 Application shutdown...
 
-2014-05-17 18:14:37,139 - [INFO] - from play in play-internal-execution-context-1 
+2014-05-18 12:52:17,098 - [INFO] - from play in play-internal-execution-context-2 
 datasource [jdbc:h2:~/dblab4;DB_CLOSE_DELAY=-1;AUTO_SERVER=TRUE;AUTO_SERVER_PORT=9333] bound to JNDI as DefaultDS
 
-2014-05-17 18:14:37,145 - [INFO] - from play in play-internal-execution-context-1 
+2014-05-18 12:52:17,103 - [INFO] - from play in play-internal-execution-context-2 
 database [default] connected at jdbc:h2:~/dblab4
 
-2014-05-17 18:14:37,805 - [INFO] - from application in play-internal-execution-context-1 
+2014-05-18 12:52:17,829 - [INFO] - from application in play-internal-execution-context-2 
 Data from json file 'data.json' inserted.
 
-2014-05-17 18:14:37,805 - [INFO] - from application in play-internal-execution-context-1 
+2014-05-18 12:52:17,830 - [INFO] - from application in play-internal-execution-context-2 
 Start loading from DBPedia...
 
-2014-05-17 18:14:39,241 - [INFO] - from application in play-internal-execution-context-1 
-DBPedia data inserted.
+2014-05-18 12:52:18,059 - [INFO] - from application in play-internal-execution-context-2 
+DBpedia is currently not available.
 
-2014-05-17 18:14:39,278 - [INFO] - from play in play-internal-execution-context-1 
+2014-05-18 12:52:18,092 - [INFO] - from play in play-internal-execution-context-2 
 Application started (Dev)
 
-2014-05-17 18:14:46,111 - [INFO] - from application in play-akka.actor.default-dispatcher-4 
-Start game with 6 categories.
+2014-05-18 12:52:41,512 - [INFO] - from application in play-akka.actor.default-dispatcher-16 
+Start game with 5 categories.
 
-2014-05-17 18:15:01,581 - [ERROR] - from play in play-internal-execution-context-2 
+2014-05-18 12:53:23,274 - [INFO] - from application in play-akka.actor.default-dispatcher-17 
+Klaus
+
+2014-05-18 12:53:23,274 - [INFO] - from application in play-akka.actor.default-dispatcher-17 
+Muster
+
+2014-05-18 12:53:23,274 - [INFO] - from application in play-akka.actor.default-dispatcher-17 
+MALE
+
+2014-05-18 12:53:23,274 - [INFO] - from application in play-akka.actor.default-dispatcher-17 
+loser
+
+2014-05-18 12:53:23,275 - [INFO] - from application in play-akka.actor.default-dispatcher-17 
+2014-12-31T00:00:00.000+01:00
+
+2014-05-18 12:53:23,276 - [INFO] - from application in play-akka.actor.default-dispatcher-17 
+Com
+
+2014-05-18 12:53:23,276 - [INFO] - from application in play-akka.actor.default-dispatcher-17 
+Puter
+
+2014-05-18 12:53:23,276 - [INFO] - from application in play-akka.actor.default-dispatcher-17 
+FEMALE
+
+2014-05-18 12:53:23,276 - [INFO] - from application in play-akka.actor.default-dispatcher-17 
+winner
+
+2014-05-18 12:53:23,276 - [INFO] - from application in play-akka.actor.default-dispatcher-17 
+1970-01-01T01:00:00.000+01:00
+
+2014-05-18 12:53:23,277 - [DEBUG] - from application in play-akka.actor.default-dispatcher-17 
+q.getUsers
+
+2014-05-18 12:53:23,429 - [DEBUG] - from application in play-akka.actor.default-dispatcher-17 
+Something went wrong
+
+2014-05-18 13:04:55,301 - [INFO] - from application in play-internal-execution-context-4 
+Application shutdown...
+
+2014-05-18 13:04:55,857 - [INFO] - from play in play-internal-execution-context-4 
+datasource [jdbc:h2:~/dblab4;DB_CLOSE_DELAY=-1;AUTO_SERVER=TRUE;AUTO_SERVER_PORT=9333] bound to JNDI as DefaultDS
+
+2014-05-18 13:04:55,860 - [INFO] - from play in play-internal-execution-context-4 
+database [default] connected at jdbc:h2:~/dblab4
+
+2014-05-18 13:04:56,336 - [INFO] - from application in play-internal-execution-context-4 
+Data from json file 'data.json' inserted.
+
+2014-05-18 13:04:56,336 - [INFO] - from application in play-internal-execution-context-4 
+Start loading from DBPedia...
+
+2014-05-18 13:04:56,945 - [INFO] - from application in play-internal-execution-context-4 
+DBpedia is currently not available.
+
+2014-05-18 13:04:56,974 - [INFO] - from play in play-internal-execution-context-4 
+Application started (Dev)
+
+2014-05-18 13:04:56,992 - [INFO] - from application in play-akka.actor.default-dispatcher-25 
+Start game with 5 categories.
+
+2014-05-18 13:04:57,039 - [ERROR] - from play in play-internal-execution-context-4 
 Cannot invoke the action, eventually got an error: java.lang.NullPointerException
 
-2014-05-17 18:15:01,586 - [ERROR] - from application in play-internal-execution-context-2 
+2014-05-18 13:04:57,070 - [ERROR] - from application in play-internal-execution-context-4 
 
 
-! @6i929c3j7 - Internal server error, for (GET) [/quiz/result] ->
+! @6i981lanf - Internal server error, for (GET) [/quiz/question] ->
 
 play.api.Application$$anon$1: Execution exception[[NullPointerException: null]]
 	at play.api.Application$class.handleError(Application.scala:293) ~[play_2.10.jar:2.2.2]
@@ -139,9 +175,175 @@ play.api.Application$$anon$1: Execution exception[[NullPointerException: null]]
 	at scala.concurrent.forkjoin.ForkJoinPool.runWorker(ForkJoinPool.java:1979) [scala-library.jar:na]
 	at scala.concurrent.forkjoin.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:107) [scala-library.jar:na]
 Caused by: java.lang.NullPointerException: null
-	at java.util.Calendar.setTime(Calendar.java:1106) ~[na:1.7.0_21]
-	at highscore.User.<init>(User.java:81) ~[na:na]
-	at controllers.Quiz.endResult(Quiz.java:191) ~[na:na]
+	at views.html.quiz.quiz$.nameOfPlayer1$1(quiz.template.scala:29) ~[na:na]
+	at views.html.quiz.quiz$.apply(quiz.template.scala:54) ~[na:na]
+	at views.html.quiz.quiz$.render(quiz.template.scala:157) ~[na:na]
+	at views.html.quiz.quiz.render(quiz.template.scala) ~[na:na]
+	at controllers.Quiz.question(Quiz.java:77) ~[na:na]
+	at Routes$$anonfun$routes$1$$anonfun$applyOrElse$10$$anonfun$apply$10.apply(routes_routing.scala:173) ~[na:na]
+	at Routes$$anonfun$routes$1$$anonfun$applyOrElse$10$$anonfun$apply$10.apply(routes_routing.scala:173) ~[na:na]
+	at play.core.Router$HandlerInvoker$$anon$7$$anon$2.invocation(Router.scala:183) ~[play_2.10.jar:2.2.2]
+	at play.core.Router$Routes$$anon$1.invocation(Router.scala:377) ~[play_2.10.jar:2.2.2]
+	at play.core.j.JavaAction$$anon$1.call(JavaAction.scala:56) ~[play_2.10.jar:2.2.2]
+	at play.GlobalSettings$1.call(GlobalSettings.java:64) ~[play_2.10.jar:2.2.2]
+	at play.mvc.Security$AuthenticatedAction.call(Security.java:45) ~[play_2.10.jar:2.2.2]
+	at play.db.jpa.TransactionalAction$1.apply(TransactionalAction.java:20) ~[play-java-jpa_2.10.jar:2.2.2]
+	at play.db.jpa.TransactionalAction$1.apply(TransactionalAction.java:18) ~[play-java-jpa_2.10.jar:2.2.2]
+	at play.db.jpa.JPA.withTransactionAsync(JPA.java:177) ~[play-java-jpa_2.10.jar:2.2.2]
+	at play.db.jpa.TransactionalAction.call(TransactionalAction.java:15) ~[play-java-jpa_2.10.jar:2.2.2]
+	at play.core.j.JavaAction$$anon$3.apply(JavaAction.scala:91) ~[play_2.10.jar:2.2.2]
+	at play.core.j.JavaAction$$anon$3.apply(JavaAction.scala:90) ~[play_2.10.jar:2.2.2]
+	at play.core.j.FPromiseHelper$$anonfun$flatMap$1.apply(FPromiseHelper.scala:82) ~[play_2.10.jar:2.2.2]
+	at play.core.j.FPromiseHelper$$anonfun$flatMap$1.apply(FPromiseHelper.scala:82) ~[play_2.10.jar:2.2.2]
+	at scala.concurrent.Future$$anonfun$flatMap$1.apply(Future.scala:251) ~[scala-library.jar:na]
+	at scala.concurrent.Future$$anonfun$flatMap$1.apply(Future.scala:249) ~[scala-library.jar:na]
+	at scala.concurrent.impl.CallbackRunnable.run(Promise.scala:32) [scala-library.jar:na]
+	at play.core.j.HttpExecutionContext$$anon$2.run(HttpExecutionContext.scala:37) ~[play_2.10.jar:2.2.2]
+	at akka.dispatch.TaskInvocation.run(AbstractDispatcher.scala:42) ~[akka-actor_2.10.jar:2.2.0]
+	at akka.dispatch.ForkJoinExecutorConfigurator$AkkaForkJoinTask.exec(AbstractDispatcher.scala:386) ~[akka-actor_2.10.jar:2.2.0]
+	... 4 common frames omitted
+
+2014-05-18 13:05:29,642 - [INFO] - from application in play-akka.actor.default-dispatcher-31 
+Start game with 5 categories.
+
+2014-05-18 13:05:29,680 - [ERROR] - from play in play-internal-execution-context-4 
+Cannot invoke the action, eventually got an error: java.lang.NullPointerException
+
+2014-05-18 13:05:29,685 - [ERROR] - from application in play-internal-execution-context-4 
+
+
+! @6i981n748 - Internal server error, for (GET) [/quiz/question] ->
+
+play.api.Application$$anon$1: Execution exception[[NullPointerException: null]]
+	at play.api.Application$class.handleError(Application.scala:293) ~[play_2.10.jar:2.2.2]
+	at play.api.DefaultApplication.handleError(Application.scala:399) [play_2.10.jar:2.2.2]
+	at play.core.server.netty.PlayDefaultUpstreamHandler$$anonfun$2$$anonfun$applyOrElse$3.apply(PlayDefaultUpstreamHandler.scala:261) [play_2.10.jar:2.2.2]
+	at play.core.server.netty.PlayDefaultUpstreamHandler$$anonfun$2$$anonfun$applyOrElse$3.apply(PlayDefaultUpstreamHandler.scala:261) [play_2.10.jar:2.2.2]
+	at scala.Option.map(Option.scala:145) [scala-library.jar:na]
+	at play.core.server.netty.PlayDefaultUpstreamHandler$$anonfun$2.applyOrElse(PlayDefaultUpstreamHandler.scala:261) [play_2.10.jar:2.2.2]
+	at play.core.server.netty.PlayDefaultUpstreamHandler$$anonfun$2.applyOrElse(PlayDefaultUpstreamHandler.scala:257) [play_2.10.jar:2.2.2]
+	at scala.concurrent.Future$$anonfun$recoverWith$1.apply(Future.scala:344) [scala-library.jar:na]
+	at scala.concurrent.Future$$anonfun$recoverWith$1.apply(Future.scala:343) [scala-library.jar:na]
+	at scala.concurrent.impl.CallbackRunnable.run(Promise.scala:32) [scala-library.jar:na]
+	at play.api.libs.iteratee.Execution$$anon$1.execute(Execution.scala:43) [play-iteratees_2.10.jar:2.2.2]
+	at scala.concurrent.impl.CallbackRunnable.executeWithValue(Promise.scala:40) [scala-library.jar:na]
+	at scala.concurrent.impl.Promise$DefaultPromise.tryComplete(Promise.scala:248) [scala-library.jar:na]
+	at scala.concurrent.Promise$class.complete(Promise.scala:55) [scala-library.jar:na]
+	at scala.concurrent.impl.Promise$DefaultPromise.complete(Promise.scala:153) [scala-library.jar:na]
+	at scala.concurrent.Future$$anonfun$map$1.apply(Future.scala:235) [scala-library.jar:na]
+	at scala.concurrent.Future$$anonfun$map$1.apply(Future.scala:235) [scala-library.jar:na]
+	at scala.concurrent.impl.CallbackRunnable.run(Promise.scala:32) [scala-library.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinTask$AdaptedRunnableAction.exec(ForkJoinTask.java:1361) [scala-library.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinTask.doExec(ForkJoinTask.java:260) [scala-library.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:1339) [scala-library.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinPool.runWorker(ForkJoinPool.java:1979) [scala-library.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:107) [scala-library.jar:na]
+Caused by: java.lang.NullPointerException: null
+	at views.html.quiz.quiz$.nameOfPlayer1$1(quiz.template.scala:29) ~[na:na]
+	at views.html.quiz.quiz$.apply(quiz.template.scala:54) ~[na:na]
+	at views.html.quiz.quiz$.render(quiz.template.scala:157) ~[na:na]
+	at views.html.quiz.quiz.render(quiz.template.scala) ~[na:na]
+	at controllers.Quiz.question(Quiz.java:77) ~[na:na]
+	at Routes$$anonfun$routes$1$$anonfun$applyOrElse$10$$anonfun$apply$10.apply(routes_routing.scala:173) ~[na:na]
+	at Routes$$anonfun$routes$1$$anonfun$applyOrElse$10$$anonfun$apply$10.apply(routes_routing.scala:173) ~[na:na]
+	at play.core.Router$HandlerInvoker$$anon$7$$anon$2.invocation(Router.scala:183) ~[play_2.10.jar:2.2.2]
+	at play.core.Router$Routes$$anon$1.invocation(Router.scala:377) ~[play_2.10.jar:2.2.2]
+	at play.core.j.JavaAction$$anon$1.call(JavaAction.scala:56) ~[play_2.10.jar:2.2.2]
+	at play.GlobalSettings$1.call(GlobalSettings.java:64) ~[play_2.10.jar:2.2.2]
+	at play.mvc.Security$AuthenticatedAction.call(Security.java:45) ~[play_2.10.jar:2.2.2]
+	at play.db.jpa.TransactionalAction$1.apply(TransactionalAction.java:20) ~[play-java-jpa_2.10.jar:2.2.2]
+	at play.db.jpa.TransactionalAction$1.apply(TransactionalAction.java:18) ~[play-java-jpa_2.10.jar:2.2.2]
+	at play.db.jpa.JPA.withTransactionAsync(JPA.java:177) ~[play-java-jpa_2.10.jar:2.2.2]
+	at play.db.jpa.TransactionalAction.call(TransactionalAction.java:15) ~[play-java-jpa_2.10.jar:2.2.2]
+	at play.core.j.JavaAction$$anon$3.apply(JavaAction.scala:91) ~[play_2.10.jar:2.2.2]
+	at play.core.j.JavaAction$$anon$3.apply(JavaAction.scala:90) ~[play_2.10.jar:2.2.2]
+	at play.core.j.FPromiseHelper$$anonfun$flatMap$1.apply(FPromiseHelper.scala:82) ~[play_2.10.jar:2.2.2]
+	at play.core.j.FPromiseHelper$$anonfun$flatMap$1.apply(FPromiseHelper.scala:82) ~[play_2.10.jar:2.2.2]
+	at scala.concurrent.Future$$anonfun$flatMap$1.apply(Future.scala:251) ~[scala-library.jar:na]
+	at scala.concurrent.Future$$anonfun$flatMap$1.apply(Future.scala:249) ~[scala-library.jar:na]
+	at scala.concurrent.impl.CallbackRunnable.run(Promise.scala:32) [scala-library.jar:na]
+	at play.core.j.HttpExecutionContext$$anon$2.run(HttpExecutionContext.scala:37) ~[play_2.10.jar:2.2.2]
+	at akka.dispatch.TaskInvocation.run(AbstractDispatcher.scala:42) ~[akka-actor_2.10.jar:2.2.0]
+	at akka.dispatch.ForkJoinExecutorConfigurator$AkkaForkJoinTask.exec(AbstractDispatcher.scala:386) ~[akka-actor_2.10.jar:2.2.0]
+	... 4 common frames omitted
+
+2014-05-18 13:06:02,667 - [INFO] - from application in play-internal-execution-context-4 
+Application shutdown...
+
+2014-05-18 13:06:03,174 - [INFO] - from play in play-internal-execution-context-4 
+datasource [jdbc:h2:~/dblab4;DB_CLOSE_DELAY=-1;AUTO_SERVER=TRUE;AUTO_SERVER_PORT=9333] bound to JNDI as DefaultDS
+
+2014-05-18 13:06:03,178 - [INFO] - from play in play-internal-execution-context-4 
+database [default] connected at jdbc:h2:~/dblab4
+
+2014-05-18 13:06:03,830 - [INFO] - from application in play-internal-execution-context-4 
+Data from json file 'data.json' inserted.
+
+2014-05-18 13:06:03,830 - [INFO] - from application in play-internal-execution-context-4 
+Start loading from DBPedia...
+
+2014-05-18 13:06:04,052 - [INFO] - from application in play-internal-execution-context-4 
+DBpedia is currently not available.
+
+2014-05-18 13:06:04,076 - [INFO] - from play in play-internal-execution-context-4 
+Application started (Dev)
+
+2014-05-18 13:06:24,666 - [INFO] - from application in play-akka.actor.default-dispatcher-34 
+Start game with 5 categories.
+
+2014-05-18 13:07:19,495 - [DEBUG] - from application in play-akka.actor.default-dispatcher-34 
+klausi
+
+2014-05-18 13:07:19,495 - [DEBUG] - from application in play-akka.actor.default-dispatcher-34 
+klausi
+
+2014-05-18 13:07:19,495 - [DEBUG] - from application in play-akka.actor.default-dispatcher-34 
+MALE
+
+2014-05-18 13:07:19,495 - [DEBUG] - from application in play-akka.actor.default-dispatcher-34 
+loser
+
+2014-05-18 13:07:19,495 - [DEBUG] - from application in play-akka.actor.default-dispatcher-34 
+2014-11-31
+
+2014-05-18 13:07:19,498 - [ERROR] - from play in play-internal-execution-context-4 
+Cannot invoke the action, eventually got an error: java.lang.IllegalArgumentException: Invalid value 0 for Month field.
+
+2014-05-18 13:07:19,502 - [ERROR] - from application in play-internal-execution-context-4 
+
+
+! @6i9823dg2 - Internal server error, for (GET) [/quiz/result] ->
+
+play.api.Application$$anon$1: Execution exception[[IllegalArgumentException: Invalid value 0 for Month field.]]
+	at play.api.Application$class.handleError(Application.scala:293) ~[play_2.10.jar:2.2.2]
+	at play.api.DefaultApplication.handleError(Application.scala:399) [play_2.10.jar:2.2.2]
+	at play.core.server.netty.PlayDefaultUpstreamHandler$$anonfun$2$$anonfun$applyOrElse$3.apply(PlayDefaultUpstreamHandler.scala:261) [play_2.10.jar:2.2.2]
+	at play.core.server.netty.PlayDefaultUpstreamHandler$$anonfun$2$$anonfun$applyOrElse$3.apply(PlayDefaultUpstreamHandler.scala:261) [play_2.10.jar:2.2.2]
+	at scala.Option.map(Option.scala:145) [scala-library.jar:na]
+	at play.core.server.netty.PlayDefaultUpstreamHandler$$anonfun$2.applyOrElse(PlayDefaultUpstreamHandler.scala:261) [play_2.10.jar:2.2.2]
+	at play.core.server.netty.PlayDefaultUpstreamHandler$$anonfun$2.applyOrElse(PlayDefaultUpstreamHandler.scala:257) [play_2.10.jar:2.2.2]
+	at scala.concurrent.Future$$anonfun$recoverWith$1.apply(Future.scala:344) [scala-library.jar:na]
+	at scala.concurrent.Future$$anonfun$recoverWith$1.apply(Future.scala:343) [scala-library.jar:na]
+	at scala.concurrent.impl.CallbackRunnable.run(Promise.scala:32) [scala-library.jar:na]
+	at play.api.libs.iteratee.Execution$$anon$1.execute(Execution.scala:43) [play-iteratees_2.10.jar:2.2.2]
+	at scala.concurrent.impl.CallbackRunnable.executeWithValue(Promise.scala:40) [scala-library.jar:na]
+	at scala.concurrent.impl.Promise$DefaultPromise.tryComplete(Promise.scala:248) [scala-library.jar:na]
+	at scala.concurrent.Promise$class.complete(Promise.scala:55) [scala-library.jar:na]
+	at scala.concurrent.impl.Promise$DefaultPromise.complete(Promise.scala:153) [scala-library.jar:na]
+	at scala.concurrent.Future$$anonfun$map$1.apply(Future.scala:235) [scala-library.jar:na]
+	at scala.concurrent.Future$$anonfun$map$1.apply(Future.scala:235) [scala-library.jar:na]
+	at scala.concurrent.impl.CallbackRunnable.run(Promise.scala:32) [scala-library.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinTask$AdaptedRunnableAction.exec(ForkJoinTask.java:1361) [scala-library.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinTask.doExec(ForkJoinTask.java:260) [scala-library.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:1339) [scala-library.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinPool.runWorker(ForkJoinPool.java:1979) [scala-library.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:107) [scala-library.jar:na]
+Caused by: java.lang.IllegalArgumentException: Invalid value 0 for Month field.
+	at org.apache.xerces.jaxp.datatype.XMLGregorianCalendarImpl.checkFieldValueConstraint(Unknown Source) ~[xercesImpl.jar:na]
+	at org.apache.xerces.jaxp.datatype.XMLGregorianCalendarImpl.setMonth(Unknown Source) ~[xercesImpl.jar:na]
+	at highscore.User.DateToXML(User.java:102) ~[na:na]
+	at highscore.User.<init>(User.java:84) ~[na:na]
+	at controllers.Quiz.endResult(Quiz.java:195) ~[na:na]
 	at Routes$$anonfun$routes$1$$anonfun$applyOrElse$13$$anonfun$apply$13.apply(routes_routing.scala:197) ~[na:na]
 	at Routes$$anonfun$routes$1$$anonfun$applyOrElse$13$$anonfun$apply$13.apply(routes_routing.scala:197) ~[na:na]
 	at play.core.Router$HandlerInvoker$$anon$7$$anon$2.invocation(Router.scala:183) ~[play_2.10.jar:2.2.2]
@@ -165,30 +367,384 @@ Caused by: java.lang.NullPointerException: null
 	at akka.dispatch.ForkJoinExecutorConfigurator$AkkaForkJoinTask.exec(AbstractDispatcher.scala:386) ~[akka-actor_2.10.jar:2.2.0]
 	... 4 common frames omitted
 
-2014-05-17 18:16:00,655 - [INFO] - from application in play-internal-execution-context-1 
+2014-05-18 13:12:17,864 - [INFO] - from application in play-internal-execution-context-4 
 Application shutdown...
 
-2014-05-17 18:16:00,898 - [INFO] - from play in play-internal-execution-context-1 
+2014-05-18 13:12:18,076 - [INFO] - from play in play-internal-execution-context-4 
 datasource [jdbc:h2:~/dblab4;DB_CLOSE_DELAY=-1;AUTO_SERVER=TRUE;AUTO_SERVER_PORT=9333] bound to JNDI as DefaultDS
 
-2014-05-17 18:16:00,903 - [INFO] - from play in play-internal-execution-context-1 
+2014-05-18 13:12:18,083 - [INFO] - from play in play-internal-execution-context-4 
 database [default] connected at jdbc:h2:~/dblab4
 
-2014-05-17 18:16:01,430 - [INFO] - from application in play-internal-execution-context-1 
+2014-05-18 13:12:18,917 - [INFO] - from application in play-internal-execution-context-4 
 Data from json file 'data.json' inserted.
 
-2014-05-17 18:16:01,430 - [INFO] - from application in play-internal-execution-context-1 
+2014-05-18 13:12:18,917 - [INFO] - from application in play-internal-execution-context-4 
 Start loading from DBPedia...
 
-2014-05-17 18:16:02,756 - [INFO] - from application in play-internal-execution-context-1 
-DBPedia data inserted.
+2014-05-18 13:12:19,098 - [INFO] - from application in play-internal-execution-context-4 
+DBpedia is currently not available.
 
-2014-05-17 18:16:02,786 - [INFO] - from play in play-internal-execution-context-1 
+2014-05-18 13:12:19,121 - [INFO] - from play in play-internal-execution-context-4 
 Application started (Dev)
 
-2014-05-17 18:16:03,952 - [INFO] - from application in play-akka.actor.default-dispatcher-25 
+2014-05-18 13:12:40,863 - [INFO] - from application in play-akka.actor.default-dispatcher-43 
+Start game with 5 categories.
+
+2014-05-18 13:13:01,271 - [DEBUG] - from application in play-akka.actor.default-dispatcher-49 
+klausi
+
+2014-05-18 13:13:01,271 - [DEBUG] - from application in play-akka.actor.default-dispatcher-49 
+klausi
+
+2014-05-18 13:13:01,271 - [DEBUG] - from application in play-akka.actor.default-dispatcher-49 
+MALE
+
+2014-05-18 13:13:01,271 - [DEBUG] - from application in play-akka.actor.default-dispatcher-49 
+loser
+
+2014-05-18 13:13:01,271 - [DEBUG] - from application in play-akka.actor.default-dispatcher-49 
+2014-12-31
+
+2014-05-18 13:13:01,272 - [DEBUG] - from application in play-akka.actor.default-dispatcher-49 
+Com
+
+2014-05-18 13:13:01,272 - [DEBUG] - from application in play-akka.actor.default-dispatcher-49 
+Puter
+
+2014-05-18 13:13:01,272 - [DEBUG] - from application in play-akka.actor.default-dispatcher-49 
+FEMALE
+
+2014-05-18 13:13:01,272 - [DEBUG] - from application in play-akka.actor.default-dispatcher-49 
+winner
+
+2014-05-18 13:13:01,272 - [DEBUG] - from application in play-akka.actor.default-dispatcher-49 
+1970-01-01
+
+2014-05-18 13:13:01,272 - [DEBUG] - from application in play-akka.actor.default-dispatcher-49 
+q.getUsers
+
+2014-05-18 13:13:01,385 - [DEBUG] - from application in play-akka.actor.default-dispatcher-49 
+Something went wrong
+
+2014-05-18 13:18:37,311 - [INFO] - from application in play-internal-execution-context-4 
+Application shutdown...
+
+2014-05-18 13:18:37,513 - [INFO] - from play in play-internal-execution-context-4 
+datasource [jdbc:h2:~/dblab4;DB_CLOSE_DELAY=-1;AUTO_SERVER=TRUE;AUTO_SERVER_PORT=9333] bound to JNDI as DefaultDS
+
+2014-05-18 13:18:37,516 - [INFO] - from play in play-internal-execution-context-4 
+database [default] connected at jdbc:h2:~/dblab4
+
+2014-05-18 13:18:38,094 - [INFO] - from application in play-internal-execution-context-4 
+Data from json file 'data.json' inserted.
+
+2014-05-18 13:18:38,094 - [INFO] - from application in play-internal-execution-context-4 
+Start loading from DBPedia...
+
+2014-05-18 13:18:38,396 - [INFO] - from application in play-internal-execution-context-4 
+DBpedia is currently not available.
+
+2014-05-18 13:18:38,419 - [INFO] - from play in play-internal-execution-context-4 
+Application started (Dev)
+
+2014-05-18 13:18:38,435 - [INFO] - from application in play-akka.actor.default-dispatcher-43 
+Start game with 5 categories.
+
+2014-05-18 13:22:28,538 - [INFO] - from application in play-internal-execution-context-4 
+Application shutdown...
+
+2014-05-18 13:22:28,712 - [INFO] - from play in play-internal-execution-context-4 
+datasource [jdbc:h2:~/dblab4;DB_CLOSE_DELAY=-1;AUTO_SERVER=TRUE;AUTO_SERVER_PORT=9333] bound to JNDI as DefaultDS
+
+2014-05-18 13:22:28,718 - [INFO] - from play in play-internal-execution-context-4 
+database [default] connected at jdbc:h2:~/dblab4
+
+2014-05-18 13:22:29,396 - [INFO] - from application in play-internal-execution-context-4 
+Data from json file 'data.json' inserted.
+
+2014-05-18 13:22:29,396 - [INFO] - from application in play-internal-execution-context-4 
+Start loading from DBPedia...
+
+2014-05-18 13:22:29,592 - [INFO] - from application in play-internal-execution-context-4 
+DBpedia is currently not available.
+
+2014-05-18 13:22:29,613 - [INFO] - from play in play-internal-execution-context-4 
+Application started (Dev)
+
+2014-05-18 13:22:36,563 - [INFO] - from application in play-akka.actor.default-dispatcher-61 
+Start game with 5 categories.
+
+2014-05-18 13:22:55,723 - [DEBUG] - from application in play-akka.actor.default-dispatcher-57 
+klausi
+
+2014-05-18 13:22:55,723 - [DEBUG] - from application in play-akka.actor.default-dispatcher-57 
+klausi
+
+2014-05-18 13:22:55,724 - [DEBUG] - from application in play-akka.actor.default-dispatcher-57 
+MALE
+
+2014-05-18 13:22:55,724 - [DEBUG] - from application in play-akka.actor.default-dispatcher-57 
+loser
+
+2014-05-18 13:22:55,724 - [DEBUG] - from application in play-akka.actor.default-dispatcher-57 
+2014-12-31
+
+2014-05-18 13:22:55,724 - [DEBUG] - from application in play-akka.actor.default-dispatcher-57 
+Com
+
+2014-05-18 13:22:55,724 - [DEBUG] - from application in play-akka.actor.default-dispatcher-57 
+Puter
+
+2014-05-18 13:22:55,724 - [DEBUG] - from application in play-akka.actor.default-dispatcher-57 
+FEMALE
+
+2014-05-18 13:22:55,725 - [DEBUG] - from application in play-akka.actor.default-dispatcher-57 
+winner
+
+2014-05-18 13:22:55,725 - [DEBUG] - from application in play-akka.actor.default-dispatcher-57 
+1970-01-01
+
+2014-05-18 13:22:55,725 - [DEBUG] - from application in play-akka.actor.default-dispatcher-57 
+q.getUsers
+
+2014-05-18 13:22:57,815 - [INFO] - from application in play-akka.actor.default-dispatcher-57 
+Successfully updated the status to [Sun May 18 13:22:55 CEST 2014: User Group81 publizierte folgende UUID am Highscoreboard: ab192aed-393a-400c-8719-0534a1c85a80].
+
+2014-05-18 13:31:26,053 - [INFO] - from application in play-internal-execution-context-5 
+Application shutdown...
+
+2014-05-18 13:31:26,238 - [INFO] - from play in play-internal-execution-context-5 
+datasource [jdbc:h2:~/dblab4;DB_CLOSE_DELAY=-1;AUTO_SERVER=TRUE;AUTO_SERVER_PORT=9333] bound to JNDI as DefaultDS
+
+2014-05-18 13:31:26,241 - [INFO] - from play in play-internal-execution-context-5 
+database [default] connected at jdbc:h2:~/dblab4
+
+2014-05-18 13:31:26,694 - [INFO] - from application in play-internal-execution-context-5 
+Data from json file 'data.json' inserted.
+
+2014-05-18 13:31:26,695 - [INFO] - from application in play-internal-execution-context-5 
+Start loading from DBPedia...
+
+2014-05-18 13:31:26,953 - [INFO] - from application in play-internal-execution-context-5 
+DBpedia is currently not available.
+
+2014-05-18 13:31:26,970 - [INFO] - from play in play-internal-execution-context-5 
+Application started (Dev)
+
+2014-05-18 13:31:26,985 - [INFO] - from application in play-akka.actor.default-dispatcher-62 
+Start game with 5 categories.
+
+2014-05-18 13:31:44,943 - [INFO] - from application in play-akka.actor.default-dispatcher-68 
+Start game with 5 categories.
+
+2014-05-18 13:32:04,167 - [DEBUG] - from application in play-akka.actor.default-dispatcher-69 
+klausi
+
+2014-05-18 13:32:04,167 - [DEBUG] - from application in play-akka.actor.default-dispatcher-69 
+klausi
+
+2014-05-18 13:32:04,167 - [DEBUG] - from application in play-akka.actor.default-dispatcher-69 
+MALE
+
+2014-05-18 13:32:04,167 - [DEBUG] - from application in play-akka.actor.default-dispatcher-69 
+loser
+
+2014-05-18 13:32:04,167 - [DEBUG] - from application in play-akka.actor.default-dispatcher-69 
+2014-12-31
+
+2014-05-18 13:32:04,168 - [DEBUG] - from application in play-akka.actor.default-dispatcher-69 
+Com
+
+2014-05-18 13:32:04,168 - [DEBUG] - from application in play-akka.actor.default-dispatcher-69 
+Puter
+
+2014-05-18 13:32:04,168 - [DEBUG] - from application in play-akka.actor.default-dispatcher-69 
+FEMALE
+
+2014-05-18 13:32:04,168 - [DEBUG] - from application in play-akka.actor.default-dispatcher-69 
+winner
+
+2014-05-18 13:32:04,168 - [DEBUG] - from application in play-akka.actor.default-dispatcher-69 
+1970-01-01
+
+2014-05-18 13:32:05,969 - [INFO] - from application in pool-7898-thread-1 
+Successfully updated the status to [Sun May 18 13:32:04 CEST 2014: User Group81 publizierte folgende UUID am Highscoreboard: 6aca3c51-ec3a-495b-be3c-22432de31378].
+
+2014-05-18 14:24:02,058 - [INFO] - from application in play-internal-execution-context-5 
+Application shutdown...
+
+2014-05-18 14:24:02,274 - [INFO] - from play in play-internal-execution-context-5 
+datasource [jdbc:h2:~/dblab4;DB_CLOSE_DELAY=-1;AUTO_SERVER=TRUE;AUTO_SERVER_PORT=9333] bound to JNDI as DefaultDS
+
+2014-05-18 14:24:02,279 - [INFO] - from play in play-internal-execution-context-5 
+database [default] connected at jdbc:h2:~/dblab4
+
+2014-05-18 14:24:02,765 - [INFO] - from application in play-internal-execution-context-5 
+Data from json file 'data.json' inserted.
+
+2014-05-18 14:24:02,765 - [INFO] - from application in play-internal-execution-context-5 
+Start loading from DBPedia...
+
+2014-05-18 14:24:04,672 - [INFO] - from application in play-internal-execution-context-5 
+DBPedia data inserted.
+
+2014-05-18 14:24:04,688 - [INFO] - from play in play-internal-execution-context-5 
+Application started (Dev)
+
+2014-05-18 14:24:44,086 - [INFO] - from application in play-akka.actor.default-dispatcher-79 
 Start game with 6 categories.
 
-2014-05-17 18:18:22,380 - [INFO] - from application in play-akka.actor.default-dispatcher-20 
+2014-05-18 14:25:02,066 - [ERROR] - from play in play-internal-execution-context-6 
+Cannot invoke the action, eventually got an error: java.lang.IllegalArgumentException
+
+2014-05-18 14:25:02,072 - [ERROR] - from application in play-internal-execution-context-6 
+
+
+! @6i98c8knh - Internal server error, for (GET) [/quiz/result] ->
+
+play.api.Application$$anon$1: Execution exception[[IllegalArgumentException: null]]
+	at play.api.Application$class.handleError(Application.scala:293) ~[play_2.10.jar:2.2.2]
+	at play.api.DefaultApplication.handleError(Application.scala:399) [play_2.10.jar:2.2.2]
+	at play.core.server.netty.PlayDefaultUpstreamHandler$$anonfun$2$$anonfun$applyOrElse$3.apply(PlayDefaultUpstreamHandler.scala:261) [play_2.10.jar:2.2.2]
+	at play.core.server.netty.PlayDefaultUpstreamHandler$$anonfun$2$$anonfun$applyOrElse$3.apply(PlayDefaultUpstreamHandler.scala:261) [play_2.10.jar:2.2.2]
+	at scala.Option.map(Option.scala:145) [scala-library.jar:na]
+	at play.core.server.netty.PlayDefaultUpstreamHandler$$anonfun$2.applyOrElse(PlayDefaultUpstreamHandler.scala:261) [play_2.10.jar:2.2.2]
+	at play.core.server.netty.PlayDefaultUpstreamHandler$$anonfun$2.applyOrElse(PlayDefaultUpstreamHandler.scala:257) [play_2.10.jar:2.2.2]
+	at scala.concurrent.Future$$anonfun$recoverWith$1.apply(Future.scala:344) [scala-library.jar:na]
+	at scala.concurrent.Future$$anonfun$recoverWith$1.apply(Future.scala:343) [scala-library.jar:na]
+	at scala.concurrent.impl.CallbackRunnable.run(Promise.scala:32) [scala-library.jar:na]
+	at play.api.libs.iteratee.Execution$$anon$1.execute(Execution.scala:43) [play-iteratees_2.10.jar:2.2.2]
+	at scala.concurrent.impl.CallbackRunnable.executeWithValue(Promise.scala:40) [scala-library.jar:na]
+	at scala.concurrent.impl.Promise$DefaultPromise.tryComplete(Promise.scala:248) [scala-library.jar:na]
+	at scala.concurrent.Promise$class.complete(Promise.scala:55) [scala-library.jar:na]
+	at scala.concurrent.impl.Promise$DefaultPromise.complete(Promise.scala:153) [scala-library.jar:na]
+	at scala.concurrent.Future$$anonfun$map$1.apply(Future.scala:235) [scala-library.jar:na]
+	at scala.concurrent.Future$$anonfun$map$1.apply(Future.scala:235) [scala-library.jar:na]
+	at scala.concurrent.impl.CallbackRunnable.run(Promise.scala:32) [scala-library.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinTask$AdaptedRunnableAction.exec(ForkJoinTask.java:1361) [scala-library.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinTask.doExec(ForkJoinTask.java:260) [scala-library.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:1339) [scala-library.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinPool.runWorker(ForkJoinPool.java:1979) [scala-library.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:107) [scala-library.jar:na]
+Caused by: java.lang.IllegalArgumentException: null
+	at java.util.concurrent.ThreadPoolExecutor.<init>(ThreadPoolExecutor.java:1310) ~[na:1.7.0_21]
+	at java.util.concurrent.ThreadPoolExecutor.<init>(ThreadPoolExecutor.java:1198) ~[na:1.7.0_21]
+	at java.util.concurrent.Executors.newFixedThreadPool(Executors.java:89) ~[na:1.7.0_21]
+	at controllers.Quiz.endResult(Quiz.java:176) ~[na:na]
+	at Routes$$anonfun$routes$1$$anonfun$applyOrElse$13$$anonfun$apply$13.apply(routes_routing.scala:197) ~[na:na]
+	at Routes$$anonfun$routes$1$$anonfun$applyOrElse$13$$anonfun$apply$13.apply(routes_routing.scala:197) ~[na:na]
+	at play.core.Router$HandlerInvoker$$anon$7$$anon$2.invocation(Router.scala:183) ~[play_2.10.jar:2.2.2]
+	at play.core.Router$Routes$$anon$1.invocation(Router.scala:377) ~[play_2.10.jar:2.2.2]
+	at play.core.j.JavaAction$$anon$1.call(JavaAction.scala:56) ~[play_2.10.jar:2.2.2]
+	at play.GlobalSettings$1.call(GlobalSettings.java:64) ~[play_2.10.jar:2.2.2]
+	at play.mvc.Security$AuthenticatedAction.call(Security.java:45) ~[play_2.10.jar:2.2.2]
+	at play.db.jpa.TransactionalAction$1.apply(TransactionalAction.java:20) ~[play-java-jpa_2.10.jar:2.2.2]
+	at play.db.jpa.TransactionalAction$1.apply(TransactionalAction.java:18) ~[play-java-jpa_2.10.jar:2.2.2]
+	at play.db.jpa.JPA.withTransactionAsync(JPA.java:177) ~[play-java-jpa_2.10.jar:2.2.2]
+	at play.db.jpa.TransactionalAction.call(TransactionalAction.java:15) ~[play-java-jpa_2.10.jar:2.2.2]
+	at play.core.j.JavaAction$$anon$3.apply(JavaAction.scala:91) ~[play_2.10.jar:2.2.2]
+	at play.core.j.JavaAction$$anon$3.apply(JavaAction.scala:90) ~[play_2.10.jar:2.2.2]
+	at play.core.j.FPromiseHelper$$anonfun$flatMap$1.apply(FPromiseHelper.scala:82) ~[play_2.10.jar:2.2.2]
+	at play.core.j.FPromiseHelper$$anonfun$flatMap$1.apply(FPromiseHelper.scala:82) ~[play_2.10.jar:2.2.2]
+	at scala.concurrent.Future$$anonfun$flatMap$1.apply(Future.scala:251) ~[scala-library.jar:na]
+	at scala.concurrent.Future$$anonfun$flatMap$1.apply(Future.scala:249) ~[scala-library.jar:na]
+	at scala.concurrent.impl.CallbackRunnable.run(Promise.scala:32) [scala-library.jar:na]
+	at play.core.j.HttpExecutionContext$$anon$2.run(HttpExecutionContext.scala:37) ~[play_2.10.jar:2.2.2]
+	at akka.dispatch.TaskInvocation.run(AbstractDispatcher.scala:42) ~[akka-actor_2.10.jar:2.2.0]
+	at akka.dispatch.ForkJoinExecutorConfigurator$AkkaForkJoinTask.exec(AbstractDispatcher.scala:386) ~[akka-actor_2.10.jar:2.2.0]
+	... 4 common frames omitted
+
+2014-05-18 14:25:46,319 - [INFO] - from application in play-internal-execution-context-6 
+Application shutdown...
+
+2014-05-18 14:25:46,479 - [INFO] - from play in play-internal-execution-context-6 
+datasource [jdbc:h2:~/dblab4;DB_CLOSE_DELAY=-1;AUTO_SERVER=TRUE;AUTO_SERVER_PORT=9333] bound to JNDI as DefaultDS
+
+2014-05-18 14:25:46,485 - [INFO] - from play in play-internal-execution-context-6 
+database [default] connected at jdbc:h2:~/dblab4
+
+2014-05-18 14:25:47,386 - [INFO] - from application in play-internal-execution-context-6 
+Data from json file 'data.json' inserted.
+
+2014-05-18 14:25:47,386 - [INFO] - from application in play-internal-execution-context-6 
+Start loading from DBPedia...
+
+2014-05-18 14:25:48,855 - [INFO] - from application in play-internal-execution-context-6 
+DBPedia data inserted.
+
+2014-05-18 14:25:48,870 - [INFO] - from play in play-internal-execution-context-6 
+Application started (Dev)
+
+2014-05-18 14:26:14,890 - [INFO] - from application in play-akka.actor.default-dispatcher-75 
 Start game with 6 categories.
+
+2014-05-18 14:26:33,928 - [DEBUG] - from application in pool-12764-thread-1 
+klausi
+
+2014-05-18 14:26:33,928 - [DEBUG] - from application in pool-12764-thread-1 
+klausi
+
+2014-05-18 14:26:33,928 - [DEBUG] - from application in pool-12764-thread-1 
+MALE
+
+2014-05-18 14:26:33,928 - [DEBUG] - from application in pool-12764-thread-1 
+loser
+
+2014-05-18 14:26:33,928 - [DEBUG] - from application in pool-12764-thread-1 
+2014-12-31
+
+2014-05-18 14:26:33,929 - [DEBUG] - from application in pool-12764-thread-1 
+Com
+
+2014-05-18 14:26:33,930 - [DEBUG] - from application in pool-12764-thread-1 
+Puter
+
+2014-05-18 14:26:33,930 - [DEBUG] - from application in pool-12764-thread-1 
+FEMALE
+
+2014-05-18 14:26:33,930 - [DEBUG] - from application in pool-12764-thread-1 
+winner
+
+2014-05-18 14:26:33,930 - [DEBUG] - from application in pool-12764-thread-1 
+1970-01-01
+
+2014-05-18 14:26:35,990 - [INFO] - from application in pool-12764-thread-1 
+Successfully updated the status to [Sun May 18 14:26:34 CEST 2014: User HaXxOr01932 publizierte folgende UUID am Highscoreboard: c65b39b8-83ca-49c2-8d19-fe04b54f2038].
+
+2014-05-18 14:27:56,731 - [INFO] - from application in play-akka.actor.default-dispatcher-87 
+Start game with 6 categories.
+
+2014-05-18 14:28:41,612 - [DEBUG] - from application in pool-13015-thread-1 
+klausi
+
+2014-05-18 14:28:41,612 - [DEBUG] - from application in pool-13015-thread-1 
+klausi
+
+2014-05-18 14:28:41,613 - [DEBUG] - from application in pool-13015-thread-1 
+MALE
+
+2014-05-18 14:28:41,613 - [DEBUG] - from application in pool-13015-thread-1 
+loser
+
+2014-05-18 14:28:41,613 - [DEBUG] - from application in pool-13015-thread-1 
+2014-12-31
+
+2014-05-18 14:28:41,613 - [DEBUG] - from application in pool-13015-thread-1 
+Com
+
+2014-05-18 14:28:41,613 - [DEBUG] - from application in pool-13015-thread-1 
+Puter
+
+2014-05-18 14:28:41,613 - [DEBUG] - from application in pool-13015-thread-1 
+FEMALE
+
+2014-05-18 14:28:41,613 - [DEBUG] - from application in pool-13015-thread-1 
+winner
+
+2014-05-18 14:28:41,614 - [DEBUG] - from application in pool-13015-thread-1 
+1970-01-01
+
+2014-05-18 14:28:43,187 - [INFO] - from application in pool-13015-thread-1 
+Successfully updated the status to [Sun May 18 14:28:42 CEST 2014: User HaXxOr01932 publizierte folgende UUID am Highscoreboard: d071c9e5-4560-44a6-a381-b1cbae243417].
 

@@ -1,17 +1,13 @@
 package controllers;
 
-import highscore.Failure;
-import highscore.Gender;
-import highscore.HighScoreRequestType;
-import highscore.PublishHighScoreEndpoint;
-import highscore.PublishHighScoreService;
-import highscore.User;
-import highscore.Users;
+import highscore.Publisher;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.UUID;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 import models.Category;
 import models.Choice;
@@ -31,7 +27,6 @@ import play.mvc.Controller;
 import play.mvc.Result;
 import play.mvc.Security;
 import scala.Option;
-import twitter.TwitterClient;
 import views.html.quiz.index;
 import views.html.quiz.quiz;
 import views.html.quiz.quizover;
@@ -54,7 +49,7 @@ public class Quiz extends Controller {
 	private static QuizGame createNewGame() {
 		List<Category> allCategories = QuizDAO.INSTANCE.findEntities(Category.class);
 		Logger.info("Start game with " + allCategories.size() + " categories.");
-		QuizGame game = new QuizGame(allCategories);
+		QuizGame game = new QuizGame(allCategories, user());
 		game.startNewRound();
 		cacheGame(game);
 		return game;
@@ -174,40 +169,12 @@ public class Quiz extends Controller {
 	public static Result endResult() {
 		QuizGame game = cachedGame();
 		if (game != null && isGameOver(game)) {
-			PublishHighScoreService service = new PublishHighScoreService();
-			PublishHighScoreEndpoint endpoint = service.getPort(PublishHighScoreEndpoint.class);
 			
-			QuizUser gameLoser = null, gameWinner = game.getWinner();
-			List<QuizUser> players = game.getPlayers();
-			for(QuizUser qu : players) {
-				if(qu != gameWinner) {
-					gameLoser = qu;
-				}
-			}
+			QuizUser human = game.getPlayers().get(0),
+					gameWinner = game.getWinner();
 			
-			
-			
-			Users users = new Users();
-			users.getUser().add(new User(gameWinner, true));
-			users.getUser().add(new User(gameLoser, false));
-			
-			highscore.Quiz q = new highscore.Quiz();
-			q.setUsers(users);
-			
-			HighScoreRequestType request = new HighScoreRequestType();
-			request.setUserKey("rkf4394dwqp49x");
-			request.setQuiz(q);
-			
-			try {
-				String uuid = endpoint.publishHighScore(request);
-				TwitterClient.share(uuid);
-
-				
-			} catch (Failure e) {
-				Logger.debug("Something went wrong");
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
+			ExecutorService executor = Executors.newFixedThreadPool(1);
+			executor.execute(new Publisher(human, human == gameWinner));
 			
 			return ok(quizover.render(game));
 		} else {
@@ -215,6 +182,7 @@ public class Quiz extends Controller {
 		}
 	}
 
+	
 	@play.db.jpa.Transactional(readOnly = true)
 	public static Result newRound() {
 		QuizGame game = cachedGame();
