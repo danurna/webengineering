@@ -2,6 +2,8 @@ package highscore;
 
 import java.util.Date;
 
+import javax.xml.ws.WebServiceException;
+
 import models.QuizUser;
 import play.Logger;
 import twitter.TwitterClient;
@@ -58,6 +60,8 @@ public class Publisher implements Runnable {
 			Logger.debug("Something went wrong");
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+		} catch (WebServiceException e) {
+			Logger.error("Could not connecto to WSDL service");
 		}
 	}
 

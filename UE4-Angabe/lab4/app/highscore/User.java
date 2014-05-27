@@ -77,13 +77,14 @@ public class User {
     
     public User(QuizUser user, boolean winner) {
     	this.password = "";
-    	this.firstname = user.getFirstName();
-    	this.lastname = user.getLastName();
+    	this.firstname = "".equals(user.getFirstName())  ? user.getName() : user.getFirstName();
+    	this.lastname = "".equals(user.getLastName()) ? user.getName() : user.getLastName();
     	this.gender = (user.getGender() == models.QuizUser.Gender.male)
     			? Gender.MALE : Gender.FEMALE;
     	this.name = winner ? "winner" : "loser";
     	try {
-			this.birthdate = DateToXML(user.getBirthDate());
+    		Date toXml = user.getBirthDate() == null ? new Date(0) : user.getBirthDate();
+			this.birthdate = DateToXML(toXml);
 		} catch (DatatypeConfigurationException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

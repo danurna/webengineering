@@ -22,13 +22,14 @@ import com.hp.hpl.jena.vocabulary.RDFS;
 public class DBPediaDataInserter {
 
 	public static void insertData(){
-		Resource city = DBPediaService.loadStatements(DBPedia.createResource("Vienna"));
+		Resource vienna = DBPediaService.loadStatements(DBPedia.createResource("Vienna"));
+		Resource berlin = DBPediaService.loadStatements(DBPedia.createResource("Berlin"));
 		
 		// build SPARQL-query
 		SelectQueryBuilder query = DBPediaService.createQueryBuilder() .setLimit(5) // at most five statements 
 				.addWhereClause(RDF.type, DBPediaOWL.Agent) 
 				.addPredicateExistsClause(FOAF.name) 
-				.addWhereClause(DBPediaOWL.deathPlace , city) 
+				.addWhereClause(DBPediaOWL.deathPlace , vienna) 
 				.addFilterClause(RDFS.label, Locale.GERMAN) 
 				.addFilterClause(RDFS.label, Locale.ENGLISH);
 		
@@ -38,13 +39,13 @@ public class DBPediaDataInserter {
 		List<String> EnglishPeopleNamesDiedVienna = DBPediaService.getResourceNames(peopleDiedVienna, Locale.ENGLISH);
 		List<String> GermanPeopleNamesDiedVienna = DBPediaService.getResourceNames(peopleDiedVienna, Locale.GERMAN);
 
-		query.removeWhereClause(DBPediaOWL.deathPlace, city); 
-		query.addWhereClause(DBPediaOWL.birthPlace , city);
+		query.removeWhereClause(DBPediaOWL.deathPlace, vienna); 
+		query.addWhereClause(DBPediaOWL.deathPlace , berlin);
 		query.setLimit(15);
 		
-		Model peopleBornVienna = DBPediaService.loadStatements(query.toQueryString());
-		List<String> EnglishPeopleNamesBornVienna = DBPediaService.getResourceNames(peopleBornVienna, Locale.ENGLISH);
-		List<String> GermanPeopleNamesBornVienna = DBPediaService.getResourceNames(peopleBornVienna, Locale.GERMAN);
+		Model peopleDiedLondon = DBPediaService.loadStatements(query.toQueryString());
+		List<String> englishPeopleNamesDiedBerlin = DBPediaService.getResourceNames(peopleDiedLondon, Locale.ENGLISH);
+		List<String> germanPeopleNamesDiedBerlin = DBPediaService.getResourceNames(peopleDiedLondon, Locale.GERMAN);
 	
 		Category category= new Category();
 		category.setNameDE("Personen");
@@ -63,8 +64,8 @@ public class DBPediaDataInserter {
 			
 			for(int j = 0; j < 3; j++){
 				Choice wrongChoice = new Choice();
-				wrongChoice.setTextDE(GermanPeopleNamesBornVienna.get(3*i + j));
-				wrongChoice.setTextEN(EnglishPeopleNamesBornVienna.get(3*i + j));
+				wrongChoice.setTextDE(germanPeopleNamesDiedBerlin.get(3*i + j));
+				wrongChoice.setTextEN(englishPeopleNamesDiedBerlin.get(3*i + j));
 				question.addWrongChoice(wrongChoice);
 			}
 			
